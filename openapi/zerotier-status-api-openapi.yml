@@ -1,0 +1,97 @@
+openapi: 3.0.0
+info:
+  description: 'ZeroTier Central Network Management Portal API.<p>All API requests must have an API token header specified in the <code>Authorization: token xxxxx</code> format.  You can generate your API key by logging into <a href="https://my.zerotier.com">ZeroTier Central</a> and creating a token on the Account page.</p><p>eg. <code>curl -X GET -H "Authorization: token xxxxx" https://api.zerotier.com/api/v1/network</code></p><p><h3>Rate Limiting</h3></p><p>The ZeroTier Central API implements rate limiting.  Paid users are limited to 100 requests per second.  Free users are limited to 20 requests per second.</p> <p> You can get the OpenAPI spec here as well: <code>https://docs.zerotier.com/api/central/ref-v1.json</code></p>'
+  version: v1
+  title: ZeroTier Central controller status API
+  contact:
+    name: ZeroTier Support Discussion Forum
+    url: https://discuss.zerotier.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://api.zerotier.com/api/v1
+  description: Production Server
+security:
+- tokenAuth: []
+tags:
+- name: status
+  description: status
+paths:
+  /status:
+    get:
+      tags:
+      - status
+      summary: Node status and addressing info.
+      operationId: getStatus
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Status'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+components:
+  schemas:
+    Status:
+      type: object
+      properties:
+        address:
+          type: string
+          example: 0deadbeef1
+        clock:
+          type: integer
+          format: int64
+          example: 1618948931097
+        config:
+          type: object
+          properties:
+            settings:
+              type: object
+              properties:
+                allowTcpFallbackRelay:
+                  type: boolean
+                portMappingEnabled:
+                  type: boolean
+                primaryPort:
+                  type: integer
+                  example: 9993
+        online:
+          type: boolean
+        planetWorldId:
+          type: integer
+          format: int64
+          example: 149604618
+        planetWorldTimestamp:
+          type: integer
+          format: int64
+          example: 1618339625163
+        publicIdentity:
+          type: string
+          example: 33c799cb58:0:690b44091ec50a44eb7f7769354b49abb47ac8747d99d547a1ec8c4d47623c5a6e3927f29b8d8443aebebc9ba4d4a812bd8902d71318db34b89d00186e8f4e4e
+        tcpFallbackActive:
+          type: boolean
+        version:
+          type: string
+          example: 1.6.4
+        versionBuild:
+          type: integer
+          example: 0
+        versionMajor:
+          type: integer
+          example: 1
+        versionMinor:
+          type: integer
+          example: 6
+        versionRev:
+          type: integer
+          example: 4
+  responses:
+    UnauthorizedError:
+      description: Authorization required.
+  securitySchemes:
+    tokenAuth:
+      type: http
+      scheme: token

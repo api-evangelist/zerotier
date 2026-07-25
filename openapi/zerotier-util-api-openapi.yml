@@ -1,0 +1,205 @@
+openapi: 3.0.0
+info:
+  description: 'ZeroTier Central Network Management Portal API.<p>All API requests must have an API token header specified in the <code>Authorization: token xxxxx</code> format.  You can generate your API key by logging into <a href="https://my.zerotier.com">ZeroTier Central</a> and creating a token on the Account page.</p><p>eg. <code>curl -X GET -H "Authorization: token xxxxx" https://api.zerotier.com/api/v1/network</code></p><p><h3>Rate Limiting</h3></p><p>The ZeroTier Central API implements rate limiting.  Paid users are limited to 100 requests per second.  Free users are limited to 20 requests per second.</p> <p> You can get the OpenAPI spec here as well: <code>https://docs.zerotier.com/api/central/ref-v1.json</code></p>'
+  version: v1
+  title: ZeroTier Central controller util API
+  contact:
+    name: ZeroTier Support Discussion Forum
+    url: https://discuss.zerotier.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://api.zerotier.com/api/v1
+  description: Production Server
+security:
+- tokenAuth: []
+tags:
+- name: util
+  description: Utility endpoints
+paths:
+  /status:
+    get:
+      tags:
+      - util
+      summary: Obtain the overall status of the account tied to the API token in use.
+      operationId: getStatus
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Status'
+  /randomToken:
+    get:
+      tags:
+      - util
+      operationId: getRandomToken
+      summary: Get a random 32 character token
+      description: Get a random 32 character.  Used by the web UI to generate API keys
+      responses:
+        '200':
+          description: Random token
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RandomToken'
+components:
+  schemas:
+    Permissions:
+      type: object
+      properties:
+        a:
+          type: boolean
+          example: true
+          description: Authorize permission
+        d:
+          type: boolean
+          example: true
+          description: Delete permission
+        m:
+          type: boolean
+          example: true
+          description: Modify network settings permission
+        r:
+          type: boolean
+          example: true
+          description: Read network settings permission
+    Status:
+      type: object
+      properties:
+        id:
+          type: string
+          example: central_status
+        type:
+          type: string
+          example: CentralStatus
+        clock:
+          type: integer
+          format: int64
+          example: 1613067920454
+          readOnly: true
+          description: Current time on server
+        version:
+          type: string
+          example: 1.6.5
+        apiVersion:
+          type: string
+          example: '4'
+        uptime:
+          type: integer
+          format: int64
+          example: 1613067920454
+          readOnly: true
+          description: Uptime on server
+        user:
+          $ref: '#/components/schemas/User'
+        readOnlyMode:
+          type: boolean
+        loginMethods:
+          type: object
+          properties:
+            local:
+              type: boolean
+            google:
+              type: boolean
+            twitter:
+              type: boolean
+            facebook:
+              type: boolean
+            github:
+              type: boolean
+            saml:
+              type: boolean
+            oidc:
+              type: boolean
+    RandomToken:
+      type: object
+      properties:
+        clock:
+          type: integer
+          format: int64
+          example: 1613067920454
+          readOnly: true
+          description: Current time on server
+        hex:
+          type: string
+          example: 16924f3ff478526cffb1b89b1040b33c8dbd3c09e07f39691f615769121c0d76
+          readOnly: true
+          description: hex encoded random bytes of the token
+        token:
+          type: string
+          example: wwrb66uUh18Fqc38rd8jMd5RFJzRsCn4
+          readOnly: true
+          description: Random 32 character token
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+          description: User ID
+          example: 00000000-0000-0000-0000-000000000000
+        orgId:
+          type: string
+          readOnly: true
+          description: Organization ID
+          example: 00000000-0000-0000-0000-000000000000
+        globalPermissions:
+          readOnly: true
+          allOf:
+          - $ref: '#/components/schemas/Permissions'
+        displayName:
+          type: string
+          readOnly: false
+          description: Display Name
+          example: Joe User
+        email:
+          type: string
+          readOnly: true
+          description: User email address
+          example: user@example.com
+        auth:
+          readOnly: true
+          allOf:
+          - $ref: '#/components/schemas/AuthMethods'
+        smsNumber:
+          type: string
+          readOnly: false
+          description: SMS number
+          example: +1-800-555-1212
+          deprecated: true
+        tokens:
+          type: array
+          readOnly: true
+          items:
+            type: string
+          example:
+          - my-token-id
+          description: List of API token names.
+    AuthMethods:
+      type: object
+      properties:
+        local:
+          type: string
+          example: user@example.com
+          description: email address for built-in authentication
+          nullable: true
+          readOnly: true
+        google:
+          type: string
+          example: '156162346876134683'
+          description: Google OIDC ID
+          nullable: true
+          readOnly: true
+        oidc:
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+          description: Generic OIDC ID
+          nullable: true
+          readOnly: true
+  securitySchemes:
+    tokenAuth:
+      type: http
+      scheme: token

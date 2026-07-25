@@ -1,0 +1,355 @@
+openapi: 3.0.0
+info:
+  description: 'ZeroTier Central Network Management Portal API.<p>All API requests must have an API token header specified in the <code>Authorization: token xxxxx</code> format.  You can generate your API key by logging into <a href="https://my.zerotier.com">ZeroTier Central</a> and creating a token on the Account page.</p><p>eg. <code>curl -X GET -H "Authorization: token xxxxx" https://api.zerotier.com/api/v1/network</code></p><p><h3>Rate Limiting</h3></p><p>The ZeroTier Central API implements rate limiting.  Paid users are limited to 100 requests per second.  Free users are limited to 20 requests per second.</p> <p> You can get the OpenAPI spec here as well: <code>https://docs.zerotier.com/api/central/ref-v1.json</code></p>'
+  version: v1
+  title: ZeroTier Central controller API
+  contact:
+    name: ZeroTier Support Discussion Forum
+    url: https://discuss.zerotier.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://api.zerotier.com/api/v1
+  description: Production Server
+security:
+- tokenAuth: []
+tags:
+- name: controller
+paths:
+  /controller:
+    get:
+      tags:
+      - controller
+      summary: Get Controller Status.
+      operationId: getControllerStatus
+      description: Check for controller function and return controller status.
+      responses:
+        '200':
+          description: Status object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ControllerStatus'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+  /controller/network:
+    get:
+      tags:
+      - controller
+      summary: List Networks.
+      operationId: getControllerNetworks
+      description: List IDs of all networks hosted by this controller.
+      responses:
+        '200':
+          description: List of network IDs.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+                  example: 3e245e31af7a726a
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+  /controller/network/{networkID}:
+    get:
+      tags:
+      - controller
+      summary: Get Network by ID.
+      description: Get details of a network by its ID.
+      operationId: getControllerNetwork
+      parameters:
+      - name: networkID
+        description: ID of the network.
+        in: path
+        required: true
+        schema:
+          type: string
+          example: 3e245e31af7a726a
+      responses:
+        '200':
+          description: Network Details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ControllerNetwork'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+    post:
+      tags:
+      - controller
+      summary: Create or Update a Network.
+      operationId: setControllerNetwork
+      parameters:
+      - name: networkID
+        description: ID of the network.
+        in: path
+        required: true
+        schema:
+          type: string
+          example: 3e245e31af7a726a
+      requestBody:
+        description: Network object JSON.
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ControllerNetwork'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ControllerNetwork'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+  /controller/network/{controllerID}:
+    post:
+      tags:
+      - controller
+      summary: Generate Random Network ID.
+      operationId: generateControllerNetwork
+      description: Create a new network with a random ID.
+      parameters:
+      - name: controllerID
+        description: Node ID of the controller.
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: Network object JSON.
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ControllerNetwork'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ControllerNetwork'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+  /controller/network/{networkID}/member:
+    get:
+      tags:
+      - controller
+      summary: List Network Members.
+      operationId: getControllerNetworkMembers
+      description: JSON object containing all member IDs as keys and their memberRevisionCounter values as values.
+      parameters:
+      - name: networkID
+        description: ID of the network.
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: integer
+                example:
+                  03d516a9df: 5
+                  b9d5ad8e13: 1
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+  /controller/network/{networkID}/member/{nodeID}:
+    get:
+      tags:
+      - controller
+      summary: Get Network Member Details by ID.
+      operationId: getControllerNetworkMember
+      parameters:
+      - name: networkID
+        description: ID of the network.
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: nodeID
+        description: ID of the member node.
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ControllerNetworkMember'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+components:
+  schemas:
+    ControllerNetwork:
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+          example: 3e245e31af000001
+        nwid:
+          type: string
+          readOnly: true
+          example: 3e245e31af000001
+        objtype:
+          type: string
+          example: network
+          readOnly: true
+        name:
+          type: string
+          example: my-cool-network
+        creationTime:
+          type: number
+          example: 1623101592
+          readOnly: true
+        private:
+          type: boolean
+        enableBroadcast:
+          type: boolean
+        v4AssignMode:
+          type: object
+          properties:
+            zt:
+              type: boolean
+        v6AssignMode:
+          type: object
+          properties:
+            6plane:
+              type: boolean
+            rfc4193:
+              type: boolean
+            zt:
+              type: boolean
+        mtu:
+          type: integer
+          example: 2800
+        multicastLimit:
+          type: integer
+          example: 32
+        revision:
+          type: integer
+          example: 1
+          readOnly: true
+        routes:
+          type: array
+          items:
+            type: object
+            properties:
+              target:
+                type: string
+                example: 192.168.192.0/24
+              via:
+                type: string
+                example: 192.168.192.1
+                nullable: true
+        ipAssignmentPools:
+          type: array
+          items:
+            type: object
+            properties:
+              ipRangeStart:
+                type: string
+                example: 192.168.192.1
+              ipRangeEnd:
+                type: string
+                example: 192.168.192.254
+        rules:
+          type: array
+          items:
+            type: object
+        capabilities:
+          type: array
+          items:
+            type: object
+        tags:
+          type: array
+          items:
+            type: object
+        remoteTraceTarget:
+          type: string
+          example: 7f5d90eb87
+        remoteTraceLevel:
+          type: integer
+    ControllerStatus:
+      type: object
+      properties:
+        controller:
+          type: boolean
+          readOnly: true
+        apiVersion:
+          type: integer
+          example: 3
+          readOnly: true
+        clock:
+          type: integer
+          format: int64
+          example: 1623101592
+          readOnly: true
+    ControllerNetworkMember:
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+          example: eb8d45c5c9
+        address:
+          type: string
+          readOnly: true
+          example: eb8d45c5c9
+        nwid:
+          type: string
+          readOnly: true
+          example: 3e245e31af000001
+        authorized:
+          type: boolean
+        activeBridge:
+          type: boolean
+        identity:
+          type: string
+          readOnly: true
+          example: eb8d45c5c9:0:0279558f1a731cb2f628b3adc9f8915d7c2f3752e07d75f2d75fde08274b9c3a43d8b04115fd30f37043f61758ac874b844cc184fdf51e1022e988c1d093a50d:91a840bcd3fbac910afc56be4222973f675204a0ca9625218352e1c82debaa758b915d948c5fe4bd3c38cf1255904804a5b937f5edaef182ba8d5f3d8a243329
+        ipAssignments:
+          type: array
+          items:
+            type: string
+            example: 10.147.20.190
+        revision:
+          type: integer
+          readOnly: true
+          example: 1
+        vMajor:
+          type: integer
+          readOnly: true
+          example: 1
+        vMinor:
+          type: integer
+          readOnly: true
+          example: 6
+        vRev:
+          type: integer
+          readOnly: true
+          example: 5
+        vProto:
+          type: integer
+          readOnly: true
+          example: 5
+  responses:
+    UnauthorizedError:
+      description: Authorization required.
+  securitySchemes:
+    tokenAuth:
+      type: http
+      scheme: token

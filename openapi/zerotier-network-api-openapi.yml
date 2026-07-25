@@ -1,0 +1,416 @@
+openapi: 3.0.0
+info:
+  description: 'ZeroTier Central Network Management Portal API.<p>All API requests must have an API token header specified in the <code>Authorization: token xxxxx</code> format.  You can generate your API key by logging into <a href="https://my.zerotier.com">ZeroTier Central</a> and creating a token on the Account page.</p><p>eg. <code>curl -X GET -H "Authorization: token xxxxx" https://api.zerotier.com/api/v1/network</code></p><p><h3>Rate Limiting</h3></p><p>The ZeroTier Central API implements rate limiting.  Paid users are limited to 100 requests per second.  Free users are limited to 20 requests per second.</p> <p> You can get the OpenAPI spec here as well: <code>https://docs.zerotier.com/api/central/ref-v1.json</code></p>'
+  version: v1
+  title: ZeroTier Central controller network API
+  contact:
+    name: ZeroTier Support Discussion Forum
+    url: https://discuss.zerotier.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://api.zerotier.com/api/v1
+  description: Production Server
+security:
+- tokenAuth: []
+tags:
+- name: network
+  description: Network operations
+paths:
+  /network:
+    get:
+      tags:
+      - network
+      summary: Returns a list of Networks you have access to.
+      operationId: getNetworkList
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Network'
+        '403':
+          $ref: '#/components/responses/UnauthorizedError'
+    post:
+      tags:
+      - network
+      summary: Create a new network.
+      operationId: newNetwork
+      requestBody:
+        description: empty JSON object
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Network creation succeeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Network'
+        '403':
+          $ref: '#/components/responses/UnauthorizedError'
+  /network/{networkID}:
+    get:
+      tags:
+      - network
+      summary: Get network by ID
+      description: Returns a single network
+      operationId: getNetworkByID
+      parameters:
+      - name: networkID
+        description: ID of the network to return
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: get success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Network'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/AccessDeniedError'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    post:
+      tags:
+      - network
+      summary: update network configuration
+      operationId: updateNetwork
+      parameters:
+      - name: networkID
+        description: ID of the network to change
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: Network object JSON
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Network'
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Network'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/AccessDeniedError'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    delete:
+      tags:
+      - network
+      summary: delete network
+      operationId: deleteNetwork
+      parameters:
+      - name: networkID
+        description: ID of the network
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: network deleted
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/AccessDeniedError'
+        '404':
+          $ref: '#/components/responses/NotFound'
+components:
+  schemas:
+    Permissions:
+      type: object
+      properties:
+        a:
+          type: boolean
+          example: true
+          description: Authorize permission
+        d:
+          type: boolean
+          example: true
+          description: Delete permission
+        m:
+          type: boolean
+          example: true
+          description: Modify network settings permission
+        r:
+          type: boolean
+          example: true
+          description: Read network settings permission
+    NetworkConfig:
+      type: object
+      properties:
+        id:
+          type: string
+          example: 8056c2e21c000001
+          description: Network ID
+          readOnly: true
+          nullable: true
+        creationTime:
+          type: integer
+          format: int64
+          example: 1442292672978
+          description: Time the network was created
+          readOnly: true
+          nullable: true
+        capabilities:
+          type: array
+          description: Array of network capabilities
+          items:
+            type: object
+          nullable: true
+        dns:
+          type: object
+          $ref: '#/components/schemas/DNS'
+          nullable: true
+        enableBroadcast:
+          type: boolean
+          example: true
+          description: Enable broadcast packets on the network
+          nullable: true
+        ipAssignmentPools:
+          type: array
+          description: Range of IP addresses for the auto assign pool
+          items:
+            $ref: '#/components/schemas/IPRange'
+          nullable: true
+        lastModified:
+          type: integer
+          format: int64
+          example: 1588184318235
+          description: Time the network was last modified
+          readOnly: true
+          nullable: true
+        mtu:
+          type: integer
+          example: 2800
+          description: MTU to set on the client virtual network adapter
+          nullable: true
+        multicastLimit:
+          type: integer
+          example: 32
+          description: Maximum number of recipients per multicast or broadcast. Warning - Setting this to 0 will disable IPv4 communication on your network!
+          nullable: true
+        name:
+          type: string
+          example: My ZeroTier Network
+          nullable: true
+        private:
+          type: boolean
+          example: true
+          description: Whether or not the network is private.  If false, members will *NOT* need to be authorized to join.
+          nullable: true
+        routes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Route'
+          nullable: true
+        rules:
+          type: array
+          items:
+            type: object
+          nullable: true
+        ssoConfig:
+          $ref: '#/components/schemas/NetworkSSOConfig'
+          nullable: true
+        tags:
+          type: array
+          items:
+            type: object
+          nullable: true
+        v4AssignMode:
+          $ref: '#/components/schemas/IPV4AssignMode'
+          nullable: true
+        v6AssignMode:
+          $ref: '#/components/schemas/IPV6AssignMode'
+          nullable: true
+    IPRange:
+      type: object
+      properties:
+        ipRangeStart:
+          type: string
+          example: 10.0.0.1
+        ipRangeEnd:
+          type: string
+          example: 10.0.0.255
+    NetworkSSOConfig:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+          example: true
+          readOnly: false
+          description: SSO enabled/disabled on network
+        mode:
+          type: string
+          example: default
+          description: 'SSO mode.  One of: `default`, `email`, `group`'
+          readOnly: false
+        clientId:
+          type: string
+          example: some-client-id
+          description: SSO client ID.  Client ID must be already configured in the Org
+          readOnly: false
+        issuer:
+          type: string
+          example: https://example.com/oidc
+          description: URL of the OIDC issuer
+          readOnly: true
+        provider:
+          type: string
+          example: keycloak
+          description: Provider type
+          readOnly: true
+        authorizationEndpoint:
+          type: string
+          description: Authorization URL endpoint
+          readOnly: true
+        allowList:
+          type: array
+          items:
+            type: string
+          nullable: true
+          description: List of email addresses or group memberships that may SSO auth onto the network
+          readOnly: false
+    PermissionsMap:
+      type: object
+      additionalProperties:
+        $ref: '#/components/schemas/Permissions'
+      example:
+        00000000-0000-0000-0000-000000000000:
+          a: true
+          d: true
+          m: true
+          r: true
+    Route:
+      type: object
+      properties:
+        target:
+          type: string
+          example: 10.0.0.0/24
+        via:
+          type: string
+          example: null
+          nullable: true
+    Network:
+      type: object
+      properties:
+        id:
+          type: string
+          example: 8056c2e21c000001
+          readOnly: true
+          nullable: true
+        clock:
+          type: integer
+          format: int64
+          example: 12345
+          readOnly: true
+          nullable: true
+        config:
+          $ref: '#/components/schemas/NetworkConfig'
+          nullable: true
+        description:
+          type: string
+          example: Some descriptive text about my network.
+          nullable: true
+        rulesSource:
+          type: string
+          example: accept;
+          nullable: true
+        permissions:
+          $ref: '#/components/schemas/PermissionsMap'
+          nullable: true
+        ownerId:
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+          nullable: true
+        onlineMemberCount:
+          type: integer
+          example: 123
+          readOnly: true
+          nullable: true
+          description: 'Note: May be 0 on endpoints returning lists of Networks'
+        authorizedMemberCount:
+          type: integer
+          example: 200
+          readOnly: true
+          nullable: true
+        totalMemberCount:
+          type: integer
+          example: 250
+          readOnly: true
+          nullable: true
+        capabilitiesByName:
+          type: object
+          nullable: true
+        tagsByName:
+          type: object
+          nullable: true
+      description: Network object
+    IPV4AssignMode:
+      type: object
+      properties:
+        zt:
+          type: boolean
+          example: true
+    DNS:
+      type: object
+      properties:
+        domain:
+          type: string
+          example: some.domain
+          description: Search domain to use for DNS records
+        servers:
+          type: array
+          items:
+            type: string
+          example:
+          - 10.0.0.3
+          description: IP address of unicast DNS service
+          nullable: true
+    IPV6AssignMode:
+      type: object
+      properties:
+        6plane:
+          type: boolean
+          example: true
+          nullable: true
+        rfc4193:
+          type: boolean
+          example: false
+          nullable: true
+        zt:
+          type: boolean
+          example: false
+          nullable: true
+  responses:
+    AccessDeniedError:
+      description: Access denied
+    UnauthorizedError:
+      description: Authorization required
+    NotFound:
+      description: Item not found
+  securitySchemes:
+    tokenAuth:
+      type: http
+      scheme: token

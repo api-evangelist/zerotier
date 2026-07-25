@@ -1,0 +1,277 @@
+openapi: 3.0.0
+info:
+  description: 'ZeroTier Central Network Management Portal API.<p>All API requests must have an API token header specified in the <code>Authorization: token xxxxx</code> format.  You can generate your API key by logging into <a href="https://my.zerotier.com">ZeroTier Central</a> and creating a token on the Account page.</p><p>eg. <code>curl -X GET -H "Authorization: token xxxxx" https://api.zerotier.com/api/v1/network</code></p><p><h3>Rate Limiting</h3></p><p>The ZeroTier Central API implements rate limiting.  Paid users are limited to 100 requests per second.  Free users are limited to 20 requests per second.</p> <p> You can get the OpenAPI spec here as well: <code>https://docs.zerotier.com/api/central/ref-v1.json</code></p>'
+  version: v1
+  title: ZeroTier Central controller user API
+  contact:
+    name: ZeroTier Support Discussion Forum
+    url: https://discuss.zerotier.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://api.zerotier.com/api/v1
+  description: Production Server
+security:
+- tokenAuth: []
+tags:
+- name: user
+  description: User management operations
+paths:
+  /user/{userID}:
+    get:
+      tags:
+      - user
+      operationId: getUserByID
+      summary: Get user record
+      parameters:
+      - name: userID
+        description: User ID
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: User get success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/AccessDeniedError'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    post:
+      tags:
+      - user
+      operationId: updateUserByID
+      summary: Update user record (SMS number or Display Name only)
+      parameters:
+      - name: userID
+        description: User ID
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: User object JSON
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '200':
+          description: User update success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/AccessDeniedError'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    delete:
+      tags:
+      - user
+      operationId: deleteUserByID
+      summary: Delete user
+      description: Deletes the user and all associated networks.  This is not reversible. Delete at your own risk.
+      parameters:
+      - name: userID
+        description: User ID
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: user deleted
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/AccessDeniedError'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /user/{userID}/token:
+    post:
+      tags:
+      - user
+      operationId: addAPIToken
+      summary: Add an API token
+      parameters:
+      - name: userID
+        description: User ID
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: APIToken JSON object
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/APIToken'
+      responses:
+        '200':
+          description: API Token added
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIToken'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/AccessDeniedError'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /user/{userID}/token/{tokenName}:
+    delete:
+      tags:
+      - user
+      operationId: deleteAPIToken
+      summary: Delete API Token
+      parameters:
+      - name: userID
+        description: User ID
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: tokenName
+        description: Token Name
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: API token deleted
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/AccessDeniedError'
+        '404':
+          $ref: '#/components/responses/NotFound'
+components:
+  schemas:
+    Permissions:
+      type: object
+      properties:
+        a:
+          type: boolean
+          example: true
+          description: Authorize permission
+        d:
+          type: boolean
+          example: true
+          description: Delete permission
+        m:
+          type: boolean
+          example: true
+          description: Modify network settings permission
+        r:
+          type: boolean
+          example: true
+          description: Read network settings permission
+    APIToken:
+      type: object
+      properties:
+        tokenName:
+          type: string
+          example: my-super-secret-token
+          description: user specified token name
+          readOnly: false
+        token:
+          type: string
+          example: adsf98ashdkjh3689adsfnj3$ADn
+          description: API Token.  Minimum 32 characters. This token is encrypted in the database and can not be retrieved once set
+          readOnly: false
+          writeOnly: true
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+          description: User ID
+          example: 00000000-0000-0000-0000-000000000000
+        orgId:
+          type: string
+          readOnly: true
+          description: Organization ID
+          example: 00000000-0000-0000-0000-000000000000
+        globalPermissions:
+          readOnly: true
+          allOf:
+          - $ref: '#/components/schemas/Permissions'
+        displayName:
+          type: string
+          readOnly: false
+          description: Display Name
+          example: Joe User
+        email:
+          type: string
+          readOnly: true
+          description: User email address
+          example: user@example.com
+        auth:
+          readOnly: true
+          allOf:
+          - $ref: '#/components/schemas/AuthMethods'
+        smsNumber:
+          type: string
+          readOnly: false
+          description: SMS number
+          example: +1-800-555-1212
+          deprecated: true
+        tokens:
+          type: array
+          readOnly: true
+          items:
+            type: string
+          example:
+          - my-token-id
+          description: List of API token names.
+    AuthMethods:
+      type: object
+      properties:
+        local:
+          type: string
+          example: user@example.com
+          description: email address for built-in authentication
+          nullable: true
+          readOnly: true
+        google:
+          type: string
+          example: '156162346876134683'
+          description: Google OIDC ID
+          nullable: true
+          readOnly: true
+        oidc:
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+          description: Generic OIDC ID
+          nullable: true
+          readOnly: true
+  responses:
+    AccessDeniedError:
+      description: Access denied
+    BadRequest:
+      description: Bad request
+    UnauthorizedError:
+      description: Authorization required
+    NotFound:
+      description: Item not found
+  securitySchemes:
+    tokenAuth:
+      type: http
+      scheme: token
