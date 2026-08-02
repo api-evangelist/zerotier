@@ -1,0 +1,50 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/zerotier-central-openapi-original.json
+entities:
+- name: Organization
+  id: orgID
+  description: Top-level tenant that owns users, service accounts, and networks.
+- name: User
+  id: userID
+  description: A member identity within an organization.
+- name: OrganizationInvitation
+  id: inviteID
+  description: Pending invitation of a user (by email) into an organization.
+- name: APIToken
+  id: tokenName
+  description: API token issued to a user/service account for Central API access.
+- name: Network
+  id: networkID
+  description: A ZeroTier virtual network (16-hex-digit ID) with config, routes, DNS, and rules.
+- name: Member
+  id: memberID
+  description: A node (10-hex-digit address) joined to a network, with auth status and config.
+relationships:
+- from: Organization
+  to: User
+  type: has_many
+  via: userID
+- from: Organization
+  to: Network
+  type: has_many
+  via: networkID
+- from: Organization
+  to: OrganizationInvitation
+  type: has_many
+  via: inviteID
+- from: User
+  to: APIToken
+  type: has_many
+  via: tokenName
+- from: Network
+  to: Member
+  type: has_many
+  via: memberID
+- from: Member
+  to: Network
+  type: belongs_to
+  via: networkID
+identifiers:
+  networkID: 16 hex digits (controller node id + network number)
+  memberID: 10 hex digits (ZeroTier node/address id)

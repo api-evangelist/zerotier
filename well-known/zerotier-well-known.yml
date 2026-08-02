@@ -1,0 +1,17 @@
+generated: '2026-07-21'
+method: probed
+source: live probes of ZeroTier hosts
+notes: >-
+  No real /.well-known discovery documents are served. central.zerotier.com is a single-page app
+  that returns 200 with index.html for every /.well-known/* path (security.txt, openid-configuration,
+  oauth-authorization-server, api-catalog, ai-plugin.json), so those 200s are SPA false positives,
+  not real documents. api.zerotier.com and www.zerotier.com return 404 for /.well-known/security.txt.
+documents: []
+probed:
+- {host: central.zerotier.com, path: /.well-known/security.txt, status: 200, real: false, note: SPA HTML}
+- {host: central.zerotier.com, path: /.well-known/openid-configuration, status: 200, real: false, note: SPA HTML}
+- {host: central.zerotier.com, path: /.well-known/oauth-authorization-server, status: 200, real: false, note: SPA HTML}
+- {host: central.zerotier.com, path: /.well-known/api-catalog, status: 200, real: false, note: SPA HTML}
+- {host: central.zerotier.com, path: /.well-known/ai-plugin.json, status: 200, real: false, note: SPA HTML}
+- {host: api.zerotier.com, path: /.well-known/security.txt, status: 404, real: false}
+- {host: www.zerotier.com, path: /.well-known/security.txt, status: 404, real: false}

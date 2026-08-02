@@ -1,0 +1,173 @@
+{
+  "info": {
+    "_postman_id": "362ad24f-cf4e-4ba2-9be9-b3ad6a66e9eb",
+    "name": "ZeroTier Central controller util API",
+    "description": "ZeroTier Central Network Management Portal API.<p>All API requests must have an API token header specified in the <code>Authorization: token xxxxx</code> format.  You can generate your API key by logging into <a href=\"https://my.zerotier.com\">ZeroTier Central</a> and creating a token on the Account page.</p><p>eg. <code>curl -X GET -H \"Authorization: token xxxxx\" https://api.zerotier.com/api/v1/network</code></p><p><h3>Rate Limiting</h3></p><p>The ZeroTier Central API implements rate limiting.  Paid users are limited to 100 requests per second.  Free users are limited to 20 requests per second.</p> <p> You can get the OpenAPI spec here as well: <code>https://docs.zerotier.com/api/central/ref-v1.json</code></p>\n\nContact Support:\n Name: ZeroTier Support Discussion Forum",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:38:20.000Z",
+    "updatedAt": "2026-07-28T03:38:21.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-362ad24f-cf4e-4ba2-9be9-b3ad6a66e9eb"
+  },
+  "item": [
+    {
+      "name": "status",
+      "item": [
+        {
+          "name": "Obtain the overall status of the account tied to the API token in use.",
+          "id": "777b431a-6ff5-4fd7-9f05-64816f9fd5d0",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/status",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "status"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "636ffae2-1466-4254-80a4-c3ab91650d12",
+              "name": "New Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/status",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "status"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"id\": \"<string>\",\n  \"type\": \"<string>\",\n  \"clock\": \"<long>\",\n  \"version\": \"<string>\",\n  \"apiVersion\": \"<string>\",\n  \"uptime\": \"<long>\",\n  \"user\": {\n    \"id\": \"<string>\",\n    \"orgId\": \"<string>\",\n    \"globalPermissions\": {\n      \"a\": \"<boolean>\",\n      \"d\": \"<boolean>\",\n      \"m\": \"<boolean>\",\n      \"r\": \"<boolean>\"\n    },\n    \"displayName\": \"<string>\",\n    \"email\": \"<string>\",\n    \"auth\": {\n      \"local\": \"<string>\",\n      \"google\": \"<string>\",\n      \"oidc\": \"<string>\"\n    },\n    \"smsNumber\": \"<string>\",\n    \"tokens\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"readOnlyMode\": \"<boolean>\",\n  \"loginMethods\": {\n    \"local\": \"<boolean>\",\n    \"google\": \"<boolean>\",\n    \"twitter\": \"<boolean>\",\n    \"facebook\": \"<boolean>\",\n    \"github\": \"<boolean>\",\n    \"saml\": \"<boolean>\",\n    \"oidc\": \"<boolean>\"\n  }\n}",
+              "createdAt": "2026-07-28T03:38:21.000Z",
+              "updatedAt": "2026-07-28T03:38:21.000Z",
+              "uid": "35240-636ffae2-1466-4254-80a4-c3ab91650d12"
+            }
+          ],
+          "createdAt": "2026-07-28T03:38:21.000Z",
+          "updatedAt": "2026-07-28T03:38:21.000Z",
+          "uid": "35240-777b431a-6ff5-4fd7-9f05-64816f9fd5d0"
+        }
+      ],
+      "id": "df6eb977-76f9-4eb5-9d38-9c9001759619",
+      "createdAt": "2026-07-28T03:38:21.000Z",
+      "updatedAt": "2026-07-28T03:38:21.000Z",
+      "uid": "35240-df6eb977-76f9-4eb5-9d38-9c9001759619"
+    },
+    {
+      "name": "randomToken",
+      "item": [
+        {
+          "name": "Get a random 32 character token",
+          "id": "533d585d-6a34-447b-ba2c-50ab39cfa02b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/randomToken",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "randomToken"
+              ]
+            },
+            "description": "Get a random 32 character.  Used by the web UI to generate API keys"
+          },
+          "response": [
+            {
+              "id": "2ffb5cf5-2bfa-4250-88b6-a4f285f73179",
+              "name": "Random token",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/randomToken",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "randomToken"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"clock\": \"<long>\",\n  \"hex\": \"<string>\",\n  \"token\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T03:38:21.000Z",
+              "updatedAt": "2026-07-28T03:38:21.000Z",
+              "uid": "35240-2ffb5cf5-2bfa-4250-88b6-a4f285f73179"
+            }
+          ],
+          "createdAt": "2026-07-28T03:38:21.000Z",
+          "updatedAt": "2026-07-28T03:38:21.000Z",
+          "uid": "35240-533d585d-6a34-447b-ba2c-50ab39cfa02b"
+        }
+      ],
+      "id": "210b1205-8288-4c5e-bc98-5b3ee7436d97",
+      "createdAt": "2026-07-28T03:38:21.000Z",
+      "updatedAt": "2026-07-28T03:38:21.000Z",
+      "uid": "35240-210b1205-8288-4c5e-bc98-5b3ee7436d97"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.zerotier.com/api/v1"
+    }
+  ]
+}

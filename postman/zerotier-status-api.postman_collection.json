@@ -1,0 +1,123 @@
+{
+  "info": {
+    "_postman_id": "6510567b-d115-4d65-8d95-94ac9054c157",
+    "name": "ZeroTier Central controller status API",
+    "description": "ZeroTier Central Network Management Portal API.<p>All API requests must have an API token header specified in the <code>Authorization: token xxxxx</code> format.  You can generate your API key by logging into <a href=\"https://my.zerotier.com\">ZeroTier Central</a> and creating a token on the Account page.</p><p>eg. <code>curl -X GET -H \"Authorization: token xxxxx\" https://api.zerotier.com/api/v1/network</code></p><p><h3>Rate Limiting</h3></p><p>The ZeroTier Central API implements rate limiting.  Paid users are limited to 100 requests per second.  Free users are limited to 20 requests per second.</p> <p> You can get the OpenAPI spec here as well: <code>https://docs.zerotier.com/api/central/ref-v1.json</code></p>\n\nContact Support:\n Name: ZeroTier Support Discussion Forum",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:38:18.000Z",
+    "updatedAt": "2026-07-28T03:38:19.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-6510567b-d115-4d65-8d95-94ac9054c157"
+  },
+  "item": [
+    {
+      "name": "status",
+      "item": [
+        {
+          "name": "Node status and addressing info.",
+          "id": "447a0336-f322-4db4-8cc3-2f239a056fb7",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/status",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "status"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "002fc6b5-b385-4942-a8ff-e6bc064a11ad",
+              "name": "New Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/status",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "status"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"address\": \"<string>\",\n  \"clock\": \"<long>\",\n  \"config\": {\n    \"settings\": {\n      \"allowTcpFallbackRelay\": \"<boolean>\",\n      \"portMappingEnabled\": \"<boolean>\",\n      \"primaryPort\": \"<integer>\"\n    }\n  },\n  \"online\": \"<boolean>\",\n  \"planetWorldId\": \"<long>\",\n  \"planetWorldTimestamp\": \"<long>\",\n  \"publicIdentity\": \"<string>\",\n  \"tcpFallbackActive\": \"<boolean>\",\n  \"version\": \"<string>\",\n  \"versionBuild\": \"<integer>\",\n  \"versionMajor\": \"<integer>\",\n  \"versionMinor\": \"<integer>\",\n  \"versionRev\": \"<integer>\"\n}",
+              "createdAt": "2026-07-28T03:38:19.000Z",
+              "updatedAt": "2026-07-28T03:38:19.000Z",
+              "uid": "35240-002fc6b5-b385-4942-a8ff-e6bc064a11ad"
+            },
+            {
+              "id": "f0967902-64f1-47b5-afc3-68b792e5c45d",
+              "name": "Authorization required.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/status",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "status"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T03:38:19.000Z",
+              "updatedAt": "2026-07-28T03:38:19.000Z",
+              "uid": "35240-f0967902-64f1-47b5-afc3-68b792e5c45d"
+            }
+          ],
+          "createdAt": "2026-07-28T03:38:19.000Z",
+          "updatedAt": "2026-07-28T03:38:19.000Z",
+          "uid": "35240-447a0336-f322-4db4-8cc3-2f239a056fb7"
+        }
+      ],
+      "id": "ce507f0f-cd4b-4f00-98d3-db1c56ee93a8",
+      "createdAt": "2026-07-28T03:38:19.000Z",
+      "updatedAt": "2026-07-28T03:38:19.000Z",
+      "uid": "35240-ce507f0f-cd4b-4f00-98d3-db1c56ee93a8"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.zerotier.com/api/v1"
+    }
+  ]
+}

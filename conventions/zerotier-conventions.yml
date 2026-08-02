@@ -1,0 +1,41 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/zerotier-central-openapi-original.json, https://docs.zerotier.com/tokens/
+authentication:
+  central_new: 'HTTP header Authorization: Bearer <API_KEY> (service-account tokens)'
+  central_legacy: 'HTTP header Authorization: token <API_TOKEN>'
+  service_local: 'HTTP header X-ZT1-Auth: <authtoken.secret> (local node, localhost:9993)'
+  token_management: >-
+    Service accounts (Essential+ plans) hold multiple API tokens with expiration dates; tokens are
+    shown once at creation. Legacy per-user tokens are created on the my.zerotier.com Account page.
+idempotency:
+  supported: false
+  notes: >-
+    ZeroTier Central does not document a dedicated idempotency-key mechanism. Resource updates are
+    performed with POST to a resource identified by its ID (e.g. POST /network/{networkID}),
+    which is effectively last-write-wins / upsert-style rather than a client-supplied idempotency key.
+pagination:
+  supported: false
+  notes: >-
+    List endpoints (GET /network, GET /network/{id}/member, GET /org/{id}/user) return full
+    arrays without documented cursor/offset pagination parameters in the OpenAPI.
+identifiers:
+  network_id: 16-hex-digit network ID (controller node ID + network number)
+  member_id: 10-hex-digit ZeroTier node/address ID
+  notes: IDs are opaque hexadecimal strings, not prefixed like some SaaS APIs.
+versioning:
+  style: uri-path
+  current: /api/v1
+error_envelope:
+  style: http-status-only
+  notes: >-
+    The Central API signals errors with HTTP status codes (400, 401, 403, 404) and does not define
+    a structured problem+json error body in its OpenAPI. See errors/zerotier-problem-types.yml.
+rate_limits:
+  documented: false
+  notes: No published numeric rate-limit table found in the API docs.
+cross_reference:
+  errors: errors/zerotier-problem-types.yml
+  authentication: authentication/zerotier-authentication.yml
+  lifecycle: lifecycle/zerotier-lifecycle.yml
+  webhooks: asyncapi/zerotier-webhooks.yml

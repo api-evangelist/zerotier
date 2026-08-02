@@ -1,0 +1,21 @@
+generated: '2026-07-21'
+method: searched
+probe: true
+source: https://trust.zerotier.com/
+url: https://trust.zerotier.com/
+certifications:
+- SOC 2 Type II
+compliance_docs: https://docs.zerotier.com/security/
+notes: >-
+  ZeroTier is SOC 2 Type II certified per its security documentation. The public Trust Center
+  (trust.zerotier.com) is a JS-rendered portal for requesting compliance documents and SOC 2
+  reports; the SOC 2 Type II claim is sourced from https://docs.zerotier.com/security/.
+evidence:
+- source: https://docs.zerotier.com/security/
+  keywords:
+  - soc 2 type ii
+  - trust center
+- source: https://trust.zerotier.com/
+  keywords:
+  - trust center
+  - compliance certification

@@ -1,0 +1,247 @@
+{
+  "info": {
+    "_postman_id": "3916a465-4da2-47ab-b3a6-b389a305560a",
+    "name": "ZeroTier Central controller peer API",
+    "description": "ZeroTier Central Network Management Portal API.<p>All API requests must have an API token header specified in the <code>Authorization: token xxxxx</code> format.  You can generate your API key by logging into <a href=\"https://my.zerotier.com\">ZeroTier Central</a> and creating a token on the Account page.</p><p>eg. <code>curl -X GET -H \"Authorization: token xxxxx\" https://api.zerotier.com/api/v1/network</code></p><p><h3>Rate Limiting</h3></p><p>The ZeroTier Central API implements rate limiting.  Paid users are limited to 100 requests per second.  Free users are limited to 20 requests per second.</p> <p> You can get the OpenAPI spec here as well: <code>https://docs.zerotier.com/api/central/ref-v1.json</code></p>\n\nContact Support:\n Name: ZeroTier Support Discussion Forum",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:37:54.000Z",
+    "updatedAt": "2026-07-28T03:37:54.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-3916a465-4da2-47ab-b3a6-b389a305560a"
+  },
+  "item": [
+    {
+      "name": "peer",
+      "item": [
+        {
+          "name": "{address}",
+          "item": [
+            {
+              "name": "Get information about a specific peer by Node ID.",
+              "id": "fe8f6252-4718-4807-a3dc-780f9fc21df8",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/peer/:address",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "peer",
+                    ":address"
+                  ],
+                  "variable": [
+                    {
+                      "id": "a535d65c-c762-4f7e-8405-dcf81ab5359f",
+                      "key": "address",
+                      "value": "<string>",
+                      "description": "(Required) ZeroTier address of the peer to get"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "9d508a48-a4ea-4331-b899-2c72ccc19b8e",
+                  "name": "Peer object",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/peer/:address",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "peer",
+                        ":address"
+                      ],
+                      "variable": [
+                        {
+                          "key": "address"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"address\": \"<string>\",\n  \"isBonded\": \"<boolean>\",\n  \"latency\": \"<integer>\",\n  \"paths\": [\n    {\n      \"active\": \"<boolean>\",\n      \"address\": \"<string>\",\n      \"expired\": \"<boolean>\",\n      \"lastReceive\": \"<long>\",\n      \"lastSend\": \"<long>\",\n      \"preferred\": \"<boolean>\",\n      \"trustedPathId\": \"<integer>\"\n    },\n    {\n      \"active\": \"<boolean>\",\n      \"address\": \"<string>\",\n      \"expired\": \"<boolean>\",\n      \"lastReceive\": \"<long>\",\n      \"lastSend\": \"<long>\",\n      \"preferred\": \"<boolean>\",\n      \"trustedPathId\": \"<integer>\"\n    }\n  ],\n  \"role\": \"<string>\",\n  \"version\": \"<string>\",\n  \"versionMajor\": \"<integer>\",\n  \"versionMinor\": \"<integer>\",\n  \"versionRev\": \"<integer>\"\n}",
+                  "createdAt": "2026-07-28T03:37:55.000Z",
+                  "updatedAt": "2026-07-28T03:37:55.000Z",
+                  "uid": "35240-9d508a48-a4ea-4331-b899-2c72ccc19b8e"
+                },
+                {
+                  "id": "37fa8ab0-1f88-4a43-977c-983138862521",
+                  "name": "Authorization required.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/peer/:address",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "peer",
+                        ":address"
+                      ],
+                      "variable": [
+                        {
+                          "key": "address"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:37:55.000Z",
+                  "updatedAt": "2026-07-28T03:37:55.000Z",
+                  "uid": "35240-37fa8ab0-1f88-4a43-977c-983138862521"
+                }
+              ],
+              "createdAt": "2026-07-28T03:37:54.000Z",
+              "updatedAt": "2026-07-28T03:37:54.000Z",
+              "uid": "35240-fe8f6252-4718-4807-a3dc-780f9fc21df8"
+            }
+          ],
+          "id": "6427d0e0-bd86-4185-a961-cc0a8a484c1a",
+          "createdAt": "2026-07-28T03:37:54.000Z",
+          "updatedAt": "2026-07-28T03:37:54.000Z",
+          "uid": "35240-6427d0e0-bd86-4185-a961-cc0a8a484c1a"
+        },
+        {
+          "name": "Get all peers.",
+          "id": "9444ce1c-9edb-43ce-94bb-6c96e4420307",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/peer",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "peer"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "5e44d298-8423-41fd-ba3d-5ebe10235085",
+              "name": "Array of Peer objects",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/peer",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "peer"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n  {\n    \"address\": \"<string>\",\n    \"isBonded\": \"<boolean>\",\n    \"latency\": \"<integer>\",\n    \"paths\": [\n      {\n        \"active\": \"<boolean>\",\n        \"address\": \"<string>\",\n        \"expired\": \"<boolean>\",\n        \"lastReceive\": \"<long>\",\n        \"lastSend\": \"<long>\",\n        \"preferred\": \"<boolean>\",\n        \"trustedPathId\": \"<integer>\"\n      },\n      {\n        \"active\": \"<boolean>\",\n        \"address\": \"<string>\",\n        \"expired\": \"<boolean>\",\n        \"lastReceive\": \"<long>\",\n        \"lastSend\": \"<long>\",\n        \"preferred\": \"<boolean>\",\n        \"trustedPathId\": \"<integer>\"\n      }\n    ],\n    \"role\": \"<string>\",\n    \"version\": \"<string>\",\n    \"versionMajor\": \"<integer>\",\n    \"versionMinor\": \"<integer>\",\n    \"versionRev\": \"<integer>\"\n  },\n  {\n    \"address\": \"<string>\",\n    \"isBonded\": \"<boolean>\",\n    \"latency\": \"<integer>\",\n    \"paths\": [\n      {\n        \"active\": \"<boolean>\",\n        \"address\": \"<string>\",\n        \"expired\": \"<boolean>\",\n        \"lastReceive\": \"<long>\",\n        \"lastSend\": \"<long>\",\n        \"preferred\": \"<boolean>\",\n        \"trustedPathId\": \"<integer>\"\n      },\n      {\n        \"active\": \"<boolean>\",\n        \"address\": \"<string>\",\n        \"expired\": \"<boolean>\",\n        \"lastReceive\": \"<long>\",\n        \"lastSend\": \"<long>\",\n        \"preferred\": \"<boolean>\",\n        \"trustedPathId\": \"<integer>\"\n      }\n    ],\n    \"role\": \"<string>\",\n    \"version\": \"<string>\",\n    \"versionMajor\": \"<integer>\",\n    \"versionMinor\": \"<integer>\",\n    \"versionRev\": \"<integer>\"\n  }\n]",
+              "createdAt": "2026-07-28T03:37:55.000Z",
+              "updatedAt": "2026-07-28T03:37:55.000Z",
+              "uid": "35240-5e44d298-8423-41fd-ba3d-5ebe10235085"
+            },
+            {
+              "id": "2515479e-58a5-4d4f-a062-7a30d4fff249",
+              "name": "Authorization required.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/peer",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "peer"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T03:37:55.000Z",
+              "updatedAt": "2026-07-28T03:37:55.000Z",
+              "uid": "35240-2515479e-58a5-4d4f-a062-7a30d4fff249"
+            }
+          ],
+          "createdAt": "2026-07-28T03:37:54.000Z",
+          "updatedAt": "2026-07-28T03:37:54.000Z",
+          "uid": "35240-9444ce1c-9edb-43ce-94bb-6c96e4420307"
+        }
+      ],
+      "id": "42899791-e5f7-4dd4-9a4d-2387b7265434",
+      "createdAt": "2026-07-28T03:37:54.000Z",
+      "updatedAt": "2026-07-28T03:37:54.000Z",
+      "uid": "35240-42899791-e5f7-4dd4-9a4d-2387b7265434"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.zerotier.com/api/v1"
+    }
+  ]
+}

@@ -1,0 +1,1477 @@
+{
+  "info": {
+    "_postman_id": "54da6b79-8433-416a-9c64-076b22463bd2",
+    "name": "ZeroTier Central controller organizations API",
+    "description": "ZeroTier Central Network Management Portal API.<p>All API requests must have an API token header specified in the <code>Authorization: token xxxxx</code> format.  You can generate your API key by logging into <a href=\"https://my.zerotier.com\">ZeroTier Central</a> and creating a token on the Account page.</p><p>eg. <code>curl -X GET -H \"Authorization: token xxxxx\" https://api.zerotier.com/api/v1/network</code></p><p><h3>Rate Limiting</h3></p><p>The ZeroTier Central API implements rate limiting.  Paid users are limited to 100 requests per second.  Free users are limited to 20 requests per second.</p> <p> You can get the OpenAPI spec here as well: <code>https://docs.zerotier.com/api/central/ref-v1.json</code></p>\n\nContact Support:\n Name: ZeroTier Support Discussion Forum",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:37:53.000Z",
+    "updatedAt": "2026-07-28T03:37:53.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-54da6b79-8433-416a-9c64-076b22463bd2"
+  },
+  "item": [
+    {
+      "name": "org",
+      "item": [
+        {
+          "name": "{orgID}",
+          "item": [
+            {
+              "name": "user",
+              "item": [
+                {
+                  "name": "Get list of organization members",
+                  "id": "37a460ae-e2d9-4f65-958a-51b4575a435a",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/org/:orgID/user",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "org",
+                        ":orgID",
+                        "user"
+                      ],
+                      "variable": [
+                        {
+                          "id": "54327faf-58a0-45e4-b7c7-260dd83b91f7",
+                          "key": "orgID",
+                          "value": "<string>",
+                          "description": "(Required) Organization ID"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "87c3fd6f-947d-4d1d-b90e-8493c0a2579d",
+                      "name": "Get organization members success",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/org/:orgID/user",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "org",
+                            ":orgID",
+                            "user"
+                          ],
+                          "variable": [
+                            {
+                              "key": "orgID"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"orgId\": \"<string>\",\n  \"userId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"email\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T03:37:54.000Z",
+                      "updatedAt": "2026-07-28T03:37:54.000Z",
+                      "uid": "35240-87c3fd6f-947d-4d1d-b90e-8493c0a2579d"
+                    },
+                    {
+                      "id": "69aa9530-e980-41ee-9d63-86948e33f5ac",
+                      "name": "Authorization required",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/org/:orgID/user",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "org",
+                            ":orgID",
+                            "user"
+                          ],
+                          "variable": [
+                            {
+                              "key": "orgID"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:37:54.000Z",
+                      "updatedAt": "2026-07-28T03:37:54.000Z",
+                      "uid": "35240-69aa9530-e980-41ee-9d63-86948e33f5ac"
+                    },
+                    {
+                      "id": "4928530d-3815-46b5-9acd-5012f1417b4d",
+                      "name": "Access denied",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/org/:orgID/user",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "org",
+                            ":orgID",
+                            "user"
+                          ],
+                          "variable": [
+                            {
+                              "key": "orgID"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:37:54.000Z",
+                      "updatedAt": "2026-07-28T03:37:54.000Z",
+                      "uid": "35240-4928530d-3815-46b5-9acd-5012f1417b4d"
+                    },
+                    {
+                      "id": "7c9604be-af5f-4a18-850c-19a945417651",
+                      "name": "Item not found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/org/:orgID/user",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "org",
+                            ":orgID",
+                            "user"
+                          ],
+                          "variable": [
+                            {
+                              "key": "orgID"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:37:54.000Z",
+                      "updatedAt": "2026-07-28T03:37:54.000Z",
+                      "uid": "35240-7c9604be-af5f-4a18-850c-19a945417651"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:37:54.000Z",
+                  "updatedAt": "2026-07-28T03:37:54.000Z",
+                  "uid": "35240-37a460ae-e2d9-4f65-958a-51b4575a435a"
+                }
+              ],
+              "id": "5d29bcc6-4b37-4b9c-93bc-e80658ae7b80",
+              "createdAt": "2026-07-28T03:37:54.000Z",
+              "updatedAt": "2026-07-28T03:37:54.000Z",
+              "uid": "35240-5d29bcc6-4b37-4b9c-93bc-e80658ae7b80"
+            },
+            {
+              "name": "Get organization by ID",
+              "id": "57747cf8-727b-4b1f-b3db-941660e4b82f",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/org/:orgID",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "org",
+                    ":orgID"
+                  ],
+                  "variable": [
+                    {
+                      "id": "6e884f75-13e4-4ca6-ac0a-084331884371",
+                      "key": "orgID",
+                      "value": "<string>",
+                      "description": "(Required) Organization ID"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "9688f62a-1422-4449-b996-6de6872b3ab2",
+                  "name": "Organization",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/org/:orgID",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "org",
+                        ":orgID"
+                      ],
+                      "variable": [
+                        {
+                          "key": "orgID"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"ownerId\": \"<string>\",\n  \"ownerEmail\": \"<string>\",\n  \"members\": [\n    {\n      \"orgId\": \"<string>\",\n      \"userId\": \"<string>\",\n      \"name\": \"<string>\",\n      \"email\": \"<string>\"\n    },\n    {\n      \"orgId\": \"<string>\",\n      \"userId\": \"<string>\",\n      \"name\": \"<string>\",\n      \"email\": \"<string>\"\n    }\n  ],\n  \"ssoConfig\": {\n    \"enabled\": \"<boolean>\",\n    \"issuers\": [\n      {\n        \"provider\": \"<string>\",\n        \"clientId\": \"<string>\",\n        \"issuer\": \"<string>\",\n        \"authorization_endpoint\": \"<string>\"\n      },\n      {\n        \"provider\": \"<string>\",\n        \"clientId\": \"<string>\",\n        \"issuer\": \"<string>\",\n        \"authorization_endpoint\": \"<string>\"\n      }\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T03:37:54.000Z",
+                  "updatedAt": "2026-07-28T03:37:54.000Z",
+                  "uid": "35240-9688f62a-1422-4449-b996-6de6872b3ab2"
+                },
+                {
+                  "id": "75ac2e0a-9ee8-4721-a523-9e45a5b69b11",
+                  "name": "Authorization required",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/org/:orgID",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "org",
+                        ":orgID"
+                      ],
+                      "variable": [
+                        {
+                          "key": "orgID"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:37:54.000Z",
+                  "updatedAt": "2026-07-28T03:37:54.000Z",
+                  "uid": "35240-75ac2e0a-9ee8-4721-a523-9e45a5b69b11"
+                },
+                {
+                  "id": "ee883b0d-6a85-4686-84b7-a9ec198dab2d",
+                  "name": "Access denied",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/org/:orgID",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "org",
+                        ":orgID"
+                      ],
+                      "variable": [
+                        {
+                          "key": "orgID"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:37:54.000Z",
+                  "updatedAt": "2026-07-28T03:37:54.000Z",
+                  "uid": "35240-ee883b0d-6a85-4686-84b7-a9ec198dab2d"
+                },
+                {
+                  "id": "2253060e-21c6-4696-b8f5-b9838f961bb4",
+                  "name": "Item not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/org/:orgID",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "org",
+                        ":orgID"
+                      ],
+                      "variable": [
+                        {
+                          "key": "orgID"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:37:54.000Z",
+                  "updatedAt": "2026-07-28T03:37:54.000Z",
+                  "uid": "35240-2253060e-21c6-4696-b8f5-b9838f961bb4"
+                }
+              ],
+              "createdAt": "2026-07-28T03:37:54.000Z",
+              "updatedAt": "2026-07-28T03:37:54.000Z",
+              "uid": "35240-57747cf8-727b-4b1f-b3db-941660e4b82f"
+            }
+          ],
+          "id": "49683cab-b44e-4b0e-865a-b8c2a414842b",
+          "createdAt": "2026-07-28T03:37:54.000Z",
+          "updatedAt": "2026-07-28T03:37:54.000Z",
+          "uid": "35240-49683cab-b44e-4b0e-865a-b8c2a414842b"
+        },
+        {
+          "name": "Get the current user's organization",
+          "id": "f47b5203-318f-46c2-9b3d-0a4da583e381",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/org",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "org"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "058d3d63-84b2-4425-9380-45bd042d0ed9",
+              "name": "Get my organization",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/org",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "org"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"id\": \"<string>\",\n  \"ownerId\": \"<string>\",\n  \"ownerEmail\": \"<string>\",\n  \"members\": [\n    {\n      \"orgId\": \"<string>\",\n      \"userId\": \"<string>\",\n      \"name\": \"<string>\",\n      \"email\": \"<string>\"\n    },\n    {\n      \"orgId\": \"<string>\",\n      \"userId\": \"<string>\",\n      \"name\": \"<string>\",\n      \"email\": \"<string>\"\n    }\n  ],\n  \"ssoConfig\": {\n    \"enabled\": \"<boolean>\",\n    \"issuers\": [\n      {\n        \"provider\": \"<string>\",\n        \"clientId\": \"<string>\",\n        \"issuer\": \"<string>\",\n        \"authorization_endpoint\": \"<string>\"\n      },\n      {\n        \"provider\": \"<string>\",\n        \"clientId\": \"<string>\",\n        \"issuer\": \"<string>\",\n        \"authorization_endpoint\": \"<string>\"\n      }\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T03:37:54.000Z",
+              "updatedAt": "2026-07-28T03:37:54.000Z",
+              "uid": "35240-058d3d63-84b2-4425-9380-45bd042d0ed9"
+            },
+            {
+              "id": "05761980-6d58-45f3-923b-995bdc0b030d",
+              "name": "Authorization required",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/org",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "org"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T03:37:54.000Z",
+              "updatedAt": "2026-07-28T03:37:54.000Z",
+              "uid": "35240-05761980-6d58-45f3-923b-995bdc0b030d"
+            },
+            {
+              "id": "3ee08bca-3901-483b-9390-8086fe32df51",
+              "name": "Access denied",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/org",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "org"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T03:37:54.000Z",
+              "updatedAt": "2026-07-28T03:37:54.000Z",
+              "uid": "35240-3ee08bca-3901-483b-9390-8086fe32df51"
+            },
+            {
+              "id": "88ed8de2-385b-420e-bacd-4d4079e47422",
+              "name": "Item not found",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/org",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "org"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T03:37:54.000Z",
+              "updatedAt": "2026-07-28T03:37:54.000Z",
+              "uid": "35240-88ed8de2-385b-420e-bacd-4d4079e47422"
+            }
+          ],
+          "createdAt": "2026-07-28T03:37:54.000Z",
+          "updatedAt": "2026-07-28T03:37:54.000Z",
+          "uid": "35240-f47b5203-318f-46c2-9b3d-0a4da583e381"
+        }
+      ],
+      "id": "314a94b8-9d9f-47ef-ad80-abd6d220ecdc",
+      "createdAt": "2026-07-28T03:37:54.000Z",
+      "updatedAt": "2026-07-28T03:37:54.000Z",
+      "uid": "35240-314a94b8-9d9f-47ef-ad80-abd6d220ecdc"
+    },
+    {
+      "name": "org-invitation",
+      "item": [
+        {
+          "name": "{inviteID}",
+          "item": [
+            {
+              "name": "Get organization invitation",
+              "id": "b702ce06-a421-44b1-a5fa-1f84ef7ec3e0",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/org-invitation/:inviteID",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "org-invitation",
+                    ":inviteID"
+                  ],
+                  "variable": [
+                    {
+                      "id": "735838b7-228b-4dd1-ab4c-a5c4b346550e",
+                      "key": "inviteID",
+                      "value": "<string>",
+                      "description": "(Required) Invitation ID"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "3b664beb-a9cc-408b-bbf5-63fa1dc18f6b",
+                  "name": "Get organization invitation",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/org-invitation/:inviteID",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "org-invitation",
+                        ":inviteID"
+                      ],
+                      "variable": [
+                        {
+                          "key": "inviteID"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"orgId\": \"<string>\",\n  \"email\": \"<string>\",\n  \"id\": \"<string>\",\n  \"creation_time\": \"<long>\",\n  \"status\": \"accepted\",\n  \"update_time\": \"<long>\",\n  \"ownerEmail\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T03:37:54.000Z",
+                  "updatedAt": "2026-07-28T03:37:54.000Z",
+                  "uid": "35240-3b664beb-a9cc-408b-bbf5-63fa1dc18f6b"
+                },
+                {
+                  "id": "a144b6f1-5bee-43b9-bdc3-9695dc925149",
+                  "name": "Authorization required",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/org-invitation/:inviteID",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "org-invitation",
+                        ":inviteID"
+                      ],
+                      "variable": [
+                        {
+                          "key": "inviteID"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:37:54.000Z",
+                  "updatedAt": "2026-07-28T03:37:54.000Z",
+                  "uid": "35240-a144b6f1-5bee-43b9-bdc3-9695dc925149"
+                },
+                {
+                  "id": "e7520b8c-e912-443c-965e-c4825a3698a8",
+                  "name": "Access denied",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/org-invitation/:inviteID",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "org-invitation",
+                        ":inviteID"
+                      ],
+                      "variable": [
+                        {
+                          "key": "inviteID"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:37:54.000Z",
+                  "updatedAt": "2026-07-28T03:37:54.000Z",
+                  "uid": "35240-e7520b8c-e912-443c-965e-c4825a3698a8"
+                },
+                {
+                  "id": "ccf2499a-b061-4f5b-a8e2-3746809dc980",
+                  "name": "Item not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/org-invitation/:inviteID",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "org-invitation",
+                        ":inviteID"
+                      ],
+                      "variable": [
+                        {
+                          "key": "inviteID"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:37:54.000Z",
+                  "updatedAt": "2026-07-28T03:37:54.000Z",
+                  "uid": "35240-ccf2499a-b061-4f5b-a8e2-3746809dc980"
+                }
+              ],
+              "createdAt": "2026-07-28T03:37:54.000Z",
+              "updatedAt": "2026-07-28T03:37:54.000Z",
+              "uid": "35240-b702ce06-a421-44b1-a5fa-1f84ef7ec3e0"
+            },
+            {
+              "name": "Accept organization invitation",
+              "id": "84a6288b-8978-461c-9c8d-598bc8711343",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/org-invitation/:inviteID",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "org-invitation",
+                    ":inviteID"
+                  ],
+                  "variable": [
+                    {
+                      "id": "10431664-1112-42e2-9d0e-7ed07f301ba1",
+                      "key": "inviteID",
+                      "value": "<string>",
+                      "description": "(Required) Invitation ID"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "0385fd31-bc45-4882-96be-8d2c4aca20fe",
+                  "name": "Organization invitation accepted",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/org-invitation/:inviteID",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "org-invitation",
+                        ":inviteID"
+                      ],
+                      "variable": [
+                        {
+                          "key": "inviteID"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"orgId\": \"<string>\",\n  \"email\": \"<string>\",\n  \"id\": \"<string>\",\n  \"creation_time\": \"<long>\",\n  \"status\": \"accepted\",\n  \"update_time\": \"<long>\",\n  \"ownerEmail\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T03:37:54.000Z",
+                  "updatedAt": "2026-07-28T03:37:54.000Z",
+                  "uid": "35240-0385fd31-bc45-4882-96be-8d2c4aca20fe"
+                },
+                {
+                  "id": "a5d33df7-9342-4542-8a28-02fb595e3b3b",
+                  "name": "Authorization required",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/org-invitation/:inviteID",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "org-invitation",
+                        ":inviteID"
+                      ],
+                      "variable": [
+                        {
+                          "key": "inviteID"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:37:54.000Z",
+                  "updatedAt": "2026-07-28T03:37:54.000Z",
+                  "uid": "35240-a5d33df7-9342-4542-8a28-02fb595e3b3b"
+                },
+                {
+                  "id": "be6259ad-1308-46b4-b99e-997feaaddebc",
+                  "name": "Access denied",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/org-invitation/:inviteID",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "org-invitation",
+                        ":inviteID"
+                      ],
+                      "variable": [
+                        {
+                          "key": "inviteID"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:37:54.000Z",
+                  "updatedAt": "2026-07-28T03:37:54.000Z",
+                  "uid": "35240-be6259ad-1308-46b4-b99e-997feaaddebc"
+                },
+                {
+                  "id": "0fb339a0-8801-4e97-8487-ed0a2659ea00",
+                  "name": "Item not found",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/org-invitation/:inviteID",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "org-invitation",
+                        ":inviteID"
+                      ],
+                      "variable": [
+                        {
+                          "key": "inviteID"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:37:54.000Z",
+                  "updatedAt": "2026-07-28T03:37:54.000Z",
+                  "uid": "35240-0fb339a0-8801-4e97-8487-ed0a2659ea00"
+                }
+              ],
+              "createdAt": "2026-07-28T03:37:54.000Z",
+              "updatedAt": "2026-07-28T03:37:54.000Z",
+              "uid": "35240-84a6288b-8978-461c-9c8d-598bc8711343"
+            },
+            {
+              "name": "Decline organization invitation",
+              "id": "8f9392ce-e7e4-4bd1-b873-f174b5e5f375",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/org-invitation/:inviteID",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "org-invitation",
+                    ":inviteID"
+                  ],
+                  "variable": [
+                    {
+                      "id": "ca552ebd-6994-401f-aaf7-7002fa4ab242",
+                      "key": "inviteID",
+                      "value": "<string>",
+                      "description": "(Required) Invitation ID"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "a051eae9-5aad-470e-8f7c-4f22cd73c315",
+                  "name": "organization invitation declined",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/org-invitation/:inviteID",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "org-invitation",
+                        ":inviteID"
+                      ],
+                      "variable": [
+                        {
+                          "key": "inviteID"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:37:54.000Z",
+                  "updatedAt": "2026-07-28T03:37:54.000Z",
+                  "uid": "35240-a051eae9-5aad-470e-8f7c-4f22cd73c315"
+                },
+                {
+                  "id": "ad576e23-622d-4510-b011-7fb07490104a",
+                  "name": "Authorization required",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/org-invitation/:inviteID",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "org-invitation",
+                        ":inviteID"
+                      ],
+                      "variable": [
+                        {
+                          "key": "inviteID"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:37:54.000Z",
+                  "updatedAt": "2026-07-28T03:37:54.000Z",
+                  "uid": "35240-ad576e23-622d-4510-b011-7fb07490104a"
+                },
+                {
+                  "id": "7c10a540-32bf-41f3-a7c7-521b940c3807",
+                  "name": "Access denied",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/org-invitation/:inviteID",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "org-invitation",
+                        ":inviteID"
+                      ],
+                      "variable": [
+                        {
+                          "key": "inviteID"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:37:54.000Z",
+                  "updatedAt": "2026-07-28T03:37:54.000Z",
+                  "uid": "35240-7c10a540-32bf-41f3-a7c7-521b940c3807"
+                },
+                {
+                  "id": "bae5b894-e6f7-407d-aebe-e63227344af2",
+                  "name": "Item not found",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/org-invitation/:inviteID",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "org-invitation",
+                        ":inviteID"
+                      ],
+                      "variable": [
+                        {
+                          "key": "inviteID"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:37:54.000Z",
+                  "updatedAt": "2026-07-28T03:37:54.000Z",
+                  "uid": "35240-bae5b894-e6f7-407d-aebe-e63227344af2"
+                }
+              ],
+              "createdAt": "2026-07-28T03:37:54.000Z",
+              "updatedAt": "2026-07-28T03:37:54.000Z",
+              "uid": "35240-8f9392ce-e7e4-4bd1-b873-f174b5e5f375"
+            }
+          ],
+          "id": "9df5d92a-5c44-4f48-8783-634a50044cf1",
+          "createdAt": "2026-07-28T03:37:54.000Z",
+          "updatedAt": "2026-07-28T03:37:54.000Z",
+          "uid": "35240-9df5d92a-5c44-4f48-8783-634a50044cf1"
+        },
+        {
+          "name": "Get list of organization invitations",
+          "id": "3daf152a-007d-4b24-a833-ec6e1ef79f97",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/org-invitation",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "org-invitation"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "8e89ce9d-7878-4def-a6e3-e7d637f69008",
+              "name": "Get list of invitations",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/org-invitation",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "org-invitation"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n  {\n    \"orgId\": \"<string>\",\n    \"email\": \"<string>\",\n    \"id\": \"<string>\",\n    \"creation_time\": \"<long>\",\n    \"status\": \"accepted\",\n    \"update_time\": \"<long>\",\n    \"ownerEmail\": \"<string>\"\n  },\n  {\n    \"orgId\": \"<string>\",\n    \"email\": \"<string>\",\n    \"id\": \"<string>\",\n    \"creation_time\": \"<long>\",\n    \"status\": \"pending\",\n    \"update_time\": \"<long>\",\n    \"ownerEmail\": \"<string>\"\n  }\n]",
+              "createdAt": "2026-07-28T03:37:54.000Z",
+              "updatedAt": "2026-07-28T03:37:54.000Z",
+              "uid": "35240-8e89ce9d-7878-4def-a6e3-e7d637f69008"
+            },
+            {
+              "id": "773ed822-61e1-48e5-b3bf-3ad4c0422dd3",
+              "name": "Authorization required",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/org-invitation",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "org-invitation"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T03:37:54.000Z",
+              "updatedAt": "2026-07-28T03:37:54.000Z",
+              "uid": "35240-773ed822-61e1-48e5-b3bf-3ad4c0422dd3"
+            },
+            {
+              "id": "bb7c1b3e-36fa-4ef1-86b2-b2a2f43f3d9c",
+              "name": "Access denied",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/org-invitation",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "org-invitation"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T03:37:54.000Z",
+              "updatedAt": "2026-07-28T03:37:54.000Z",
+              "uid": "35240-bb7c1b3e-36fa-4ef1-86b2-b2a2f43f3d9c"
+            },
+            {
+              "id": "f5b4df1c-3933-4df8-b521-e440b8c6bc8e",
+              "name": "Item not found",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/org-invitation",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "org-invitation"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T03:37:54.000Z",
+              "updatedAt": "2026-07-28T03:37:54.000Z",
+              "uid": "35240-f5b4df1c-3933-4df8-b521-e440b8c6bc8e"
+            }
+          ],
+          "createdAt": "2026-07-28T03:37:54.000Z",
+          "updatedAt": "2026-07-28T03:37:54.000Z",
+          "uid": "35240-3daf152a-007d-4b24-a833-ec6e1ef79f97"
+        },
+        {
+          "name": "Invite a user to your organization by email",
+          "id": "98d0d5c6-03ed-4788-a4cc-ee53afb2d269",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"orgId\": \"<string>\",\n  \"email\": \"<string>\",\n  \"id\": \"<string>\",\n  \"creation_time\": \"<long>\",\n  \"status\": \"accepted\",\n  \"update_time\": \"<long>\",\n  \"ownerEmail\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/org-invitation",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "org-invitation"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e75117b9-8c5b-4116-a1ad-55d05292cdcf",
+              "name": "User invited to organization",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"orgId\": \"<string>\",\n  \"email\": \"<string>\",\n  \"id\": \"<string>\",\n  \"creation_time\": \"<long>\",\n  \"status\": \"accepted\",\n  \"update_time\": \"<long>\",\n  \"ownerEmail\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/org-invitation",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "org-invitation"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"orgId\": \"<string>\",\n  \"email\": \"<string>\",\n  \"id\": \"<string>\",\n  \"creation_time\": \"<long>\",\n  \"status\": \"accepted\",\n  \"update_time\": \"<long>\",\n  \"ownerEmail\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T03:37:54.000Z",
+              "updatedAt": "2026-07-28T03:37:54.000Z",
+              "uid": "35240-e75117b9-8c5b-4116-a1ad-55d05292cdcf"
+            },
+            {
+              "id": "2a0234b6-ca18-4ef1-b9bb-31b8094dc5cf",
+              "name": "Authorization required",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"orgId\": \"<string>\",\n  \"email\": \"<string>\",\n  \"id\": \"<string>\",\n  \"creation_time\": \"<long>\",\n  \"status\": \"accepted\",\n  \"update_time\": \"<long>\",\n  \"ownerEmail\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/org-invitation",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "org-invitation"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T03:37:54.000Z",
+              "updatedAt": "2026-07-28T03:37:54.000Z",
+              "uid": "35240-2a0234b6-ca18-4ef1-b9bb-31b8094dc5cf"
+            },
+            {
+              "id": "c19eb1dc-5ab6-469f-b9ad-662c400b9c2b",
+              "name": "Access denied",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"orgId\": \"<string>\",\n  \"email\": \"<string>\",\n  \"id\": \"<string>\",\n  \"creation_time\": \"<long>\",\n  \"status\": \"accepted\",\n  \"update_time\": \"<long>\",\n  \"ownerEmail\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/org-invitation",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "org-invitation"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T03:37:54.000Z",
+              "updatedAt": "2026-07-28T03:37:54.000Z",
+              "uid": "35240-c19eb1dc-5ab6-469f-b9ad-662c400b9c2b"
+            },
+            {
+              "id": "e70cc58d-ad13-4e13-9e6c-0a10da701db2",
+              "name": "Item not found",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"orgId\": \"<string>\",\n  \"email\": \"<string>\",\n  \"id\": \"<string>\",\n  \"creation_time\": \"<long>\",\n  \"status\": \"accepted\",\n  \"update_time\": \"<long>\",\n  \"ownerEmail\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/org-invitation",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "org-invitation"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T03:37:54.000Z",
+              "updatedAt": "2026-07-28T03:37:54.000Z",
+              "uid": "35240-e70cc58d-ad13-4e13-9e6c-0a10da701db2"
+            }
+          ],
+          "createdAt": "2026-07-28T03:37:54.000Z",
+          "updatedAt": "2026-07-28T03:37:54.000Z",
+          "uid": "35240-98d0d5c6-03ed-4788-a4cc-ee53afb2d269"
+        }
+      ],
+      "id": "8bd04798-bf19-4a2d-a379-98717864468d",
+      "createdAt": "2026-07-28T03:37:54.000Z",
+      "updatedAt": "2026-07-28T03:37:54.000Z",
+      "uid": "35240-8bd04798-bf19-4a2d-a379-98717864468d"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.zerotier.com/api/v1"
+    }
+  ]
+}

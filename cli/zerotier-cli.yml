@@ -1,0 +1,30 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.zerotier.com/cli/
+clis:
+- name: zerotier-cli
+  description: >-
+    First-party command-line tool bundled with the ZeroTier One service for controlling the local
+    node: joining and leaving networks, listing peers and moons, and inspecting status. Talks to the
+    local Service API on localhost:9993 using the node's authtoken.secret.
+  docs: https://docs.zerotier.com/cli/
+  install:
+  - Bundled with the ZeroTier One install (https://www.zerotier.com/download/)
+  commands:
+  - info
+  - listnetworks
+  - join <networkID>
+  - leave <networkID>
+  - listpeers
+  - peers
+  - listmoons
+  - orbit <worldID> <seed>
+  - deorbit <worldID>
+  - set <networkID> <setting=value>
+  - get <networkID> <setting>
+  notes: >-
+    On most platforms the CLI is invoked as `zerotier-cli`; on macOS it may require the full path
+    or the bundled wrapper. Administrative privileges are typically required.
+- name: zerotier-idtool
+  description: Utility for generating and manipulating ZeroTier identities (public/secret key pairs).
+  docs: https://docs.zerotier.com/cli/

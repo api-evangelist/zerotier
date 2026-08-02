@@ -1,0 +1,28 @@
+{
+  "provider": "zerotier",
+  "sources": [
+    "zerotier-controller-api-openapi.yml",
+    "zerotier-network-api-openapi.yml",
+    "zerotier-network-member-api-openapi.yml",
+    "zerotier-organizations-api-openapi.yml",
+    "zerotier-peer-api-openapi.yml",
+    "zerotier-status-api-openapi.yml",
+    "zerotier-user-api-openapi.yml",
+    "zerotier-util-api-openapi.yml"
+  ],
+  "outputs": [
+    "zerotier-controller-api-openapi.yml",
+    "zerotier-network-api-openapi.yml",
+    "zerotier-network-member-api-openapi.yml",
+    "zerotier-organizations-api-openapi.yml",
+    "zerotier-peer-api-openapi.yml",
+    "zerotier-status-api-openapi.yml",
+    "zerotier-user-api-openapi.yml",
+    "zerotier-util-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

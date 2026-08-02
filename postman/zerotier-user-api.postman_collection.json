@@ -1,0 +1,1160 @@
+{
+  "info": {
+    "_postman_id": "e8f7787d-407b-4952-86b7-12952f8a2d9a",
+    "name": "ZeroTier Central controller user API",
+    "description": "ZeroTier Central Network Management Portal API.<p>All API requests must have an API token header specified in the <code>Authorization: token xxxxx</code> format.  You can generate your API key by logging into <a href=\"https://my.zerotier.com\">ZeroTier Central</a> and creating a token on the Account page.</p><p>eg. <code>curl -X GET -H \"Authorization: token xxxxx\" https://api.zerotier.com/api/v1/network</code></p><p><h3>Rate Limiting</h3></p><p>The ZeroTier Central API implements rate limiting.  Paid users are limited to 100 requests per second.  Free users are limited to 20 requests per second.</p> <p> You can get the OpenAPI spec here as well: <code>https://docs.zerotier.com/api/central/ref-v1.json</code></p>\n\nContact Support:\n Name: ZeroTier Support Discussion Forum",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:38:19.000Z",
+    "updatedAt": "2026-07-28T03:38:20.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-e8f7787d-407b-4952-86b7-12952f8a2d9a"
+  },
+  "item": [
+    {
+      "name": "user",
+      "item": [
+        {
+          "name": "{userID}",
+          "item": [
+            {
+              "name": "token",
+              "item": [
+                {
+                  "name": "{tokenName}",
+                  "item": [
+                    {
+                      "name": "Delete API Token",
+                      "id": "efb4527a-4a37-4026-9370-da19e458da35",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/user/:userID/token/:tokenName",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "user",
+                            ":userID",
+                            "token",
+                            ":tokenName"
+                          ],
+                          "variable": [
+                            {
+                              "id": "029dbe76-7f59-4ef3-b62f-b99f66cab375",
+                              "key": "userID",
+                              "value": "<string>",
+                              "description": "(Required) User ID"
+                            },
+                            {
+                              "id": "cdf7a1ec-1cbd-4b07-9d24-9bef9e0fc863",
+                              "key": "tokenName",
+                              "value": "<string>",
+                              "description": "(Required) Token Name"
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "5436d16c-4850-40eb-b7de-3cbc0fae65fc",
+                          "name": "API token deleted",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/user/:userID/token/:tokenName",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "user",
+                                ":userID",
+                                "token",
+                                ":tokenName"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "userID"
+                                },
+                                {
+                                  "key": "tokenName"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:38:20.000Z",
+                          "updatedAt": "2026-07-28T03:38:20.000Z",
+                          "uid": "35240-5436d16c-4850-40eb-b7de-3cbc0fae65fc"
+                        },
+                        {
+                          "id": "f69e3686-9098-4fb1-a731-14cefb509732",
+                          "name": "Authorization required",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/user/:userID/token/:tokenName",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "user",
+                                ":userID",
+                                "token",
+                                ":tokenName"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "userID"
+                                },
+                                {
+                                  "key": "tokenName"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:38:20.000Z",
+                          "updatedAt": "2026-07-28T03:38:20.000Z",
+                          "uid": "35240-f69e3686-9098-4fb1-a731-14cefb509732"
+                        },
+                        {
+                          "id": "d50ec3cd-a71a-43ec-9aae-c9076238ca8e",
+                          "name": "Access denied",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/user/:userID/token/:tokenName",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "user",
+                                ":userID",
+                                "token",
+                                ":tokenName"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "userID"
+                                },
+                                {
+                                  "key": "tokenName"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:38:20.000Z",
+                          "updatedAt": "2026-07-28T03:38:20.000Z",
+                          "uid": "35240-d50ec3cd-a71a-43ec-9aae-c9076238ca8e"
+                        },
+                        {
+                          "id": "74640cd8-bfcb-490c-8982-31544fbe97a8",
+                          "name": "Item not found",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/user/:userID/token/:tokenName",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "user",
+                                ":userID",
+                                "token",
+                                ":tokenName"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "userID"
+                                },
+                                {
+                                  "key": "tokenName"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:38:20.000Z",
+                          "updatedAt": "2026-07-28T03:38:20.000Z",
+                          "uid": "35240-74640cd8-bfcb-490c-8982-31544fbe97a8"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:38:20.000Z",
+                      "updatedAt": "2026-07-28T03:38:20.000Z",
+                      "uid": "35240-efb4527a-4a37-4026-9370-da19e458da35"
+                    }
+                  ],
+                  "id": "ac3195d3-df15-42b0-9ef7-337396d87735",
+                  "createdAt": "2026-07-28T03:38:20.000Z",
+                  "updatedAt": "2026-07-28T03:38:20.000Z",
+                  "uid": "35240-ac3195d3-df15-42b0-9ef7-337396d87735"
+                },
+                {
+                  "name": "Add an API token",
+                  "id": "1174d383-ee37-495e-9bea-129f9c636ec9",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"tokenName\": \"<string>\",\n  \"token\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/user/:userID/token",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "user",
+                        ":userID",
+                        "token"
+                      ],
+                      "variable": [
+                        {
+                          "id": "934982cb-ae3f-489b-b29b-645d0dd8bdf9",
+                          "key": "userID",
+                          "value": "<string>",
+                          "description": "(Required) User ID"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "f8c95030-4779-457f-ab2d-6763b5c27ba1",
+                      "name": "API Token added",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"tokenName\": \"<string>\",\n  \"token\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/user/:userID/token",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "user",
+                            ":userID",
+                            "token"
+                          ],
+                          "variable": [
+                            {
+                              "key": "userID"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"tokenName\": \"<string>\",\n  \"token\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T03:38:20.000Z",
+                      "updatedAt": "2026-07-28T03:38:20.000Z",
+                      "uid": "35240-f8c95030-4779-457f-ab2d-6763b5c27ba1"
+                    },
+                    {
+                      "id": "64734cf7-1aa0-49ee-a22e-54e1c90a272f",
+                      "name": "Bad request",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"tokenName\": \"<string>\",\n  \"token\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/user/:userID/token",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "user",
+                            ":userID",
+                            "token"
+                          ],
+                          "variable": [
+                            {
+                              "key": "userID"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:38:20.000Z",
+                      "updatedAt": "2026-07-28T03:38:20.000Z",
+                      "uid": "35240-64734cf7-1aa0-49ee-a22e-54e1c90a272f"
+                    },
+                    {
+                      "id": "85b1eeba-f7c3-4a77-8ea0-e504c0a2ac7a",
+                      "name": "Authorization required",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"tokenName\": \"<string>\",\n  \"token\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/user/:userID/token",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "user",
+                            ":userID",
+                            "token"
+                          ],
+                          "variable": [
+                            {
+                              "key": "userID"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:38:20.000Z",
+                      "updatedAt": "2026-07-28T03:38:20.000Z",
+                      "uid": "35240-85b1eeba-f7c3-4a77-8ea0-e504c0a2ac7a"
+                    },
+                    {
+                      "id": "97c106ed-1337-4a9e-8126-350cd23383fc",
+                      "name": "Access denied",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"tokenName\": \"<string>\",\n  \"token\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/user/:userID/token",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "user",
+                            ":userID",
+                            "token"
+                          ],
+                          "variable": [
+                            {
+                              "key": "userID"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:38:20.000Z",
+                      "updatedAt": "2026-07-28T03:38:20.000Z",
+                      "uid": "35240-97c106ed-1337-4a9e-8126-350cd23383fc"
+                    },
+                    {
+                      "id": "365688de-1607-4596-8bfc-d4c576b0ab4a",
+                      "name": "Item not found",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"tokenName\": \"<string>\",\n  \"token\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/user/:userID/token",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "user",
+                            ":userID",
+                            "token"
+                          ],
+                          "variable": [
+                            {
+                              "key": "userID"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:38:20.000Z",
+                      "updatedAt": "2026-07-28T03:38:20.000Z",
+                      "uid": "35240-365688de-1607-4596-8bfc-d4c576b0ab4a"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:38:20.000Z",
+                  "updatedAt": "2026-07-28T03:38:20.000Z",
+                  "uid": "35240-1174d383-ee37-495e-9bea-129f9c636ec9"
+                }
+              ],
+              "id": "5f38ba21-a167-42dc-8296-565e5dada260",
+              "createdAt": "2026-07-28T03:38:20.000Z",
+              "updatedAt": "2026-07-28T03:38:20.000Z",
+              "uid": "35240-5f38ba21-a167-42dc-8296-565e5dada260"
+            },
+            {
+              "name": "Get user record",
+              "id": "4d8b1c82-a15a-4299-b9fe-ed1a62d5a1fc",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/user/:userID",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "user",
+                    ":userID"
+                  ],
+                  "variable": [
+                    {
+                      "id": "f8140d6e-7d7f-4a4f-a922-66bf40eed1c5",
+                      "key": "userID",
+                      "value": "<string>",
+                      "description": "(Required) User ID"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "0db18848-4eda-4f0f-83d4-09ac4c35af63",
+                  "name": "User get success",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/user/:userID",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "user",
+                        ":userID"
+                      ],
+                      "variable": [
+                        {
+                          "key": "userID"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"orgId\": \"<string>\",\n  \"globalPermissions\": {\n    \"a\": \"<boolean>\",\n    \"d\": \"<boolean>\",\n    \"m\": \"<boolean>\",\n    \"r\": \"<boolean>\"\n  },\n  \"displayName\": \"<string>\",\n  \"email\": \"<string>\",\n  \"auth\": {\n    \"local\": \"<string>\",\n    \"google\": \"<string>\",\n    \"oidc\": \"<string>\"\n  },\n  \"smsNumber\": \"<string>\",\n  \"tokens\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T03:38:20.000Z",
+                  "updatedAt": "2026-07-28T03:38:20.000Z",
+                  "uid": "35240-0db18848-4eda-4f0f-83d4-09ac4c35af63"
+                },
+                {
+                  "id": "d7c45b65-be50-431e-b3a2-00b2301ab7e3",
+                  "name": "Authorization required",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/user/:userID",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "user",
+                        ":userID"
+                      ],
+                      "variable": [
+                        {
+                          "key": "userID"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:38:20.000Z",
+                  "updatedAt": "2026-07-28T03:38:20.000Z",
+                  "uid": "35240-d7c45b65-be50-431e-b3a2-00b2301ab7e3"
+                },
+                {
+                  "id": "43f4320c-4abd-4bf7-9505-cb6e3d194c00",
+                  "name": "Access denied",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/user/:userID",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "user",
+                        ":userID"
+                      ],
+                      "variable": [
+                        {
+                          "key": "userID"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:38:20.000Z",
+                  "updatedAt": "2026-07-28T03:38:20.000Z",
+                  "uid": "35240-43f4320c-4abd-4bf7-9505-cb6e3d194c00"
+                },
+                {
+                  "id": "b140598a-786a-42a4-a101-19ccdf101e3a",
+                  "name": "Item not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/user/:userID",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "user",
+                        ":userID"
+                      ],
+                      "variable": [
+                        {
+                          "key": "userID"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:38:20.000Z",
+                  "updatedAt": "2026-07-28T03:38:20.000Z",
+                  "uid": "35240-b140598a-786a-42a4-a101-19ccdf101e3a"
+                }
+              ],
+              "createdAt": "2026-07-28T03:38:20.000Z",
+              "updatedAt": "2026-07-28T03:38:20.000Z",
+              "uid": "35240-4d8b1c82-a15a-4299-b9fe-ed1a62d5a1fc"
+            },
+            {
+              "name": "Update user record (SMS number or Display Name only)",
+              "id": "59f81c1c-1788-45f3-9aa0-3da35f73a195",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"orgId\": \"<string>\",\n  \"globalPermissions\": {\n    \"a\": \"<boolean>\",\n    \"d\": \"<boolean>\",\n    \"m\": \"<boolean>\",\n    \"r\": \"<boolean>\"\n  },\n  \"displayName\": \"<string>\",\n  \"email\": \"<string>\",\n  \"auth\": {\n    \"local\": \"<string>\",\n    \"google\": \"<string>\",\n    \"oidc\": \"<string>\"\n  },\n  \"smsNumber\": \"<string>\",\n  \"tokens\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/user/:userID",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "user",
+                    ":userID"
+                  ],
+                  "variable": [
+                    {
+                      "id": "71edf541-dcda-48ab-b123-2110b9b7a82d",
+                      "key": "userID",
+                      "value": "<string>",
+                      "description": "(Required) User ID"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "b1aa23b8-6c70-471c-8c67-a3536ca27514",
+                  "name": "User update success",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"id\": \"<string>\",\n  \"orgId\": \"<string>\",\n  \"globalPermissions\": {\n    \"a\": \"<boolean>\",\n    \"d\": \"<boolean>\",\n    \"m\": \"<boolean>\",\n    \"r\": \"<boolean>\"\n  },\n  \"displayName\": \"<string>\",\n  \"email\": \"<string>\",\n  \"auth\": {\n    \"local\": \"<string>\",\n    \"google\": \"<string>\",\n    \"oidc\": \"<string>\"\n  },\n  \"smsNumber\": \"<string>\",\n  \"tokens\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/user/:userID",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "user",
+                        ":userID"
+                      ],
+                      "variable": [
+                        {
+                          "key": "userID"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"orgId\": \"<string>\",\n  \"globalPermissions\": {\n    \"a\": \"<boolean>\",\n    \"d\": \"<boolean>\",\n    \"m\": \"<boolean>\",\n    \"r\": \"<boolean>\"\n  },\n  \"displayName\": \"<string>\",\n  \"email\": \"<string>\",\n  \"auth\": {\n    \"local\": \"<string>\",\n    \"google\": \"<string>\",\n    \"oidc\": \"<string>\"\n  },\n  \"smsNumber\": \"<string>\",\n  \"tokens\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T03:38:20.000Z",
+                  "updatedAt": "2026-07-28T03:38:20.000Z",
+                  "uid": "35240-b1aa23b8-6c70-471c-8c67-a3536ca27514"
+                },
+                {
+                  "id": "9987a054-e6cd-4be0-a554-f4d47dc5165d",
+                  "name": "Authorization required",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"id\": \"<string>\",\n  \"orgId\": \"<string>\",\n  \"globalPermissions\": {\n    \"a\": \"<boolean>\",\n    \"d\": \"<boolean>\",\n    \"m\": \"<boolean>\",\n    \"r\": \"<boolean>\"\n  },\n  \"displayName\": \"<string>\",\n  \"email\": \"<string>\",\n  \"auth\": {\n    \"local\": \"<string>\",\n    \"google\": \"<string>\",\n    \"oidc\": \"<string>\"\n  },\n  \"smsNumber\": \"<string>\",\n  \"tokens\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/user/:userID",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "user",
+                        ":userID"
+                      ],
+                      "variable": [
+                        {
+                          "key": "userID"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:38:20.000Z",
+                  "updatedAt": "2026-07-28T03:38:20.000Z",
+                  "uid": "35240-9987a054-e6cd-4be0-a554-f4d47dc5165d"
+                },
+                {
+                  "id": "32680eba-434d-42b1-aaf1-e3c1ea3bf7a0",
+                  "name": "Access denied",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"id\": \"<string>\",\n  \"orgId\": \"<string>\",\n  \"globalPermissions\": {\n    \"a\": \"<boolean>\",\n    \"d\": \"<boolean>\",\n    \"m\": \"<boolean>\",\n    \"r\": \"<boolean>\"\n  },\n  \"displayName\": \"<string>\",\n  \"email\": \"<string>\",\n  \"auth\": {\n    \"local\": \"<string>\",\n    \"google\": \"<string>\",\n    \"oidc\": \"<string>\"\n  },\n  \"smsNumber\": \"<string>\",\n  \"tokens\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/user/:userID",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "user",
+                        ":userID"
+                      ],
+                      "variable": [
+                        {
+                          "key": "userID"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:38:20.000Z",
+                  "updatedAt": "2026-07-28T03:38:20.000Z",
+                  "uid": "35240-32680eba-434d-42b1-aaf1-e3c1ea3bf7a0"
+                },
+                {
+                  "id": "ace1be65-91f6-474e-af9f-33447c718d70",
+                  "name": "Item not found",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"id\": \"<string>\",\n  \"orgId\": \"<string>\",\n  \"globalPermissions\": {\n    \"a\": \"<boolean>\",\n    \"d\": \"<boolean>\",\n    \"m\": \"<boolean>\",\n    \"r\": \"<boolean>\"\n  },\n  \"displayName\": \"<string>\",\n  \"email\": \"<string>\",\n  \"auth\": {\n    \"local\": \"<string>\",\n    \"google\": \"<string>\",\n    \"oidc\": \"<string>\"\n  },\n  \"smsNumber\": \"<string>\",\n  \"tokens\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/user/:userID",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "user",
+                        ":userID"
+                      ],
+                      "variable": [
+                        {
+                          "key": "userID"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:38:20.000Z",
+                  "updatedAt": "2026-07-28T03:38:20.000Z",
+                  "uid": "35240-ace1be65-91f6-474e-af9f-33447c718d70"
+                }
+              ],
+              "createdAt": "2026-07-28T03:38:20.000Z",
+              "updatedAt": "2026-07-28T03:38:20.000Z",
+              "uid": "35240-59f81c1c-1788-45f3-9aa0-3da35f73a195"
+            },
+            {
+              "name": "Delete user",
+              "id": "1d53120e-1eed-4c4d-9406-77dd558e58da",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/user/:userID",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "user",
+                    ":userID"
+                  ],
+                  "variable": [
+                    {
+                      "id": "1e97d625-7909-46ca-8999-badf91f29004",
+                      "key": "userID",
+                      "value": "<string>",
+                      "description": "(Required) User ID"
+                    }
+                  ]
+                },
+                "description": "Deletes the user and all associated networks.  This is not reversible. Delete at your own risk."
+              },
+              "response": [
+                {
+                  "id": "0bbe5ae1-e0cc-478e-b50d-551d527625e7",
+                  "name": "user deleted",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/user/:userID",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "user",
+                        ":userID"
+                      ],
+                      "variable": [
+                        {
+                          "key": "userID"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:38:20.000Z",
+                  "updatedAt": "2026-07-28T03:38:20.000Z",
+                  "uid": "35240-0bbe5ae1-e0cc-478e-b50d-551d527625e7"
+                },
+                {
+                  "id": "c170aa33-8ce7-4bbd-b6ff-59422cebfe5a",
+                  "name": "Authorization required",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/user/:userID",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "user",
+                        ":userID"
+                      ],
+                      "variable": [
+                        {
+                          "key": "userID"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:38:20.000Z",
+                  "updatedAt": "2026-07-28T03:38:20.000Z",
+                  "uid": "35240-c170aa33-8ce7-4bbd-b6ff-59422cebfe5a"
+                },
+                {
+                  "id": "a57176a1-e435-43eb-bb54-0b0a82fd4b70",
+                  "name": "Access denied",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/user/:userID",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "user",
+                        ":userID"
+                      ],
+                      "variable": [
+                        {
+                          "key": "userID"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:38:20.000Z",
+                  "updatedAt": "2026-07-28T03:38:20.000Z",
+                  "uid": "35240-a57176a1-e435-43eb-bb54-0b0a82fd4b70"
+                },
+                {
+                  "id": "d222d2b8-513b-4313-a839-ba3e5c6863bc",
+                  "name": "Item not found",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/user/:userID",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "user",
+                        ":userID"
+                      ],
+                      "variable": [
+                        {
+                          "key": "userID"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:38:20.000Z",
+                  "updatedAt": "2026-07-28T03:38:20.000Z",
+                  "uid": "35240-d222d2b8-513b-4313-a839-ba3e5c6863bc"
+                }
+              ],
+              "createdAt": "2026-07-28T03:38:20.000Z",
+              "updatedAt": "2026-07-28T03:38:20.000Z",
+              "uid": "35240-1d53120e-1eed-4c4d-9406-77dd558e58da"
+            }
+          ],
+          "id": "46aed0cc-3604-4ccd-bb6d-b867f397df3b",
+          "createdAt": "2026-07-28T03:38:20.000Z",
+          "updatedAt": "2026-07-28T03:38:20.000Z",
+          "uid": "35240-46aed0cc-3604-4ccd-bb6d-b867f397df3b"
+        }
+      ],
+      "id": "678dcc1c-2f95-486f-85e4-cf8910a198fd",
+      "createdAt": "2026-07-28T03:38:20.000Z",
+      "updatedAt": "2026-07-28T03:38:20.000Z",
+      "uid": "35240-678dcc1c-2f95-486f-85e4-cf8910a198fd"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.zerotier.com/api/v1"
+    }
+  ]
+}

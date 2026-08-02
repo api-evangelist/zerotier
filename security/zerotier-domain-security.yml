@@ -1,0 +1,26 @@
+generated: '2026-07-21'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: www.zerotier.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep 21 03:04:13 2026 GMT
+  hsts: false
+- host: docs.zerotier.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep  7 15:38:51 2026 GMT
+  hsts: false
+- host: api.zerotier.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep  6 16:00:55 2026 GMT
+  hsts: null
+domains:
+- domain: zerotier.com
+  dnssec: true
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: none

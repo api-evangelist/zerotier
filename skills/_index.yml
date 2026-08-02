@@ -1,0 +1,12 @@
+generated: '2026-07-21'
+method: generated
+source: openapi/zerotier-central-openapi-original.json
+skills:
+- file: zerotier-create-network-and-authorize-member.md
+  name: Create a ZeroTier network and authorize a member
+  api: openapi/zerotier-central-openapi-original.json
+  operations: [newNetwork, getNetworkMemberList, getNetworkMember, updateNetworkMember]
+- file: zerotier-manage-organization-members.md
+  name: Manage a ZeroTier organization and its members
+  api: openapi/zerotier-central-openapi-original.json
+  operations: [getOrganization, getOrganizationMembers, inviteUserByEmail, getOrganizationInvitationList]

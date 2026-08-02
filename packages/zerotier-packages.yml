@@ -1,0 +1,60 @@
+generated: '2026-07-21'
+method: searched
+source: https://github.com/zerotier
+packages:
+- language: go
+  registry: pkg.go.dev
+  name: github.com/zerotier/go-ztcentral
+  url: https://pkg.go.dev/github.com/zerotier/go-ztcentral
+  install: go get github.com/zerotier/go-ztcentral
+  repo: https://github.com/zerotier/go-ztcentral
+  description: Official Go client library for the ZeroTier Central API.
+  official: true
+- language: hcl
+  registry: terraform
+  name: zerotier/zerotier
+  url: https://registry.terraform.io/providers/zerotier/zerotier/latest
+  install: 'terraform { required_providers { zerotier = { source = "zerotier/zerotier" } } }'
+  repo: https://github.com/zerotier/terraform-provider-zerotier
+  description: Official Terraform provider for managing ZeroTier Central networks and members.
+  official: true
+- language: rust
+  registry: github
+  name: zerotier-central-api
+  url: https://github.com/zerotier/zerotier-rust-api
+  repo: https://github.com/zerotier/zerotier-rust-api
+  description: Official Rust bindings for the ZeroTier Central and ZeroTier One service APIs (generated).
+  official: true
+- language: c
+  registry: github
+  name: libzt
+  url: https://github.com/zerotier/libzt
+  repo: https://github.com/zerotier/libzt
+  description: Official embeddable ZeroTier library (libzt) with C/C++, C#, Java, Python, and other bindings.
+  official: true
+- language: python
+  registry: pypi
+  name: ztchooks
+  url: https://pypi.org/project/ztchooks/
+  install: pip install ztchooks
+  repo: https://github.com/zerotier/ztchooks-py
+  description: Official Python helper for verifying ZeroTier Central webhook (HMAC-SHA256) signatures.
+  official: true
+- language: go
+  registry: github
+  name: ztchooks
+  url: https://github.com/zerotier/ztchooks
+  repo: https://github.com/zerotier/ztchooks
+  description: Official Go helper for verifying ZeroTier Central webhook signatures.
+  official: true
+- language: typescript
+  registry: github
+  name: ztchooks-ts
+  url: https://github.com/zerotier/ztchooks-ts
+  repo: https://github.com/zerotier/ztchooks-ts
+  description: Official TypeScript helper for verifying ZeroTier Central webhook signatures.
+  official: true
+notes: >-
+  ZeroTier does not publish a single monolithic SDK; first-party libraries are split across the
+  Central API (go-ztcentral, terraform-provider-zerotier, zerotier-rust-api), the embeddable
+  node library (libzt with multi-language bindings), and webhook signature helpers (ztchooks*).

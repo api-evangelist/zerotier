@@ -1,8 +1,27 @@
 aid: zerotier
 name: ZeroTier
-description: ZeroTier is a company surfaced as a portfolio company of battery-ventures and added to the
-  API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: ZeroTier, Inc. builds a software-defined networking (SDN) overlay that securely connects
+  devices, servers, clouds, and networks anywhere in the world as if they were on the same local LAN,
+  without the complexity of traditional VPNs, port forwarding, or firewall changes. The platform combines
+  a peer-to-peer, end-to-end encrypted transport with a hosted control plane (ZeroTier Central) for network,
+  member, organization, and access management. Developers automate ZeroTier through the hosted Central
+  API (create and manage virtual networks, authorize members, set flow rules and IAM), the local ZeroTier
+  One Service/Client API on each node, a Terraform provider, first-party client libraries, webhooks for
+  real-time organization events, and a growing focus on post-quantum ("ZeroTier Quantum") secure networking.
 url: https://raw.githubusercontent.com/api-evangelist/zerotier/refs/heads/main/apis.yml
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://avatars.githubusercontent.com/u/4173285?v=4
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
@@ -11,12 +30,192 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
 tags:
 - Company
-apis: []
+- Networking
+- Software-Defined Networking
+- SDN
+- VPN
+- Security
+- Connectivity
+- Overlay Network
+- Zero Trust
+- Infrastructure
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+apis:
+- aid: zerotier:zerotier-controller-api
+  name: ZeroTier controller API
+  description: The controller API from ZeroTier — 6 operation(s) for controller.
+  humanURL: https://docs.zerotier.com/api/central/new/
+  baseURL: https://api.zerotier.com/api/v1
+  tags:
+  - controller
+  properties:
+  - type: OpenAPI
+    url: openapi/zerotier-controller-api-openapi.yml
+- aid: zerotier:zerotier-network-api
+  name: ZeroTier network API
+  description: Network operations
+  humanURL: https://docs.zerotier.com/api/central/new/
+  baseURL: https://api.zerotier.com/api/v1
+  tags:
+  - network
+  properties:
+  - type: OpenAPI
+    url: openapi/zerotier-network-api-openapi.yml
+- aid: zerotier:zerotier-network-member-api
+  name: ZeroTier network-member API
+  description: Network member operations
+  humanURL: https://docs.zerotier.com/api/central/new/
+  baseURL: https://api.zerotier.com/api/v1
+  tags:
+  - network-member
+  properties:
+  - type: OpenAPI
+    url: openapi/zerotier-network-member-api-openapi.yml
+- aid: zerotier:zerotier-organizations-api
+  name: ZeroTier organizations API
+  description: >-
+    Organization management. Note: Organizations require a paid account and cannot be created via the
+    API
+  humanURL: https://docs.zerotier.com/api/central/new/
+  baseURL: https://api.zerotier.com/api/v1
+  tags:
+  - organizations
+  properties:
+  - type: OpenAPI
+    url: openapi/zerotier-organizations-api-openapi.yml
+- aid: zerotier:zerotier-peer-api
+  name: ZeroTier peer API
+  description: peer status
+  humanURL: https://docs.zerotier.com/api/central/new/
+  baseURL: https://api.zerotier.com/api/v1
+  tags:
+  - peer
+  properties:
+  - type: OpenAPI
+    url: openapi/zerotier-peer-api-openapi.yml
+- aid: zerotier:zerotier-status-api
+  name: ZeroTier status API
+  description: status
+  humanURL: https://docs.zerotier.com/api/central/new/
+  baseURL: https://api.zerotier.com/api/v1
+  tags:
+  - status
+  properties:
+  - type: OpenAPI
+    url: openapi/zerotier-status-api-openapi.yml
+- aid: zerotier:zerotier-user-api
+  name: ZeroTier user API
+  description: User management operations
+  humanURL: https://docs.zerotier.com/api/central/new/
+  baseURL: https://api.zerotier.com/api/v1
+  tags:
+  - user
+  properties:
+  - type: OpenAPI
+    url: openapi/zerotier-user-api-openapi.yml
+- aid: zerotier:zerotier-util-api
+  name: ZeroTier util API
+  description: Utility endpoints
+  humanURL: https://docs.zerotier.com/api/central/new/
+  baseURL: https://api.zerotier.com/api/v1
+  tags:
+  - util
+  properties:
+  - type: OpenAPI
+    url: openapi/zerotier-util-api-openapi.yml
+common:
+- type: PostmanWorkspace
+  url: https://www.postman.com/kinlaneapi/zerotier/overview
+- type: AgenticAccess
+  url: agentic-access/zerotier-agentic-access.yml
+- type: TrustCenter
+  url: security/zerotier-trust-center.yml
+- type: DomainSecurity
+  url: security/zerotier-domain-security.yml
+- type: Authentication
+  url: authentication/zerotier-authentication.yml
+- type: Website
+  url: https://www.zerotier.com/
+- type: DeveloperPortal
+  url: https://www.zerotier.com/enterprise/developers/
+- type: Documentation
+  url: https://docs.zerotier.com/
+- type: APIReference
+  url: https://docs.zerotier.com/api/central/new/
+- type: GettingStarted
+  url: https://docs.zerotier.com/start/
+- type: Quickstart
+  url: https://docs.zerotier.com/quickstart/
+- type: Support
+  url: https://www.zerotier.com/support/
+- type: Blog
+  url: https://www.zerotier.com/blog/
+- type: GitHubOrganization
+  url: https://github.com/zerotier
+- type: Pricing
+  url: https://www.zerotier.com/pricing/
+- type: SignUp
+  url: https://my.zerotier.com/
+- type: Login
+  url: https://my.zerotier.com/login
+- type: TermsOfService
+  url: https://www.zerotier.com/tos/
+- type: PrivacyPolicy
+  url: https://www.zerotier.com/privacy-policy/
+- type: StatusPage
+  url: https://status.zerotier.com
+- type: TrustCenter
+  url: https://trust.zerotier.com
+- type: Compliance
+  url: https://docs.zerotier.com/security/
+- type: Security
+  url: https://docs.zerotier.com/security/
+- type: VulnerabilityDisclosure
+  url: security/zerotier-vulnerability-disclosure.yml
+- type: ChangeLog
+  url: https://docs.zerotier.com/changelog/
+- type: SLA
+  url: https://www.zerotier.com/sla/
+- type: Glossary
+  url: https://www.zerotier.com/glossary/
+- type: Packages
+  url: packages/zerotier-packages.yml
+- type: SDKs
+  url: packages/zerotier-packages.yml
+- type: CLI
+  url: cli/zerotier-cli.yml
+- type: MCPServer
+  url: mcp/zerotier-mcp.yml
+- type: LLMsTxt
+  url: llms/zerotier-llms.txt
+- type: Conformance
+  url: conformance/zerotier-conformance.yml
+- type: ErrorCatalog
+  url: errors/zerotier-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/zerotier-lifecycle.yml
+- type: Deprecation
+  url: lifecycle/zerotier-lifecycle.yml
+- type: Conventions
+  url: conventions/zerotier-conventions.yml
+- type: DataModel
+  url: data-model/zerotier-data-model.yml
+- type: ChangeLog
+  name: ZeroTier Changelog (artifact)
+  url: changelog/zerotier-changelog.yml
+- type: Webhooks
+  url: asyncapi/zerotier-webhooks.yml
+- type: AgentSkill
+  url: skills/_index.yml
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 22
+  pass: local-v1

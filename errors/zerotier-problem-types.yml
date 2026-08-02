@@ -1,0 +1,39 @@
+generated: '2026-07-21'
+method: derived
+format: http-status
+source: openapi/zerotier-central-openapi-original.json
+notes: >-
+  The ZeroTier Central API does not define application/problem+json bodies; errors are conveyed
+  via HTTP status codes only. This catalog is derived from the 4xx responses declared across the
+  Central API operations.
+problems:
+- status: 400
+  title: Bad Request
+  meaning: Malformed request or invalid parameters (e.g. invalid API token creation payload).
+  seen_on:
+  - addAPIToken
+- status: 401
+  title: Unauthorized
+  meaning: Missing or invalid API token in the Authorization header.
+  seen_on:
+  - getNetworkByID
+  - getNetworkMemberList
+  - getUserByID
+  - getOrganization
+  - updateNetwork
+  - deleteNetwork
+- status: 403
+  title: Forbidden
+  meaning: Authenticated but not permitted to access or modify the requested resource.
+  seen_on:
+  - getNetworkList
+  - newNetwork
+  - getNetworkByID
+- status: 404
+  title: Not Found
+  meaning: The referenced network, member, user, organization, or invitation does not exist.
+  seen_on:
+  - getNetworkByID
+  - getNetworkMember
+  - getUserByID
+  - getInvitationByID

@@ -1,0 +1,25 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/zerotier-central-openapi-original.json, https://docs.zerotier.com/security/
+standards:
+- id: openapi-3.0
+  conforms: true
+  evidence: Central and Service APIs published as OpenAPI 3.0.0 documents.
+- id: oauth2
+  conforms: false
+  evidence: Central API uses bearer/token API keys, not OAuth2 authorization flows.
+- id: openid-connect
+  conforms: false
+  evidence: SSO/OIDC is used for Central login and network member SSO, but the management API itself is token-authenticated; no OIDC discovery on API hosts.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: Errors are HTTP-status-only; no application/problem+json bodies.
+- id: rfc9116-security-txt
+  conforms: false
+  evidence: No /.well-known/security.txt served (central.zerotier.com returns SPA HTML for all well-known paths).
+- id: soc2-type-ii
+  conforms: true
+  evidence: ZeroTier is SOC 2 Type II certified per https://docs.zerotier.com/security/ and trust.zerotier.com.
+- id: webhooks-hmac-sha256
+  conforms: true
+  evidence: Central webhooks are signed with HMAC-SHA256 via the X-ZTC-Signature header.

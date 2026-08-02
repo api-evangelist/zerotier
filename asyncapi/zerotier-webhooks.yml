@@ -1,0 +1,38 @@
+generated: '2026-07-21'
+method: searched
+spec_type: Webhooks
+source: https://docs.zerotier.com/webhooks/
+availability: Paid feature (Essential, Commercial, and Scale subscribers).
+delivery:
+  transport: HTTPS POST to a subscriber-configured FQDN endpoint (no raw IPs)
+  signature_header: X-ZTC-Signature
+  signature_algorithm: HMAC-SHA256
+  secret_management: >-
+    Signing secrets are managed in Organization Settings; secrets support rotation with a
+    configurable overlap period for zero-downtime transition, plus revocation.
+  payload_fields:
+  - webhookId
+  - orgId
+  - eventType
+  - deliveryId
+  - data (event-specific, typically before/after states)
+  configuration: Organization Settings -> Webhooks (select event types + HTTPS endpoint)
+event_groups:
+- group: Network
+  events: [NETWORK_CREATED, NETWORK_CONFIG_CHANGED, NETWORK_DELETED, NETWORK_IAM_CHANGED, NETWORK_FLOWRULES_CHANGED]
+- group: Member
+  events: [MEMBER_JOIN, MEMBER_AUTH, MEMBER_DEAUTH, MEMBER_CONFIG_CHANGED, MEMBER_DELETED, MEMBER_REJECT]
+- group: Network Group
+  events: [NETWORK_GROUP_CREATED, NETWORK_GROUP_CONFIG_CHANGED, NETWORK_GROUP_DELETED, NETWORK_GROUP_IAM_CHANGED]
+- group: Organization
+  events: [ORG_CREATED, ORG_CONFIG_CHANGED, ORG_DELETED, ORG_IAM_CHANGED]
+- group: Service Account
+  events: [SERVICE_ACCOUNT_CREATED, SERVICE_ACCOUNT_CONFIG_CHANGED, SERVICE_ACCOUNT_DELETED]
+- group: API Key
+  events: [API_KEY_CREATED, API_KEY_CONFIG_CHANGED, API_KEY_DELETED]
+- group: Webhook
+  events: [WEBHOOK_CREATED, WEBHOOK_CONFIG_CHANGED, WEBHOOK_DELETED, WEBHOOK_SECRET_ROTATED, WEBHOOK_SECRET_REVOKED]
+verification_libraries:
+- https://github.com/zerotier/ztchooks
+- https://github.com/zerotier/ztchooks-py
+- https://github.com/zerotier/ztchooks-ts

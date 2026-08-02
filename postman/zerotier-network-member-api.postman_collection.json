@@ -1,0 +1,927 @@
+{
+  "info": {
+    "_postman_id": "1a2ab285-7fe0-4043-94d1-772dda4b8483",
+    "name": "ZeroTier Central controller network-member API",
+    "description": "ZeroTier Central Network Management Portal API.<p>All API requests must have an API token header specified in the <code>Authorization: token xxxxx</code> format.  You can generate your API key by logging into <a href=\"https://my.zerotier.com\">ZeroTier Central</a> and creating a token on the Account page.</p><p>eg. <code>curl -X GET -H \"Authorization: token xxxxx\" https://api.zerotier.com/api/v1/network</code></p><p><h3>Rate Limiting</h3></p><p>The ZeroTier Central API implements rate limiting.  Paid users are limited to 100 requests per second.  Free users are limited to 20 requests per second.</p> <p> You can get the OpenAPI spec here as well: <code>https://docs.zerotier.com/api/central/ref-v1.json</code></p>\n\nContact Support:\n Name: ZeroTier Support Discussion Forum",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:37:52.000Z",
+    "updatedAt": "2026-07-28T03:37:52.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-1a2ab285-7fe0-4043-94d1-772dda4b8483"
+  },
+  "item": [
+    {
+      "name": "network",
+      "item": [
+        {
+          "name": "{networkID}",
+          "item": [
+            {
+              "name": "member",
+              "item": [
+                {
+                  "name": "{memberID}",
+                  "item": [
+                    {
+                      "name": "Return an individual member on a network",
+                      "id": "de4cb351-76a8-4cb7-8d59-2304abc706f4",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/network/:networkID/member/:memberID",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "network",
+                            ":networkID",
+                            "member",
+                            ":memberID"
+                          ],
+                          "variable": [
+                            {
+                              "id": "cf212b4c-63bc-487d-997e-be04813b6f52",
+                              "key": "networkID",
+                              "value": "<string>",
+                              "description": "(Required) ID of the network"
+                            },
+                            {
+                              "id": "e622656c-1632-4909-b6cc-97b6ef2783ff",
+                              "key": "memberID",
+                              "value": "<string>",
+                              "description": "(Required) ID of the member"
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "57363f24-1aa4-43cd-9708-c4e80f03c7a3",
+                          "name": "member get success",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/network/:networkID/member/:memberID",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "network",
+                                ":networkID",
+                                "member",
+                                ":memberID"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "networkID"
+                                },
+                                {
+                                  "key": "memberID"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\",\n  \"clock\": \"<long>\",\n  \"networkId\": \"<string>\",\n  \"nodeId\": \"<string>\",\n  \"controllerId\": \"<string>\",\n  \"hidden\": \"<boolean>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"config\": {\n    \"activeBridge\": \"<boolean>\",\n    \"authorized\": \"<boolean>\",\n    \"capabilities\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"creationTime\": \"<long>\",\n    \"id\": \"<string>\",\n    \"identity\": \"<string>\",\n    \"ipAssignments\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"lastAuthorizedTime\": \"<long>\",\n    \"lastDeauthorizedTime\": \"<long>\",\n    \"noAutoAssignIps\": \"<boolean>\",\n    \"revision\": \"<integer>\",\n    \"ssoExempt\": \"<boolean>\",\n    \"tags\": [\n      [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      [\n        \"<integer>\",\n        \"<integer>\"\n      ]\n    ],\n    \"vMajor\": \"<integer>\",\n    \"vMinor\": \"<integer>\",\n    \"vRev\": \"<integer>\",\n    \"vProto\": \"<integer>\"\n  },\n  \"lastOnline\": \"<long>\",\n  \"lastSeen\": \"<long>\",\n  \"physicalAddress\": \"<string>\",\n  \"clientVersion\": \"<string>\",\n  \"protocolVersion\": \"<integer>\",\n  \"supportsRulesEngine\": \"<boolean>\"\n}",
+                          "createdAt": "2026-07-28T03:37:53.000Z",
+                          "updatedAt": "2026-07-28T03:37:53.000Z",
+                          "uid": "35240-57363f24-1aa4-43cd-9708-c4e80f03c7a3"
+                        },
+                        {
+                          "id": "2295c288-12fe-485d-a580-a41ed45439be",
+                          "name": "Authorization required",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/network/:networkID/member/:memberID",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "network",
+                                ":networkID",
+                                "member",
+                                ":memberID"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "networkID"
+                                },
+                                {
+                                  "key": "memberID"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:37:53.000Z",
+                          "updatedAt": "2026-07-28T03:37:53.000Z",
+                          "uid": "35240-2295c288-12fe-485d-a580-a41ed45439be"
+                        },
+                        {
+                          "id": "2e523118-d23c-486a-87d5-ad1e14d5e9d2",
+                          "name": "Access denied",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/network/:networkID/member/:memberID",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "network",
+                                ":networkID",
+                                "member",
+                                ":memberID"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "networkID"
+                                },
+                                {
+                                  "key": "memberID"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:37:53.000Z",
+                          "updatedAt": "2026-07-28T03:37:53.000Z",
+                          "uid": "35240-2e523118-d23c-486a-87d5-ad1e14d5e9d2"
+                        },
+                        {
+                          "id": "c158ef8f-5a83-4955-936c-8599be96a881",
+                          "name": "Item not found",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/network/:networkID/member/:memberID",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "network",
+                                ":networkID",
+                                "member",
+                                ":memberID"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "networkID"
+                                },
+                                {
+                                  "key": "memberID"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:37:53.000Z",
+                          "updatedAt": "2026-07-28T03:37:53.000Z",
+                          "uid": "35240-c158ef8f-5a83-4955-936c-8599be96a881"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:37:53.000Z",
+                      "updatedAt": "2026-07-28T03:37:53.000Z",
+                      "uid": "35240-de4cb351-76a8-4cb7-8d59-2304abc706f4"
+                    },
+                    {
+                      "name": "Modify a network member",
+                      "id": "6533cde8-b09c-46bb-b82c-0fc7419eed1f",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"id\": \"<string>\",\n  \"clock\": \"<long>\",\n  \"networkId\": \"<string>\",\n  \"nodeId\": \"<string>\",\n  \"controllerId\": \"<string>\",\n  \"hidden\": \"<boolean>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"config\": {\n    \"activeBridge\": \"<boolean>\",\n    \"authorized\": \"<boolean>\",\n    \"capabilities\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"creationTime\": \"<long>\",\n    \"id\": \"<string>\",\n    \"identity\": \"<string>\",\n    \"ipAssignments\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"lastAuthorizedTime\": \"<long>\",\n    \"lastDeauthorizedTime\": \"<long>\",\n    \"noAutoAssignIps\": \"<boolean>\",\n    \"revision\": \"<integer>\",\n    \"ssoExempt\": \"<boolean>\",\n    \"tags\": [\n      [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      [\n        \"<integer>\",\n        \"<integer>\"\n      ]\n    ],\n    \"vMajor\": \"<integer>\",\n    \"vMinor\": \"<integer>\",\n    \"vRev\": \"<integer>\",\n    \"vProto\": \"<integer>\"\n  },\n  \"lastOnline\": \"<long>\",\n  \"lastSeen\": \"<long>\",\n  \"physicalAddress\": \"<string>\",\n  \"clientVersion\": \"<string>\",\n  \"protocolVersion\": \"<integer>\",\n  \"supportsRulesEngine\": \"<boolean>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/network/:networkID/member/:memberID",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "network",
+                            ":networkID",
+                            "member",
+                            ":memberID"
+                          ],
+                          "variable": [
+                            {
+                              "id": "088b06e3-145a-4356-8d96-b60ff231beb8",
+                              "key": "networkID",
+                              "value": "<string>",
+                              "description": "(Required) ID of the network"
+                            },
+                            {
+                              "id": "0dd0f632-b5c7-4127-8812-f9fbf46eed2f",
+                              "key": "memberID",
+                              "value": "<string>",
+                              "description": "(Required) ID of the member"
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "48e2060e-1a01-4c82-b659-81395177a988",
+                          "name": "member changed successfully",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"id\": \"<string>\",\n  \"clock\": \"<long>\",\n  \"networkId\": \"<string>\",\n  \"nodeId\": \"<string>\",\n  \"controllerId\": \"<string>\",\n  \"hidden\": \"<boolean>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"config\": {\n    \"activeBridge\": \"<boolean>\",\n    \"authorized\": \"<boolean>\",\n    \"capabilities\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"creationTime\": \"<long>\",\n    \"id\": \"<string>\",\n    \"identity\": \"<string>\",\n    \"ipAssignments\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"lastAuthorizedTime\": \"<long>\",\n    \"lastDeauthorizedTime\": \"<long>\",\n    \"noAutoAssignIps\": \"<boolean>\",\n    \"revision\": \"<integer>\",\n    \"ssoExempt\": \"<boolean>\",\n    \"tags\": [\n      [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      [\n        \"<integer>\",\n        \"<integer>\"\n      ]\n    ],\n    \"vMajor\": \"<integer>\",\n    \"vMinor\": \"<integer>\",\n    \"vRev\": \"<integer>\",\n    \"vProto\": \"<integer>\"\n  },\n  \"lastOnline\": \"<long>\",\n  \"lastSeen\": \"<long>\",\n  \"physicalAddress\": \"<string>\",\n  \"clientVersion\": \"<string>\",\n  \"protocolVersion\": \"<integer>\",\n  \"supportsRulesEngine\": \"<boolean>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/network/:networkID/member/:memberID",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "network",
+                                ":networkID",
+                                "member",
+                                ":memberID"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "networkID"
+                                },
+                                {
+                                  "key": "memberID"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\",\n  \"clock\": \"<long>\",\n  \"networkId\": \"<string>\",\n  \"nodeId\": \"<string>\",\n  \"controllerId\": \"<string>\",\n  \"hidden\": \"<boolean>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"config\": {\n    \"activeBridge\": \"<boolean>\",\n    \"authorized\": \"<boolean>\",\n    \"capabilities\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"creationTime\": \"<long>\",\n    \"id\": \"<string>\",\n    \"identity\": \"<string>\",\n    \"ipAssignments\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"lastAuthorizedTime\": \"<long>\",\n    \"lastDeauthorizedTime\": \"<long>\",\n    \"noAutoAssignIps\": \"<boolean>\",\n    \"revision\": \"<integer>\",\n    \"ssoExempt\": \"<boolean>\",\n    \"tags\": [\n      [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      [\n        \"<integer>\",\n        \"<integer>\"\n      ]\n    ],\n    \"vMajor\": \"<integer>\",\n    \"vMinor\": \"<integer>\",\n    \"vRev\": \"<integer>\",\n    \"vProto\": \"<integer>\"\n  },\n  \"lastOnline\": \"<long>\",\n  \"lastSeen\": \"<long>\",\n  \"physicalAddress\": \"<string>\",\n  \"clientVersion\": \"<string>\",\n  \"protocolVersion\": \"<integer>\",\n  \"supportsRulesEngine\": \"<boolean>\"\n}",
+                          "createdAt": "2026-07-28T03:37:53.000Z",
+                          "updatedAt": "2026-07-28T03:37:53.000Z",
+                          "uid": "35240-48e2060e-1a01-4c82-b659-81395177a988"
+                        },
+                        {
+                          "id": "5214754a-f542-4c7e-b13c-72045defd630",
+                          "name": "Authorization required",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"id\": \"<string>\",\n  \"clock\": \"<long>\",\n  \"networkId\": \"<string>\",\n  \"nodeId\": \"<string>\",\n  \"controllerId\": \"<string>\",\n  \"hidden\": \"<boolean>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"config\": {\n    \"activeBridge\": \"<boolean>\",\n    \"authorized\": \"<boolean>\",\n    \"capabilities\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"creationTime\": \"<long>\",\n    \"id\": \"<string>\",\n    \"identity\": \"<string>\",\n    \"ipAssignments\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"lastAuthorizedTime\": \"<long>\",\n    \"lastDeauthorizedTime\": \"<long>\",\n    \"noAutoAssignIps\": \"<boolean>\",\n    \"revision\": \"<integer>\",\n    \"ssoExempt\": \"<boolean>\",\n    \"tags\": [\n      [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      [\n        \"<integer>\",\n        \"<integer>\"\n      ]\n    ],\n    \"vMajor\": \"<integer>\",\n    \"vMinor\": \"<integer>\",\n    \"vRev\": \"<integer>\",\n    \"vProto\": \"<integer>\"\n  },\n  \"lastOnline\": \"<long>\",\n  \"lastSeen\": \"<long>\",\n  \"physicalAddress\": \"<string>\",\n  \"clientVersion\": \"<string>\",\n  \"protocolVersion\": \"<integer>\",\n  \"supportsRulesEngine\": \"<boolean>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/network/:networkID/member/:memberID",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "network",
+                                ":networkID",
+                                "member",
+                                ":memberID"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "networkID"
+                                },
+                                {
+                                  "key": "memberID"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:37:53.000Z",
+                          "updatedAt": "2026-07-28T03:37:53.000Z",
+                          "uid": "35240-5214754a-f542-4c7e-b13c-72045defd630"
+                        },
+                        {
+                          "id": "3e61af9c-86da-4fef-873a-aa111bd0fbe8",
+                          "name": "Access denied",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"id\": \"<string>\",\n  \"clock\": \"<long>\",\n  \"networkId\": \"<string>\",\n  \"nodeId\": \"<string>\",\n  \"controllerId\": \"<string>\",\n  \"hidden\": \"<boolean>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"config\": {\n    \"activeBridge\": \"<boolean>\",\n    \"authorized\": \"<boolean>\",\n    \"capabilities\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"creationTime\": \"<long>\",\n    \"id\": \"<string>\",\n    \"identity\": \"<string>\",\n    \"ipAssignments\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"lastAuthorizedTime\": \"<long>\",\n    \"lastDeauthorizedTime\": \"<long>\",\n    \"noAutoAssignIps\": \"<boolean>\",\n    \"revision\": \"<integer>\",\n    \"ssoExempt\": \"<boolean>\",\n    \"tags\": [\n      [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      [\n        \"<integer>\",\n        \"<integer>\"\n      ]\n    ],\n    \"vMajor\": \"<integer>\",\n    \"vMinor\": \"<integer>\",\n    \"vRev\": \"<integer>\",\n    \"vProto\": \"<integer>\"\n  },\n  \"lastOnline\": \"<long>\",\n  \"lastSeen\": \"<long>\",\n  \"physicalAddress\": \"<string>\",\n  \"clientVersion\": \"<string>\",\n  \"protocolVersion\": \"<integer>\",\n  \"supportsRulesEngine\": \"<boolean>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/network/:networkID/member/:memberID",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "network",
+                                ":networkID",
+                                "member",
+                                ":memberID"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "networkID"
+                                },
+                                {
+                                  "key": "memberID"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:37:53.000Z",
+                          "updatedAt": "2026-07-28T03:37:53.000Z",
+                          "uid": "35240-3e61af9c-86da-4fef-873a-aa111bd0fbe8"
+                        },
+                        {
+                          "id": "f26df4b1-39d6-43ff-a06e-5bf346951f83",
+                          "name": "Item not found",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"id\": \"<string>\",\n  \"clock\": \"<long>\",\n  \"networkId\": \"<string>\",\n  \"nodeId\": \"<string>\",\n  \"controllerId\": \"<string>\",\n  \"hidden\": \"<boolean>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"config\": {\n    \"activeBridge\": \"<boolean>\",\n    \"authorized\": \"<boolean>\",\n    \"capabilities\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"creationTime\": \"<long>\",\n    \"id\": \"<string>\",\n    \"identity\": \"<string>\",\n    \"ipAssignments\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"lastAuthorizedTime\": \"<long>\",\n    \"lastDeauthorizedTime\": \"<long>\",\n    \"noAutoAssignIps\": \"<boolean>\",\n    \"revision\": \"<integer>\",\n    \"ssoExempt\": \"<boolean>\",\n    \"tags\": [\n      [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      [\n        \"<integer>\",\n        \"<integer>\"\n      ]\n    ],\n    \"vMajor\": \"<integer>\",\n    \"vMinor\": \"<integer>\",\n    \"vRev\": \"<integer>\",\n    \"vProto\": \"<integer>\"\n  },\n  \"lastOnline\": \"<long>\",\n  \"lastSeen\": \"<long>\",\n  \"physicalAddress\": \"<string>\",\n  \"clientVersion\": \"<string>\",\n  \"protocolVersion\": \"<integer>\",\n  \"supportsRulesEngine\": \"<boolean>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/network/:networkID/member/:memberID",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "network",
+                                ":networkID",
+                                "member",
+                                ":memberID"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "networkID"
+                                },
+                                {
+                                  "key": "memberID"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:37:53.000Z",
+                          "updatedAt": "2026-07-28T03:37:53.000Z",
+                          "uid": "35240-f26df4b1-39d6-43ff-a06e-5bf346951f83"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:37:53.000Z",
+                      "updatedAt": "2026-07-28T03:37:53.000Z",
+                      "uid": "35240-6533cde8-b09c-46bb-b82c-0fc7419eed1f"
+                    },
+                    {
+                      "name": "Delete a network member",
+                      "id": "d2b34d4b-6557-4f38-8b2a-84cf3c238f0a",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/network/:networkID/member/:memberID",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "network",
+                            ":networkID",
+                            "member",
+                            ":memberID"
+                          ],
+                          "variable": [
+                            {
+                              "id": "f035899b-269b-4310-8a25-ab84095b1806",
+                              "key": "networkID",
+                              "value": "<string>",
+                              "description": "(Required) ID of the network"
+                            },
+                            {
+                              "id": "4e1f8885-a3d3-4187-8ba0-20f730fc1b33",
+                              "key": "memberID",
+                              "value": "<string>",
+                              "description": "(Required) ID of the member"
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "651d0988-fabd-4d0b-afbe-2b1b76b16b7d",
+                          "name": "member deleted",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/network/:networkID/member/:memberID",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "network",
+                                ":networkID",
+                                "member",
+                                ":memberID"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "networkID"
+                                },
+                                {
+                                  "key": "memberID"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:37:53.000Z",
+                          "updatedAt": "2026-07-28T03:37:53.000Z",
+                          "uid": "35240-651d0988-fabd-4d0b-afbe-2b1b76b16b7d"
+                        },
+                        {
+                          "id": "22ff5b2d-1ca7-44c5-b610-eb9fc87504d7",
+                          "name": "Authorization required",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/network/:networkID/member/:memberID",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "network",
+                                ":networkID",
+                                "member",
+                                ":memberID"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "networkID"
+                                },
+                                {
+                                  "key": "memberID"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:37:53.000Z",
+                          "updatedAt": "2026-07-28T03:37:53.000Z",
+                          "uid": "35240-22ff5b2d-1ca7-44c5-b610-eb9fc87504d7"
+                        },
+                        {
+                          "id": "1cab3bfa-7e27-41f2-9a50-d236c38be395",
+                          "name": "Access denied",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/network/:networkID/member/:memberID",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "network",
+                                ":networkID",
+                                "member",
+                                ":memberID"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "networkID"
+                                },
+                                {
+                                  "key": "memberID"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:37:53.000Z",
+                          "updatedAt": "2026-07-28T03:37:53.000Z",
+                          "uid": "35240-1cab3bfa-7e27-41f2-9a50-d236c38be395"
+                        },
+                        {
+                          "id": "5e535ecb-57a8-4264-9627-62329a24e58b",
+                          "name": "Item not found",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/network/:networkID/member/:memberID",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "network",
+                                ":networkID",
+                                "member",
+                                ":memberID"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "networkID"
+                                },
+                                {
+                                  "key": "memberID"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:37:53.000Z",
+                          "updatedAt": "2026-07-28T03:37:53.000Z",
+                          "uid": "35240-5e535ecb-57a8-4264-9627-62329a24e58b"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:37:53.000Z",
+                      "updatedAt": "2026-07-28T03:37:53.000Z",
+                      "uid": "35240-d2b34d4b-6557-4f38-8b2a-84cf3c238f0a"
+                    }
+                  ],
+                  "id": "8b77f3af-106b-45e2-a856-ededcbaab300",
+                  "createdAt": "2026-07-28T03:37:53.000Z",
+                  "updatedAt": "2026-07-28T03:37:53.000Z",
+                  "uid": "35240-8b77f3af-106b-45e2-a856-ededcbaab300"
+                },
+                {
+                  "name": "Returns a list of Members on the network.",
+                  "id": "38c9a4be-62c1-4612-95b0-83ac1fe6ff17",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/network/:networkID/member",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "network",
+                        ":networkID",
+                        "member"
+                      ],
+                      "variable": [
+                        {
+                          "id": "758e0511-e5e2-4339-8001-74054a47f844",
+                          "key": "networkID",
+                          "value": "<string>",
+                          "description": "(Required) ID of the network to return"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "d289970c-831c-4523-ae9e-798497dcf08a",
+                      "name": "member list get success",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/network/:networkID/member",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "network",
+                            ":networkID",
+                            "member"
+                          ],
+                          "variable": [
+                            {
+                              "key": "networkID"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"id\": \"<string>\",\n    \"clock\": \"<long>\",\n    \"networkId\": \"<string>\",\n    \"nodeId\": \"<string>\",\n    \"controllerId\": \"<string>\",\n    \"hidden\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"config\": {\n      \"activeBridge\": \"<boolean>\",\n      \"authorized\": \"<boolean>\",\n      \"capabilities\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"creationTime\": \"<long>\",\n      \"id\": \"<string>\",\n      \"identity\": \"<string>\",\n      \"ipAssignments\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"lastAuthorizedTime\": \"<long>\",\n      \"lastDeauthorizedTime\": \"<long>\",\n      \"noAutoAssignIps\": \"<boolean>\",\n      \"revision\": \"<integer>\",\n      \"ssoExempt\": \"<boolean>\",\n      \"tags\": [\n        [\n          \"<integer>\",\n          \"<integer>\"\n        ],\n        [\n          \"<integer>\",\n          \"<integer>\"\n        ]\n      ],\n      \"vMajor\": \"<integer>\",\n      \"vMinor\": \"<integer>\",\n      \"vRev\": \"<integer>\",\n      \"vProto\": \"<integer>\"\n    },\n    \"lastOnline\": \"<long>\",\n    \"lastSeen\": \"<long>\",\n    \"physicalAddress\": \"<string>\",\n    \"clientVersion\": \"<string>\",\n    \"protocolVersion\": \"<integer>\",\n    \"supportsRulesEngine\": \"<boolean>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"clock\": \"<long>\",\n    \"networkId\": \"<string>\",\n    \"nodeId\": \"<string>\",\n    \"controllerId\": \"<string>\",\n    \"hidden\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"config\": {\n      \"activeBridge\": \"<boolean>\",\n      \"authorized\": \"<boolean>\",\n      \"capabilities\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"creationTime\": \"<long>\",\n      \"id\": \"<string>\",\n      \"identity\": \"<string>\",\n      \"ipAssignments\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"lastAuthorizedTime\": \"<long>\",\n      \"lastDeauthorizedTime\": \"<long>\",\n      \"noAutoAssignIps\": \"<boolean>\",\n      \"revision\": \"<integer>\",\n      \"ssoExempt\": \"<boolean>\",\n      \"tags\": [\n        [\n          \"<integer>\",\n          \"<integer>\"\n        ],\n        [\n          \"<integer>\",\n          \"<integer>\"\n        ]\n      ],\n      \"vMajor\": \"<integer>\",\n      \"vMinor\": \"<integer>\",\n      \"vRev\": \"<integer>\",\n      \"vProto\": \"<integer>\"\n    },\n    \"lastOnline\": \"<long>\",\n    \"lastSeen\": \"<long>\",\n    \"physicalAddress\": \"<string>\",\n    \"clientVersion\": \"<string>\",\n    \"protocolVersion\": \"<integer>\",\n    \"supportsRulesEngine\": \"<boolean>\"\n  }\n]",
+                      "createdAt": "2026-07-28T03:37:53.000Z",
+                      "updatedAt": "2026-07-28T03:37:53.000Z",
+                      "uid": "35240-d289970c-831c-4523-ae9e-798497dcf08a"
+                    },
+                    {
+                      "id": "bcb1bbc9-cf70-411b-8150-e771e6b78366",
+                      "name": "Authorization required",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/network/:networkID/member",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "network",
+                            ":networkID",
+                            "member"
+                          ],
+                          "variable": [
+                            {
+                              "key": "networkID"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:37:53.000Z",
+                      "updatedAt": "2026-07-28T03:37:53.000Z",
+                      "uid": "35240-bcb1bbc9-cf70-411b-8150-e771e6b78366"
+                    },
+                    {
+                      "id": "49e63dfb-8664-4623-9c69-b4a50e3e32df",
+                      "name": "Access denied",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/network/:networkID/member",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "network",
+                            ":networkID",
+                            "member"
+                          ],
+                          "variable": [
+                            {
+                              "key": "networkID"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:37:53.000Z",
+                      "updatedAt": "2026-07-28T03:37:53.000Z",
+                      "uid": "35240-49e63dfb-8664-4623-9c69-b4a50e3e32df"
+                    },
+                    {
+                      "id": "1c1d8bc3-2856-4b25-bc37-84e3007f51de",
+                      "name": "Item not found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/network/:networkID/member",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "network",
+                            ":networkID",
+                            "member"
+                          ],
+                          "variable": [
+                            {
+                              "key": "networkID"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:37:53.000Z",
+                      "updatedAt": "2026-07-28T03:37:53.000Z",
+                      "uid": "35240-1c1d8bc3-2856-4b25-bc37-84e3007f51de"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:37:53.000Z",
+                  "updatedAt": "2026-07-28T03:37:53.000Z",
+                  "uid": "35240-38c9a4be-62c1-4612-95b0-83ac1fe6ff17"
+                }
+              ],
+              "id": "ccb817a8-c162-4edd-9369-97ce278170c4",
+              "createdAt": "2026-07-28T03:37:53.000Z",
+              "updatedAt": "2026-07-28T03:37:53.000Z",
+              "uid": "35240-ccb817a8-c162-4edd-9369-97ce278170c4"
+            }
+          ],
+          "id": "5c204c74-da8c-4436-81b3-32f27ca75067",
+          "createdAt": "2026-07-28T03:37:53.000Z",
+          "updatedAt": "2026-07-28T03:37:53.000Z",
+          "uid": "35240-5c204c74-da8c-4436-81b3-32f27ca75067"
+        }
+      ],
+      "id": "46f9951d-5b57-4fec-bded-cc75ed69a55c",
+      "createdAt": "2026-07-28T03:37:53.000Z",
+      "updatedAt": "2026-07-28T03:37:53.000Z",
+      "uid": "35240-46f9951d-5b57-4fec-bded-cc75ed69a55c"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.zerotier.com/api/v1"
+    }
+  ]
+}

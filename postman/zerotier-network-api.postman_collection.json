@@ -1,0 +1,871 @@
+{
+  "info": {
+    "_postman_id": "70ab2a38-3e91-412a-b962-0c4e5f520a2d",
+    "name": "ZeroTier Central controller network API",
+    "description": "ZeroTier Central Network Management Portal API.<p>All API requests must have an API token header specified in the <code>Authorization: token xxxxx</code> format.  You can generate your API key by logging into <a href=\"https://my.zerotier.com\">ZeroTier Central</a> and creating a token on the Account page.</p><p>eg. <code>curl -X GET -H \"Authorization: token xxxxx\" https://api.zerotier.com/api/v1/network</code></p><p><h3>Rate Limiting</h3></p><p>The ZeroTier Central API implements rate limiting.  Paid users are limited to 100 requests per second.  Free users are limited to 20 requests per second.</p> <p> You can get the OpenAPI spec here as well: <code>https://docs.zerotier.com/api/central/ref-v1.json</code></p>\n\nContact Support:\n Name: ZeroTier Support Discussion Forum",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:37:51.000Z",
+    "updatedAt": "2026-07-28T03:37:51.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-70ab2a38-3e91-412a-b962-0c4e5f520a2d"
+  },
+  "item": [
+    {
+      "name": "network",
+      "item": [
+        {
+          "name": "{networkID}",
+          "item": [
+            {
+              "name": "Get network by ID",
+              "id": "dcc03eb1-8836-4d4e-8bfa-a4317f92b07d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/network/:networkID",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "network",
+                    ":networkID"
+                  ],
+                  "variable": [
+                    {
+                      "id": "d3c3f81b-51c4-4f39-98b2-02518af8b0ab",
+                      "key": "networkID",
+                      "value": "<string>",
+                      "description": "(Required) ID of the network to return"
+                    }
+                  ]
+                },
+                "description": "Returns a single network"
+              },
+              "response": [
+                {
+                  "id": "a76be4ca-d4cc-4ea4-8b33-776a4e91bbb5",
+                  "name": "get success",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/network/:networkID",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "network",
+                        ":networkID"
+                      ],
+                      "variable": [
+                        {
+                          "key": "networkID"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"clock\": \"<long>\",\n  \"config\": {\n    \"id\": \"<string>\",\n    \"creationTime\": \"<long>\",\n    \"dns\": {\n      \"domain\": \"<string>\",\n      \"servers\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"enableBroadcast\": \"<boolean>\",\n    \"ipAssignmentPools\": [\n      {\n        \"ipRangeStart\": \"<string>\",\n        \"ipRangeEnd\": \"<string>\"\n      },\n      {\n        \"ipRangeStart\": \"<string>\",\n        \"ipRangeEnd\": \"<string>\"\n      }\n    ],\n    \"lastModified\": \"<long>\",\n    \"mtu\": \"<integer>\",\n    \"multicastLimit\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"private\": \"<boolean>\",\n    \"routes\": [\n      {\n        \"target\": \"<string>\",\n        \"via\": \"<string>\"\n      },\n      {\n        \"target\": \"<string>\",\n        \"via\": \"<string>\"\n      }\n    ],\n    \"ssoConfig\": {\n      \"enabled\": \"<boolean>\",\n      \"mode\": \"<string>\",\n      \"clientId\": \"<string>\",\n      \"issuer\": \"<string>\",\n      \"provider\": \"<string>\",\n      \"authorizationEndpoint\": \"<string>\",\n      \"allowList\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"v4AssignMode\": {\n      \"zt\": \"<boolean>\"\n    },\n    \"v6AssignMode\": {\n      \"6plane\": \"<boolean>\",\n      \"rfc4193\": \"<boolean>\",\n      \"zt\": \"<boolean>\"\n    }\n  },\n  \"description\": \"<string>\",\n  \"rulesSource\": \"<string>\",\n  \"permissions\": {\n    \"magna8\": {\n      \"a\": \"<boolean>\",\n      \"d\": \"<boolean>\",\n      \"m\": \"<boolean>\",\n      \"r\": \"<boolean>\"\n    }\n  },\n  \"ownerId\": \"<string>\",\n  \"onlineMemberCount\": \"<integer>\",\n  \"authorizedMemberCount\": \"<integer>\",\n  \"totalMemberCount\": \"<integer>\",\n  \"capabilitiesByName\": {},\n  \"tagsByName\": {}\n}",
+                  "createdAt": "2026-07-28T03:37:51.000Z",
+                  "updatedAt": "2026-07-28T03:37:51.000Z",
+                  "uid": "35240-a76be4ca-d4cc-4ea4-8b33-776a4e91bbb5"
+                },
+                {
+                  "id": "92fe4a74-402a-4f5c-9021-f7d5ef415720",
+                  "name": "Authorization required",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/network/:networkID",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "network",
+                        ":networkID"
+                      ],
+                      "variable": [
+                        {
+                          "key": "networkID"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:37:51.000Z",
+                  "updatedAt": "2026-07-28T03:37:51.000Z",
+                  "uid": "35240-92fe4a74-402a-4f5c-9021-f7d5ef415720"
+                },
+                {
+                  "id": "2cf8d236-4604-4d2e-b397-ac1302d0f8c8",
+                  "name": "Access denied",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/network/:networkID",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "network",
+                        ":networkID"
+                      ],
+                      "variable": [
+                        {
+                          "key": "networkID"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:37:51.000Z",
+                  "updatedAt": "2026-07-28T03:37:51.000Z",
+                  "uid": "35240-2cf8d236-4604-4d2e-b397-ac1302d0f8c8"
+                },
+                {
+                  "id": "964d913d-1166-40b4-bc6a-39c0f9662b0f",
+                  "name": "Item not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/network/:networkID",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "network",
+                        ":networkID"
+                      ],
+                      "variable": [
+                        {
+                          "key": "networkID"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:37:51.000Z",
+                  "updatedAt": "2026-07-28T03:37:51.000Z",
+                  "uid": "35240-964d913d-1166-40b4-bc6a-39c0f9662b0f"
+                }
+              ],
+              "createdAt": "2026-07-28T03:37:51.000Z",
+              "updatedAt": "2026-07-28T03:37:51.000Z",
+              "uid": "35240-dcc03eb1-8836-4d4e-8bfa-a4317f92b07d"
+            },
+            {
+              "name": "update network configuration",
+              "id": "3c30af34-8043-4da0-b15f-ebb7f2ea95af",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"clock\": \"<long>\",\n  \"config\": {\n    \"id\": \"<string>\",\n    \"creationTime\": \"<long>\",\n    \"dns\": {\n      \"domain\": \"<string>\",\n      \"servers\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"enableBroadcast\": \"<boolean>\",\n    \"ipAssignmentPools\": [\n      {\n        \"ipRangeStart\": \"<string>\",\n        \"ipRangeEnd\": \"<string>\"\n      },\n      {\n        \"ipRangeStart\": \"<string>\",\n        \"ipRangeEnd\": \"<string>\"\n      }\n    ],\n    \"lastModified\": \"<long>\",\n    \"mtu\": \"<integer>\",\n    \"multicastLimit\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"private\": \"<boolean>\",\n    \"routes\": [\n      {\n        \"target\": \"<string>\",\n        \"via\": \"<string>\"\n      },\n      {\n        \"target\": \"<string>\",\n        \"via\": \"<string>\"\n      }\n    ],\n    \"ssoConfig\": {\n      \"enabled\": \"<boolean>\",\n      \"mode\": \"<string>\",\n      \"clientId\": \"<string>\",\n      \"issuer\": \"<string>\",\n      \"provider\": \"<string>\",\n      \"authorizationEndpoint\": \"<string>\",\n      \"allowList\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"v4AssignMode\": {\n      \"zt\": \"<boolean>\"\n    },\n    \"v6AssignMode\": {\n      \"6plane\": \"<boolean>\",\n      \"rfc4193\": \"<boolean>\",\n      \"zt\": \"<boolean>\"\n    }\n  },\n  \"description\": \"<string>\",\n  \"rulesSource\": \"<string>\",\n  \"permissions\": {\n    \"magna8\": {\n      \"a\": \"<boolean>\",\n      \"d\": \"<boolean>\",\n      \"m\": \"<boolean>\",\n      \"r\": \"<boolean>\"\n    }\n  },\n  \"ownerId\": \"<string>\",\n  \"onlineMemberCount\": \"<integer>\",\n  \"authorizedMemberCount\": \"<integer>\",\n  \"totalMemberCount\": \"<integer>\",\n  \"capabilitiesByName\": {},\n  \"tagsByName\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/network/:networkID",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "network",
+                    ":networkID"
+                  ],
+                  "variable": [
+                    {
+                      "id": "23cb74d8-023a-4819-a309-35cf36ac74f4",
+                      "key": "networkID",
+                      "value": "<string>",
+                      "description": "(Required) ID of the network to change"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "1e2dffb4-0108-4b8d-abd2-2426b7369f61",
+                  "name": "success",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"id\": \"<string>\",\n  \"clock\": \"<long>\",\n  \"config\": {\n    \"id\": \"<string>\",\n    \"creationTime\": \"<long>\",\n    \"dns\": {\n      \"domain\": \"<string>\",\n      \"servers\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"enableBroadcast\": \"<boolean>\",\n    \"ipAssignmentPools\": [\n      {\n        \"ipRangeStart\": \"<string>\",\n        \"ipRangeEnd\": \"<string>\"\n      },\n      {\n        \"ipRangeStart\": \"<string>\",\n        \"ipRangeEnd\": \"<string>\"\n      }\n    ],\n    \"lastModified\": \"<long>\",\n    \"mtu\": \"<integer>\",\n    \"multicastLimit\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"private\": \"<boolean>\",\n    \"routes\": [\n      {\n        \"target\": \"<string>\",\n        \"via\": \"<string>\"\n      },\n      {\n        \"target\": \"<string>\",\n        \"via\": \"<string>\"\n      }\n    ],\n    \"ssoConfig\": {\n      \"enabled\": \"<boolean>\",\n      \"mode\": \"<string>\",\n      \"clientId\": \"<string>\",\n      \"issuer\": \"<string>\",\n      \"provider\": \"<string>\",\n      \"authorizationEndpoint\": \"<string>\",\n      \"allowList\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"v4AssignMode\": {\n      \"zt\": \"<boolean>\"\n    },\n    \"v6AssignMode\": {\n      \"6plane\": \"<boolean>\",\n      \"rfc4193\": \"<boolean>\",\n      \"zt\": \"<boolean>\"\n    }\n  },\n  \"description\": \"<string>\",\n  \"rulesSource\": \"<string>\",\n  \"permissions\": {\n    \"magna8\": {\n      \"a\": \"<boolean>\",\n      \"d\": \"<boolean>\",\n      \"m\": \"<boolean>\",\n      \"r\": \"<boolean>\"\n    }\n  },\n  \"ownerId\": \"<string>\",\n  \"onlineMemberCount\": \"<integer>\",\n  \"authorizedMemberCount\": \"<integer>\",\n  \"totalMemberCount\": \"<integer>\",\n  \"capabilitiesByName\": {},\n  \"tagsByName\": {}\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/network/:networkID",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "network",
+                        ":networkID"
+                      ],
+                      "variable": [
+                        {
+                          "key": "networkID"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"clock\": \"<long>\",\n  \"config\": {\n    \"id\": \"<string>\",\n    \"creationTime\": \"<long>\",\n    \"dns\": {\n      \"domain\": \"<string>\",\n      \"servers\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"enableBroadcast\": \"<boolean>\",\n    \"ipAssignmentPools\": [\n      {\n        \"ipRangeStart\": \"<string>\",\n        \"ipRangeEnd\": \"<string>\"\n      },\n      {\n        \"ipRangeStart\": \"<string>\",\n        \"ipRangeEnd\": \"<string>\"\n      }\n    ],\n    \"lastModified\": \"<long>\",\n    \"mtu\": \"<integer>\",\n    \"multicastLimit\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"private\": \"<boolean>\",\n    \"routes\": [\n      {\n        \"target\": \"<string>\",\n        \"via\": \"<string>\"\n      },\n      {\n        \"target\": \"<string>\",\n        \"via\": \"<string>\"\n      }\n    ],\n    \"ssoConfig\": {\n      \"enabled\": \"<boolean>\",\n      \"mode\": \"<string>\",\n      \"clientId\": \"<string>\",\n      \"issuer\": \"<string>\",\n      \"provider\": \"<string>\",\n      \"authorizationEndpoint\": \"<string>\",\n      \"allowList\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"v4AssignMode\": {\n      \"zt\": \"<boolean>\"\n    },\n    \"v6AssignMode\": {\n      \"6plane\": \"<boolean>\",\n      \"rfc4193\": \"<boolean>\",\n      \"zt\": \"<boolean>\"\n    }\n  },\n  \"description\": \"<string>\",\n  \"rulesSource\": \"<string>\",\n  \"permissions\": {\n    \"magna8\": {\n      \"a\": \"<boolean>\",\n      \"d\": \"<boolean>\",\n      \"m\": \"<boolean>\",\n      \"r\": \"<boolean>\"\n    }\n  },\n  \"ownerId\": \"<string>\",\n  \"onlineMemberCount\": \"<integer>\",\n  \"authorizedMemberCount\": \"<integer>\",\n  \"totalMemberCount\": \"<integer>\",\n  \"capabilitiesByName\": {},\n  \"tagsByName\": {}\n}",
+                  "createdAt": "2026-07-28T03:37:51.000Z",
+                  "updatedAt": "2026-07-28T03:37:51.000Z",
+                  "uid": "35240-1e2dffb4-0108-4b8d-abd2-2426b7369f61"
+                },
+                {
+                  "id": "6000a04a-ee54-40ad-9328-66b29f090de4",
+                  "name": "Authorization required",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"id\": \"<string>\",\n  \"clock\": \"<long>\",\n  \"config\": {\n    \"id\": \"<string>\",\n    \"creationTime\": \"<long>\",\n    \"dns\": {\n      \"domain\": \"<string>\",\n      \"servers\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"enableBroadcast\": \"<boolean>\",\n    \"ipAssignmentPools\": [\n      {\n        \"ipRangeStart\": \"<string>\",\n        \"ipRangeEnd\": \"<string>\"\n      },\n      {\n        \"ipRangeStart\": \"<string>\",\n        \"ipRangeEnd\": \"<string>\"\n      }\n    ],\n    \"lastModified\": \"<long>\",\n    \"mtu\": \"<integer>\",\n    \"multicastLimit\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"private\": \"<boolean>\",\n    \"routes\": [\n      {\n        \"target\": \"<string>\",\n        \"via\": \"<string>\"\n      },\n      {\n        \"target\": \"<string>\",\n        \"via\": \"<string>\"\n      }\n    ],\n    \"ssoConfig\": {\n      \"enabled\": \"<boolean>\",\n      \"mode\": \"<string>\",\n      \"clientId\": \"<string>\",\n      \"issuer\": \"<string>\",\n      \"provider\": \"<string>\",\n      \"authorizationEndpoint\": \"<string>\",\n      \"allowList\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"v4AssignMode\": {\n      \"zt\": \"<boolean>\"\n    },\n    \"v6AssignMode\": {\n      \"6plane\": \"<boolean>\",\n      \"rfc4193\": \"<boolean>\",\n      \"zt\": \"<boolean>\"\n    }\n  },\n  \"description\": \"<string>\",\n  \"rulesSource\": \"<string>\",\n  \"permissions\": {\n    \"magna8\": {\n      \"a\": \"<boolean>\",\n      \"d\": \"<boolean>\",\n      \"m\": \"<boolean>\",\n      \"r\": \"<boolean>\"\n    }\n  },\n  \"ownerId\": \"<string>\",\n  \"onlineMemberCount\": \"<integer>\",\n  \"authorizedMemberCount\": \"<integer>\",\n  \"totalMemberCount\": \"<integer>\",\n  \"capabilitiesByName\": {},\n  \"tagsByName\": {}\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/network/:networkID",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "network",
+                        ":networkID"
+                      ],
+                      "variable": [
+                        {
+                          "key": "networkID"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:37:51.000Z",
+                  "updatedAt": "2026-07-28T03:37:51.000Z",
+                  "uid": "35240-6000a04a-ee54-40ad-9328-66b29f090de4"
+                },
+                {
+                  "id": "497a1529-145f-4257-88f3-21f880448b7d",
+                  "name": "Access denied",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"id\": \"<string>\",\n  \"clock\": \"<long>\",\n  \"config\": {\n    \"id\": \"<string>\",\n    \"creationTime\": \"<long>\",\n    \"dns\": {\n      \"domain\": \"<string>\",\n      \"servers\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"enableBroadcast\": \"<boolean>\",\n    \"ipAssignmentPools\": [\n      {\n        \"ipRangeStart\": \"<string>\",\n        \"ipRangeEnd\": \"<string>\"\n      },\n      {\n        \"ipRangeStart\": \"<string>\",\n        \"ipRangeEnd\": \"<string>\"\n      }\n    ],\n    \"lastModified\": \"<long>\",\n    \"mtu\": \"<integer>\",\n    \"multicastLimit\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"private\": \"<boolean>\",\n    \"routes\": [\n      {\n        \"target\": \"<string>\",\n        \"via\": \"<string>\"\n      },\n      {\n        \"target\": \"<string>\",\n        \"via\": \"<string>\"\n      }\n    ],\n    \"ssoConfig\": {\n      \"enabled\": \"<boolean>\",\n      \"mode\": \"<string>\",\n      \"clientId\": \"<string>\",\n      \"issuer\": \"<string>\",\n      \"provider\": \"<string>\",\n      \"authorizationEndpoint\": \"<string>\",\n      \"allowList\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"v4AssignMode\": {\n      \"zt\": \"<boolean>\"\n    },\n    \"v6AssignMode\": {\n      \"6plane\": \"<boolean>\",\n      \"rfc4193\": \"<boolean>\",\n      \"zt\": \"<boolean>\"\n    }\n  },\n  \"description\": \"<string>\",\n  \"rulesSource\": \"<string>\",\n  \"permissions\": {\n    \"magna8\": {\n      \"a\": \"<boolean>\",\n      \"d\": \"<boolean>\",\n      \"m\": \"<boolean>\",\n      \"r\": \"<boolean>\"\n    }\n  },\n  \"ownerId\": \"<string>\",\n  \"onlineMemberCount\": \"<integer>\",\n  \"authorizedMemberCount\": \"<integer>\",\n  \"totalMemberCount\": \"<integer>\",\n  \"capabilitiesByName\": {},\n  \"tagsByName\": {}\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/network/:networkID",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "network",
+                        ":networkID"
+                      ],
+                      "variable": [
+                        {
+                          "key": "networkID"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:37:51.000Z",
+                  "updatedAt": "2026-07-28T03:37:51.000Z",
+                  "uid": "35240-497a1529-145f-4257-88f3-21f880448b7d"
+                },
+                {
+                  "id": "f017aa19-8266-426f-8c2f-494c9224d325",
+                  "name": "Item not found",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"id\": \"<string>\",\n  \"clock\": \"<long>\",\n  \"config\": {\n    \"id\": \"<string>\",\n    \"creationTime\": \"<long>\",\n    \"dns\": {\n      \"domain\": \"<string>\",\n      \"servers\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"enableBroadcast\": \"<boolean>\",\n    \"ipAssignmentPools\": [\n      {\n        \"ipRangeStart\": \"<string>\",\n        \"ipRangeEnd\": \"<string>\"\n      },\n      {\n        \"ipRangeStart\": \"<string>\",\n        \"ipRangeEnd\": \"<string>\"\n      }\n    ],\n    \"lastModified\": \"<long>\",\n    \"mtu\": \"<integer>\",\n    \"multicastLimit\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"private\": \"<boolean>\",\n    \"routes\": [\n      {\n        \"target\": \"<string>\",\n        \"via\": \"<string>\"\n      },\n      {\n        \"target\": \"<string>\",\n        \"via\": \"<string>\"\n      }\n    ],\n    \"ssoConfig\": {\n      \"enabled\": \"<boolean>\",\n      \"mode\": \"<string>\",\n      \"clientId\": \"<string>\",\n      \"issuer\": \"<string>\",\n      \"provider\": \"<string>\",\n      \"authorizationEndpoint\": \"<string>\",\n      \"allowList\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"v4AssignMode\": {\n      \"zt\": \"<boolean>\"\n    },\n    \"v6AssignMode\": {\n      \"6plane\": \"<boolean>\",\n      \"rfc4193\": \"<boolean>\",\n      \"zt\": \"<boolean>\"\n    }\n  },\n  \"description\": \"<string>\",\n  \"rulesSource\": \"<string>\",\n  \"permissions\": {\n    \"magna8\": {\n      \"a\": \"<boolean>\",\n      \"d\": \"<boolean>\",\n      \"m\": \"<boolean>\",\n      \"r\": \"<boolean>\"\n    }\n  },\n  \"ownerId\": \"<string>\",\n  \"onlineMemberCount\": \"<integer>\",\n  \"authorizedMemberCount\": \"<integer>\",\n  \"totalMemberCount\": \"<integer>\",\n  \"capabilitiesByName\": {},\n  \"tagsByName\": {}\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/network/:networkID",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "network",
+                        ":networkID"
+                      ],
+                      "variable": [
+                        {
+                          "key": "networkID"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:37:51.000Z",
+                  "updatedAt": "2026-07-28T03:37:51.000Z",
+                  "uid": "35240-f017aa19-8266-426f-8c2f-494c9224d325"
+                }
+              ],
+              "createdAt": "2026-07-28T03:37:51.000Z",
+              "updatedAt": "2026-07-28T03:37:51.000Z",
+              "uid": "35240-3c30af34-8043-4da0-b15f-ebb7f2ea95af"
+            },
+            {
+              "name": "delete network",
+              "id": "6904574a-04c0-47d6-9a7e-cb570a754b6f",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/network/:networkID",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "network",
+                    ":networkID"
+                  ],
+                  "variable": [
+                    {
+                      "id": "5d28941a-286f-43d2-a555-b51b506e737d",
+                      "key": "networkID",
+                      "value": "<string>",
+                      "description": "(Required) ID of the network"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "1e54f2d8-fea6-495c-9a87-d87004fbe867",
+                  "name": "network deleted",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/network/:networkID",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "network",
+                        ":networkID"
+                      ],
+                      "variable": [
+                        {
+                          "key": "networkID"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:37:51.000Z",
+                  "updatedAt": "2026-07-28T03:37:51.000Z",
+                  "uid": "35240-1e54f2d8-fea6-495c-9a87-d87004fbe867"
+                },
+                {
+                  "id": "f6cd08b5-b272-408b-9674-9e72f9315d57",
+                  "name": "Authorization required",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/network/:networkID",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "network",
+                        ":networkID"
+                      ],
+                      "variable": [
+                        {
+                          "key": "networkID"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:37:51.000Z",
+                  "updatedAt": "2026-07-28T03:37:51.000Z",
+                  "uid": "35240-f6cd08b5-b272-408b-9674-9e72f9315d57"
+                },
+                {
+                  "id": "9ac7e8c2-f26c-4369-9b0e-25fb3742734f",
+                  "name": "Access denied",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/network/:networkID",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "network",
+                        ":networkID"
+                      ],
+                      "variable": [
+                        {
+                          "key": "networkID"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:37:51.000Z",
+                  "updatedAt": "2026-07-28T03:37:51.000Z",
+                  "uid": "35240-9ac7e8c2-f26c-4369-9b0e-25fb3742734f"
+                },
+                {
+                  "id": "e372d025-5627-4d00-a7d7-735670e334b2",
+                  "name": "Item not found",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/network/:networkID",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "network",
+                        ":networkID"
+                      ],
+                      "variable": [
+                        {
+                          "key": "networkID"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:37:51.000Z",
+                  "updatedAt": "2026-07-28T03:37:51.000Z",
+                  "uid": "35240-e372d025-5627-4d00-a7d7-735670e334b2"
+                }
+              ],
+              "createdAt": "2026-07-28T03:37:51.000Z",
+              "updatedAt": "2026-07-28T03:37:51.000Z",
+              "uid": "35240-6904574a-04c0-47d6-9a7e-cb570a754b6f"
+            }
+          ],
+          "id": "fcfa8544-85b9-47b5-adea-e4d794f722f1",
+          "createdAt": "2026-07-28T03:37:51.000Z",
+          "updatedAt": "2026-07-28T03:37:51.000Z",
+          "uid": "35240-fcfa8544-85b9-47b5-adea-e4d794f722f1"
+        },
+        {
+          "name": "Returns a list of Networks you have access to.",
+          "id": "f1fb784f-251c-4002-a71a-d571b28b89cb",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/network",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "network"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "59d865e6-96bc-4ee3-9483-ccdda810b35f",
+              "name": "New Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/network",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "network"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n  {\n    \"id\": \"<string>\",\n    \"clock\": \"<long>\",\n    \"config\": {\n      \"id\": \"<string>\",\n      \"creationTime\": \"<long>\",\n      \"dns\": {\n        \"domain\": \"<string>\",\n        \"servers\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"enableBroadcast\": \"<boolean>\",\n      \"ipAssignmentPools\": [\n        {\n          \"ipRangeStart\": \"<string>\",\n          \"ipRangeEnd\": \"<string>\"\n        },\n        {\n          \"ipRangeStart\": \"<string>\",\n          \"ipRangeEnd\": \"<string>\"\n        }\n      ],\n      \"lastModified\": \"<long>\",\n      \"mtu\": \"<integer>\",\n      \"multicastLimit\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"private\": \"<boolean>\",\n      \"routes\": [\n        {\n          \"target\": \"<string>\",\n          \"via\": \"<string>\"\n        },\n        {\n          \"target\": \"<string>\",\n          \"via\": \"<string>\"\n        }\n      ],\n      \"ssoConfig\": {\n        \"enabled\": \"<boolean>\",\n        \"mode\": \"<string>\",\n        \"clientId\": \"<string>\",\n        \"issuer\": \"<string>\",\n        \"provider\": \"<string>\",\n        \"authorizationEndpoint\": \"<string>\",\n        \"allowList\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"v4AssignMode\": {\n        \"zt\": \"<boolean>\"\n      },\n      \"v6AssignMode\": {\n        \"6plane\": \"<boolean>\",\n        \"rfc4193\": \"<boolean>\",\n        \"zt\": \"<boolean>\"\n      }\n    },\n    \"description\": \"<string>\",\n    \"rulesSource\": \"<string>\",\n    \"permissions\": {\n      \"consequat6cc\": {\n        \"a\": \"<boolean>\",\n        \"d\": \"<boolean>\",\n        \"m\": \"<boolean>\",\n        \"r\": \"<boolean>\"\n      },\n      \"veniam_d5\": {\n        \"a\": \"<boolean>\",\n        \"d\": \"<boolean>\",\n        \"m\": \"<boolean>\",\n        \"r\": \"<boolean>\"\n      }\n    },\n    \"ownerId\": \"<string>\",\n    \"onlineMemberCount\": \"<integer>\",\n    \"authorizedMemberCount\": \"<integer>\",\n    \"totalMemberCount\": \"<integer>\",\n    \"capabilitiesByName\": {},\n    \"tagsByName\": {}\n  },\n  {\n    \"id\": \"<string>\",\n    \"clock\": \"<long>\",\n    \"config\": {\n      \"id\": \"<string>\",\n      \"creationTime\": \"<long>\",\n      \"dns\": {\n        \"domain\": \"<string>\",\n        \"servers\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"enableBroadcast\": \"<boolean>\",\n      \"ipAssignmentPools\": [\n        {\n          \"ipRangeStart\": \"<string>\",\n          \"ipRangeEnd\": \"<string>\"\n        },\n        {\n          \"ipRangeStart\": \"<string>\",\n          \"ipRangeEnd\": \"<string>\"\n        }\n      ],\n      \"lastModified\": \"<long>\",\n      \"mtu\": \"<integer>\",\n      \"multicastLimit\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"private\": \"<boolean>\",\n      \"routes\": [\n        {\n          \"target\": \"<string>\",\n          \"via\": \"<string>\"\n        },\n        {\n          \"target\": \"<string>\",\n          \"via\": \"<string>\"\n        }\n      ],\n      \"ssoConfig\": {\n        \"enabled\": \"<boolean>\",\n        \"mode\": \"<string>\",\n        \"clientId\": \"<string>\",\n        \"issuer\": \"<string>\",\n        \"provider\": \"<string>\",\n        \"authorizationEndpoint\": \"<string>\",\n        \"allowList\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"v4AssignMode\": {\n        \"zt\": \"<boolean>\"\n      },\n      \"v6AssignMode\": {\n        \"6plane\": \"<boolean>\",\n        \"rfc4193\": \"<boolean>\",\n        \"zt\": \"<boolean>\"\n      }\n    },\n    \"description\": \"<string>\",\n    \"rulesSource\": \"<string>\",\n    \"permissions\": {\n      \"nostrud_b9f\": {\n        \"a\": \"<boolean>\",\n        \"d\": \"<boolean>\",\n        \"m\": \"<boolean>\",\n        \"r\": \"<boolean>\"\n      },\n      \"nisi89\": {\n        \"a\": \"<boolean>\",\n        \"d\": \"<boolean>\",\n        \"m\": \"<boolean>\",\n        \"r\": \"<boolean>\"\n      },\n      \"reprehenderit_46_\": {\n        \"a\": \"<boolean>\",\n        \"d\": \"<boolean>\",\n        \"m\": \"<boolean>\",\n        \"r\": \"<boolean>\"\n      }\n    },\n    \"ownerId\": \"<string>\",\n    \"onlineMemberCount\": \"<integer>\",\n    \"authorizedMemberCount\": \"<integer>\",\n    \"totalMemberCount\": \"<integer>\",\n    \"capabilitiesByName\": {},\n    \"tagsByName\": {}\n  }\n]",
+              "createdAt": "2026-07-28T03:37:51.000Z",
+              "updatedAt": "2026-07-28T03:37:51.000Z",
+              "uid": "35240-59d865e6-96bc-4ee3-9483-ccdda810b35f"
+            },
+            {
+              "id": "cc98d7ff-cc92-4e82-b39a-710b12694d60",
+              "name": "Authorization required",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/network",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "network"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T03:37:51.000Z",
+              "updatedAt": "2026-07-28T03:37:51.000Z",
+              "uid": "35240-cc98d7ff-cc92-4e82-b39a-710b12694d60"
+            }
+          ],
+          "createdAt": "2026-07-28T03:37:51.000Z",
+          "updatedAt": "2026-07-28T03:37:51.000Z",
+          "uid": "35240-f1fb784f-251c-4002-a71a-d571b28b89cb"
+        },
+        {
+          "name": "Create a new network.",
+          "id": "117ff67a-5685-4004-8bf0-c78b97dd754a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/network",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "network"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "f6235bc0-7bea-46bb-a7da-ca4a1641ce1a",
+              "name": "Network creation succeeded",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/network",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "network"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"id\": \"<string>\",\n  \"clock\": \"<long>\",\n  \"config\": {\n    \"id\": \"<string>\",\n    \"creationTime\": \"<long>\",\n    \"dns\": {\n      \"domain\": \"<string>\",\n      \"servers\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"enableBroadcast\": \"<boolean>\",\n    \"ipAssignmentPools\": [\n      {\n        \"ipRangeStart\": \"<string>\",\n        \"ipRangeEnd\": \"<string>\"\n      },\n      {\n        \"ipRangeStart\": \"<string>\",\n        \"ipRangeEnd\": \"<string>\"\n      }\n    ],\n    \"lastModified\": \"<long>\",\n    \"mtu\": \"<integer>\",\n    \"multicastLimit\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"private\": \"<boolean>\",\n    \"routes\": [\n      {\n        \"target\": \"<string>\",\n        \"via\": \"<string>\"\n      },\n      {\n        \"target\": \"<string>\",\n        \"via\": \"<string>\"\n      }\n    ],\n    \"ssoConfig\": {\n      \"enabled\": \"<boolean>\",\n      \"mode\": \"<string>\",\n      \"clientId\": \"<string>\",\n      \"issuer\": \"<string>\",\n      \"provider\": \"<string>\",\n      \"authorizationEndpoint\": \"<string>\",\n      \"allowList\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"v4AssignMode\": {\n      \"zt\": \"<boolean>\"\n    },\n    \"v6AssignMode\": {\n      \"6plane\": \"<boolean>\",\n      \"rfc4193\": \"<boolean>\",\n      \"zt\": \"<boolean>\"\n    }\n  },\n  \"description\": \"<string>\",\n  \"rulesSource\": \"<string>\",\n  \"permissions\": {\n    \"magna8\": {\n      \"a\": \"<boolean>\",\n      \"d\": \"<boolean>\",\n      \"m\": \"<boolean>\",\n      \"r\": \"<boolean>\"\n    }\n  },\n  \"ownerId\": \"<string>\",\n  \"onlineMemberCount\": \"<integer>\",\n  \"authorizedMemberCount\": \"<integer>\",\n  \"totalMemberCount\": \"<integer>\",\n  \"capabilitiesByName\": {},\n  \"tagsByName\": {}\n}",
+              "createdAt": "2026-07-28T03:37:51.000Z",
+              "updatedAt": "2026-07-28T03:37:51.000Z",
+              "uid": "35240-f6235bc0-7bea-46bb-a7da-ca4a1641ce1a"
+            },
+            {
+              "id": "b8f64a72-73d9-4364-bfb2-d8c1d8b177b7",
+              "name": "Authorization required",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/network",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "network"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T03:37:51.000Z",
+              "updatedAt": "2026-07-28T03:37:51.000Z",
+              "uid": "35240-b8f64a72-73d9-4364-bfb2-d8c1d8b177b7"
+            }
+          ],
+          "createdAt": "2026-07-28T03:37:51.000Z",
+          "updatedAt": "2026-07-28T03:37:51.000Z",
+          "uid": "35240-117ff67a-5685-4004-8bf0-c78b97dd754a"
+        }
+      ],
+      "id": "673ccd50-9cac-4703-879d-37b022b69709",
+      "createdAt": "2026-07-28T03:37:51.000Z",
+      "updatedAt": "2026-07-28T03:37:51.000Z",
+      "uid": "35240-673ccd50-9cac-4703-879d-37b022b69709"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.zerotier.com/api/v1"
+    }
+  ]
+}

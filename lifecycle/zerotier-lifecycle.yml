@@ -1,0 +1,22 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.zerotier.com/changelog/
+versioning:
+  scheme: named-editions-plus-semver
+  current: New Central API (v1 base path /api/v1); ZeroTier One service semver (v1.16.x)
+  notes: >-
+    ZeroTier runs two generations of the hosted management API side by side - the New Central API
+    and the Legacy Central API - documented separately. The ZeroTier One node/service software
+    uses semantic versioning (current release line 1.16.x). The Central API base path is /api/v1.
+  docs: https://docs.zerotier.com/api/central/new/
+deprecation:
+  policy_url: https://docs.zerotier.com/which-central/
+  notes: >-
+    The Legacy Central API remains available for backward compatibility while the New Central API
+    reaches feature parity (e.g. Custom Flow Rules shipped June 2026). Docs guide users on which
+    Central generation to use; legacy endpoints are marked and maintained during migration.
+  sunset_header: false
+sla:
+  url: https://www.zerotier.com/sla/
+status_page: https://status.zerotier.com
+deprecated_operations: []

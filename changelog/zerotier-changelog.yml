@@ -1,0 +1,31 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.zerotier.com/changelog/
+scheme: dated-releases (New Central) + semver (ZeroTier One)
+current: New Central (rolling) / ZeroTier One v1.16.2
+entries:
+- date: '2026-06-15'
+  product: New Central
+  type: addition
+  highlight: Custom Flow Rules shipped with complete feature parity with Legacy Central.
+- date: '2026-05-20'
+  product: ZeroTier One
+  version: v1.16.2
+  type: fix
+  highlight: Fixed Windows ARM .msi installer bug; increased bridged-node capacity.
+- date: '2026-05-06'
+  product: New Central
+  type: addition
+  highlight: Webhooks launched for real-time organization event notifications.
+- date: '2026-04-28'
+  product: New Central
+  type: change
+  highlight: UI/UX made consistent across plans with improved security measures.
+- date: '2026-04-15'
+  product: New Central API
+  type: addition
+  highlight: New Central API released alongside Service Accounts for automated workflows.
+- date: '2026-03-20'
+  product: New Central
+  type: change
+  highlight: Reworked flow rules and plan-downgrade protections based on usage entitlements.
