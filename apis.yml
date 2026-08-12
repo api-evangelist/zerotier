@@ -131,6 +131,8 @@ apis:
   - type: OpenAPI
     url: openapi/zerotier-util-api-openapi.yml
 common:
+- type: Overlay
+  url: overlays/zerotier-central-overlay.yaml
 - type: PostmanWorkspace
   url: https://www.postman.com/kinlaneapi/zerotier/overview
 - type: AgenticAccess
