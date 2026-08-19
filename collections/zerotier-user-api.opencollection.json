@@ -1,0 +1,127 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ZeroTier Central controller user API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "user",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get user record",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.zerotier.com/api/v1/user/:userID",
+            "params": [
+              {
+                "name": "userID",
+                "value": "",
+                "type": "path",
+                "description": "User ID"
+              }
+            ]
+          },
+          "docs": "Get user record"
+        },
+        {
+          "info": {
+            "name": "Update user record (SMS number or Display Name only)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.zerotier.com/api/v1/user/:userID",
+            "params": [
+              {
+                "name": "userID",
+                "value": "",
+                "type": "path",
+                "description": "User ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update user record (SMS number or Display Name only)"
+        },
+        {
+          "info": {
+            "name": "Delete user",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.zerotier.com/api/v1/user/:userID",
+            "params": [
+              {
+                "name": "userID",
+                "value": "",
+                "type": "path",
+                "description": "User ID"
+              }
+            ]
+          },
+          "docs": "Deletes the user and all associated networks.  This is not reversible. Delete at your own risk."
+        },
+        {
+          "info": {
+            "name": "Add an API token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.zerotier.com/api/v1/user/:userID/token",
+            "params": [
+              {
+                "name": "userID",
+                "value": "",
+                "type": "path",
+                "description": "User ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add an API token"
+        },
+        {
+          "info": {
+            "name": "Delete API Token",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.zerotier.com/api/v1/user/:userID/token/:tokenName",
+            "params": [
+              {
+                "name": "userID",
+                "value": "",
+                "type": "path",
+                "description": "User ID"
+              },
+              {
+                "name": "tokenName",
+                "value": "",
+                "type": "path",
+                "description": "Token Name"
+              }
+            ]
+          },
+          "docs": "Delete API Token"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

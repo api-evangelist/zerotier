@@ -1,0 +1,149 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ZeroTier Central controller API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "controller",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Controller Status.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.zerotier.com/api/v1/controller"
+          },
+          "docs": "Check for controller function and return controller status."
+        },
+        {
+          "info": {
+            "name": "List Networks.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.zerotier.com/api/v1/controller/network"
+          },
+          "docs": "List IDs of all networks hosted by this controller."
+        },
+        {
+          "info": {
+            "name": "Get Network by ID.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.zerotier.com/api/v1/controller/network/:networkID",
+            "params": [
+              {
+                "name": "networkID",
+                "value": "",
+                "type": "path",
+                "description": "ID of the network."
+              }
+            ]
+          },
+          "docs": "Get details of a network by its ID."
+        },
+        {
+          "info": {
+            "name": "Create or Update a Network.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.zerotier.com/api/v1/controller/network/:networkID",
+            "params": [
+              {
+                "name": "networkID",
+                "value": "",
+                "type": "path",
+                "description": "ID of the network."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create or Update a Network."
+        },
+        {
+          "info": {
+            "name": "Generate Random Network ID.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.zerotier.com/api/v1/controller/network/:controllerID",
+            "params": [
+              {
+                "name": "controllerID",
+                "value": "",
+                "type": "path",
+                "description": "Node ID of the controller."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new network with a random ID."
+        },
+        {
+          "info": {
+            "name": "List Network Members.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.zerotier.com/api/v1/controller/network/:networkID/member",
+            "params": [
+              {
+                "name": "networkID",
+                "value": "",
+                "type": "path",
+                "description": "ID of the network."
+              }
+            ]
+          },
+          "docs": "JSON object containing all member IDs as keys and their memberRevisionCounter values as values."
+        },
+        {
+          "info": {
+            "name": "Get Network Member Details by ID.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.zerotier.com/api/v1/controller/network/:networkID/member/:nodeID",
+            "params": [
+              {
+                "name": "networkID",
+                "value": "",
+                "type": "path",
+                "description": "ID of the network."
+              },
+              {
+                "name": "nodeID",
+                "value": "",
+                "type": "path",
+                "description": "ID of the member node."
+              }
+            ]
+          },
+          "docs": "Get Network Member Details by ID."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

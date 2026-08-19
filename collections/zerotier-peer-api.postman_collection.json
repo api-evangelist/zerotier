@@ -1,0 +1,251 @@
+{
+  "item": [
+    {
+      "id": "5d322df2-306f-4e1d-b700-4179c7327db3",
+      "name": "peer",
+      "description": {
+        "content": "peer status",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2d780807-e055-496f-930b-ffd3d81e943b",
+          "name": "Get all peers.",
+          "request": {
+            "name": "Get all peers.",
+            "description": {},
+            "url": {
+              "path": [
+                "peer"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c60dd38c-2c8f-40a4-8f63-fce8f011b4a8",
+              "name": "Array of Peer objects",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "peer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"address\": \"992fcf1db7\",\n    \"isBonded\": false,\n    \"latency\": 40,\n    \"paths\": [\n      {\n        \"active\": false,\n        \"address\": \"195.181.173.159/9993\",\n        \"expired\": false,\n        \"lastReceive\": 1618955164580,\n        \"lastSend\": 1618955164596,\n        \"preferred\": true,\n        \"trustedPathId\": 0\n      },\n      {\n        \"active\": true,\n        \"address\": \"195.181.173.159/9993\",\n        \"expired\": false,\n        \"lastReceive\": 1618955164580,\n        \"lastSend\": 1618955164596,\n        \"preferred\": true,\n        \"trustedPathId\": 0\n      }\n    ],\n    \"role\": \"LEAF\",\n    \"version\": \"1.6.4\",\n    \"versionMajor\": 1,\n    \"versionMinor\": 6,\n    \"versionRev\": 4\n  },\n  {\n    \"address\": \"992fcf1db7\",\n    \"isBonded\": false,\n    \"latency\": 40,\n    \"paths\": [\n      {\n        \"active\": false,\n        \"address\": \"195.181.173.159/9993\",\n        \"expired\": false,\n        \"lastReceive\": 1618955164580,\n        \"lastSend\": 1618955164596,\n        \"preferred\": true,\n        \"trustedPathId\": 0\n      },\n      {\n        \"active\": false,\n        \"address\": \"195.181.173.159/9993\",\n        \"expired\": false,\n        \"lastReceive\": 1618955164580,\n        \"lastSend\": 1618955164596,\n        \"preferred\": true,\n        \"trustedPathId\": 0\n      }\n    ],\n    \"role\": \"LEAF\",\n    \"version\": \"1.6.4\",\n    \"versionMajor\": 1,\n    \"versionMinor\": 6,\n    \"versionRev\": 4\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9827d267-cfb7-4c4a-9c7e-5facb7f4d17f",
+              "name": "Authorization required.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "peer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7418f3a1-e311-47da-94ab-01a6c7ad0d95",
+          "name": "Get information about a specific peer by Node ID.",
+          "request": {
+            "name": "Get information about a specific peer by Node ID.",
+            "description": {},
+            "url": {
+              "path": [
+                "peer",
+                ":address"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "address",
+                  "description": "(Required) ZeroTier address of the peer to get"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8aa92cc9-8edc-4d67-8320-72e522e69fea",
+              "name": "Peer object",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "peer",
+                    ":address"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address",
+                      "description": "(Required) ZeroTier address of the peer to get"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"address\": \"992fcf1db7\",\n  \"isBonded\": false,\n  \"latency\": 40,\n  \"paths\": [\n    {\n      \"active\": true,\n      \"address\": \"195.181.173.159/9993\",\n      \"expired\": false,\n      \"lastReceive\": 1618955164580,\n      \"lastSend\": 1618955164596,\n      \"preferred\": true,\n      \"trustedPathId\": 0\n    },\n    {\n      \"active\": false,\n      \"address\": \"195.181.173.159/9993\",\n      \"expired\": false,\n      \"lastReceive\": 1618955164580,\n      \"lastSend\": 1618955164596,\n      \"preferred\": true,\n      \"trustedPathId\": 0\n    }\n  ],\n  \"role\": \"LEAF\",\n  \"version\": \"1.6.4\",\n  \"versionMajor\": 1,\n  \"versionMinor\": 6,\n  \"versionRev\": 4\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a59346fe-580d-4c74-8a62-ae049b6ea7a4",
+              "name": "Authorization required.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "peer",
+                    ":address"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address",
+                      "description": "(Required) ZeroTier address of the peer to get"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.zerotier.com/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "cd9c03f1-1add-4c45-b9f9-1a644c744dc7",
+    "name": "ZeroTier Central controller peer API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "ZeroTier Central Network Management Portal API.<p>All API requests must have an API token header specified in the <code>Authorization: token xxxxx</code> format.  You can generate your API key by logging into <a href=\"https://my.zerotier.com\">ZeroTier Central</a> and creating a token on the Account page.</p><p>eg. <code>curl -X GET -H \"Authorization: token xxxxx\" https://api.zerotier.com/api/v1/network</code></p><p><h3>Rate Limiting</h3></p><p>The ZeroTier Central API implements rate limiting.  Paid users are limited to 100 requests per second.  Free users are limited to 20 requests per second.</p> <p> You can get the OpenAPI spec here as well: <code>https://docs.zerotier.com/api/central/ref-v1.json</code></p>\n\nContact Support:\n Name: ZeroTier Support Discussion Forum",
+      "type": "text/plain"
+    }
+  }
+}

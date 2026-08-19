@@ -2,26 +2,61 @@ generated: '2026-07-21'
 method: derived
 status: candidate
 source: openapi/zerotier-central-openapi-original.json
-notes: >-
-  No official hosted/remote ZeroTier MCP server was found. This is a candidate tool list derived
+notes: No official hosted/remote ZeroTier MCP server was found. This is a candidate tool list derived
   one-to-one from ZeroTier Central API operations, provided as a starting point for an MCP wrapper.
 server:
   name: zerotier-central
   transport: stdio
   url: null
 tools:
-- {name: get_status, description: Get Central API status, source_operation: 'openapi/zerotier-central-openapi-original.json#getStatus'}
-- {name: list_networks, description: List networks, source_operation: 'openapi/zerotier-central-openapi-original.json#getNetworkList'}
-- {name: create_network, description: Create a network, source_operation: 'openapi/zerotier-central-openapi-original.json#newNetwork'}
-- {name: get_network, description: Get a network by ID, source_operation: 'openapi/zerotier-central-openapi-original.json#getNetworkByID'}
-- {name: update_network, description: Update a network, source_operation: 'openapi/zerotier-central-openapi-original.json#updateNetwork'}
-- {name: delete_network, description: Delete a network, source_operation: 'openapi/zerotier-central-openapi-original.json#deleteNetwork'}
-- {name: list_network_members, description: List members of a network, source_operation: 'openapi/zerotier-central-openapi-original.json#getNetworkMemberList'}
-- {name: get_network_member, description: Get a network member, source_operation: 'openapi/zerotier-central-openapi-original.json#getNetworkMember'}
-- {name: update_network_member, description: Authorize or update a network member, source_operation: 'openapi/zerotier-central-openapi-original.json#updateNetworkMember'}
-- {name: delete_network_member, description: Remove a network member, source_operation: 'openapi/zerotier-central-openapi-original.json#deleteNetworkMember'}
-- {name: get_user, description: Get a user by ID, source_operation: 'openapi/zerotier-central-openapi-original.json#getUserByID'}
-- {name: get_organization, description: Get the current organization, source_operation: 'openapi/zerotier-central-openapi-original.json#getOrganization'}
-- {name: list_organization_members, description: List organization members, source_operation: 'openapi/zerotier-central-openapi-original.json#getOrganizationMembers'}
-- {name: invite_user, description: Invite a user to the organization by email, source_operation: 'openapi/zerotier-central-openapi-original.json#inviteUserByEmail'}
-- {name: add_api_token, description: Create an API token for a user, source_operation: 'openapi/zerotier-central-openapi-original.json#addAPIToken'}
+- name: get_status
+  description: Get Central API status
+  source_operation: openapi/zerotier-central-openapi-original.json#getStatus
+- name: list_networks
+  description: List networks
+  source_operation: openapi/zerotier-central-openapi-original.json#getNetworkList
+- name: create_network
+  description: Create a network
+  source_operation: openapi/zerotier-central-openapi-original.json#newNetwork
+- name: get_network
+  description: Get a network by ID
+  source_operation: openapi/zerotier-central-openapi-original.json#getNetworkByID
+- name: update_network
+  description: Update a network
+  source_operation: openapi/zerotier-central-openapi-original.json#updateNetwork
+- name: delete_network
+  description: Delete a network
+  source_operation: openapi/zerotier-central-openapi-original.json#deleteNetwork
+- name: list_network_members
+  description: List members of a network
+  source_operation: openapi/zerotier-central-openapi-original.json#getNetworkMemberList
+- name: get_network_member
+  description: Get a network member
+  source_operation: openapi/zerotier-central-openapi-original.json#getNetworkMember
+- name: update_network_member
+  description: Authorize or update a network member
+  source_operation: openapi/zerotier-central-openapi-original.json#updateNetworkMember
+- name: delete_network_member
+  description: Remove a network member
+  source_operation: openapi/zerotier-central-openapi-original.json#deleteNetworkMember
+- name: get_user
+  description: Get a user by ID
+  source_operation: openapi/zerotier-central-openapi-original.json#getUserByID
+- name: get_organization
+  description: Get the current organization
+  source_operation: openapi/zerotier-central-openapi-original.json#getOrganization
+- name: list_organization_members
+  description: List organization members
+  source_operation: openapi/zerotier-central-openapi-original.json#getOrganizationMembers
+- name: invite_user
+  description: Invite a user to the organization by email
+  source_operation: openapi/zerotier-central-openapi-original.json#inviteUserByEmail
+- name: add_api_token
+  description: Create an API token for a user
+  source_operation: openapi/zerotier-central-openapi-original.json#addAPIToken
+deployment:
+  mode: none
+  verified: derived
+  tools: 15
+  checked: '2026-08-12'
+  source: catalog MCP census

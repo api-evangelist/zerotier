@@ -1,0 +1,48 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ZeroTier Central controller peer API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "peer",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get all peers.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.zerotier.com/api/v1/peer"
+          },
+          "docs": "Get all peers."
+        },
+        {
+          "info": {
+            "name": "Get information about a specific peer by Node ID.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.zerotier.com/api/v1/peer/:address",
+            "params": [
+              {
+                "name": "address",
+                "value": "",
+                "type": "path",
+                "description": "ZeroTier address of the peer to get"
+              }
+            ]
+          },
+          "docs": "Get information about a specific peer by Node ID."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

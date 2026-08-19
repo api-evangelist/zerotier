@@ -1,0 +1,1001 @@
+{
+  "item": [
+    {
+      "id": "6a70c303-4510-47a3-80d9-52be5de350d1",
+      "name": "network-member",
+      "description": {
+        "content": "Network member operations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "985ec93d-6fd4-48d7-8577-65df8d82c9ac",
+          "name": "Returns a list of Members on the network.",
+          "request": {
+            "name": "Returns a list of Members on the network.",
+            "description": {},
+            "url": {
+              "path": [
+                "network",
+                ":networkID",
+                "member"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "networkID",
+                  "description": "(Required) ID of the network to return"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e02af732-308e-4c3d-b278-024510388b76",
+              "name": "member list get success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "network",
+                    ":networkID",
+                    "member"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "networkID",
+                      "description": "(Required) ID of the network to return"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"8056c2e21c000001-abcdef0123\",\n    \"clock\": 1612993759070,\n    \"networkId\": \"8056c2e21c000001\",\n    \"nodeId\": \"abcdef01234\",\n    \"controllerId\": \"8056c2e21c\",\n    \"hidden\": false,\n    \"name\": \"my-cray-supercomputer\",\n    \"description\": \"My super awesome cray that I got ZeroTier to run on\",\n    \"config\": {\n      \"activeBridge\": false,\n      \"authorized\": true,\n      \"capabilities\": [\n        6321,\n        3879\n      ],\n      \"creationTime\": 1599853509872,\n      \"id\": \"abcdef01234\",\n      \"identity\": \"abcdef0123:0:abcdef0123abcdef0123abcdef0123abcdef0123abcdef0123abcdef0123abcdef0123\",\n      \"ipAssignments\": [\n        \"10.0.0.3\"\n      ],\n      \"lastAuthorizedTime\": 1599853637989,\n      \"lastDeauthorizedTime\": 0,\n      \"noAutoAssignIps\": false,\n      \"revision\": 123,\n      \"ssoExempt\": false,\n      \"tags\": [\n        [\n          123,\n          456\n        ]\n      ],\n      \"vMajor\": 1,\n      \"vMinor\": 6,\n      \"vRev\": 3,\n      \"vProto\": 12\n    },\n    \"lastOnline\": 1612993673254,\n    \"lastSeen\": 1612993673254,\n    \"physicalAddress\": \"8.8.8.8\",\n    \"clientVersion\": \"1.6.3\",\n    \"protocolVersion\": 12,\n    \"supportsRulesEngine\": false\n  },\n  {\n    \"id\": \"8056c2e21c000001-abcdef0123\",\n    \"clock\": 1612993759070,\n    \"networkId\": \"8056c2e21c000001\",\n    \"nodeId\": \"abcdef01234\",\n    \"controllerId\": \"8056c2e21c\",\n    \"hidden\": false,\n    \"name\": \"my-cray-supercomputer\",\n    \"description\": \"My super awesome cray that I got ZeroTier to run on\",\n    \"config\": {\n      \"activeBridge\": false,\n      \"authorized\": true,\n      \"capabilities\": [\n        9055,\n        2388\n      ],\n      \"creationTime\": 1599853509872,\n      \"id\": \"abcdef01234\",\n      \"identity\": \"abcdef0123:0:abcdef0123abcdef0123abcdef0123abcdef0123abcdef0123abcdef0123abcdef0123\",\n      \"ipAssignments\": [\n        \"10.0.0.3\"\n      ],\n      \"lastAuthorizedTime\": 1599853637989,\n      \"lastDeauthorizedTime\": 0,\n      \"noAutoAssignIps\": false,\n      \"revision\": 123,\n      \"ssoExempt\": false,\n      \"tags\": [\n        [\n          123,\n          456\n        ]\n      ],\n      \"vMajor\": 1,\n      \"vMinor\": 6,\n      \"vRev\": 3,\n      \"vProto\": 12\n    },\n    \"lastOnline\": 1612993673254,\n    \"lastSeen\": 1612993673254,\n    \"physicalAddress\": \"8.8.8.8\",\n    \"clientVersion\": \"1.6.3\",\n    \"protocolVersion\": 12,\n    \"supportsRulesEngine\": true\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "28a17628-803d-435b-9a93-543c4d2be613",
+              "name": "Authorization required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "network",
+                    ":networkID",
+                    "member"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "networkID",
+                      "description": "(Required) ID of the network to return"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "723a72d6-0781-4e93-aa62-7027a7d35acd",
+              "name": "Access denied",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "network",
+                    ":networkID",
+                    "member"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "networkID",
+                      "description": "(Required) ID of the network to return"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bfb64182-d09d-4697-b650-3a00c0c28dac",
+              "name": "Item not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "network",
+                    ":networkID",
+                    "member"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "networkID",
+                      "description": "(Required) ID of the network to return"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1124f30e-6141-4ca9-b4d8-8e13d1296761",
+          "name": "Return an individual member on a network",
+          "request": {
+            "name": "Return an individual member on a network",
+            "description": {},
+            "url": {
+              "path": [
+                "network",
+                ":networkID",
+                "member",
+                ":memberID"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "networkID",
+                  "description": "(Required) ID of the network"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "memberID",
+                  "description": "(Required) ID of the member"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d294153e-86e7-4576-82cc-59408a636343",
+              "name": "member get success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "network",
+                    ":networkID",
+                    "member",
+                    ":memberID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "networkID",
+                      "description": "(Required) ID of the network"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "memberID",
+                      "description": "(Required) ID of the member"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"8056c2e21c000001-abcdef0123\",\n  \"clock\": 1612993759070,\n  \"networkId\": \"8056c2e21c000001\",\n  \"nodeId\": \"abcdef01234\",\n  \"controllerId\": \"8056c2e21c\",\n  \"hidden\": false,\n  \"name\": \"my-cray-supercomputer\",\n  \"description\": \"My super awesome cray that I got ZeroTier to run on\",\n  \"config\": {\n    \"activeBridge\": false,\n    \"authorized\": true,\n    \"capabilities\": [\n      1884,\n      1987\n    ],\n    \"creationTime\": 1599853509872,\n    \"id\": \"abcdef01234\",\n    \"identity\": \"abcdef0123:0:abcdef0123abcdef0123abcdef0123abcdef0123abcdef0123abcdef0123abcdef0123\",\n    \"ipAssignments\": [\n      \"10.0.0.3\"\n    ],\n    \"lastAuthorizedTime\": 1599853637989,\n    \"lastDeauthorizedTime\": 0,\n    \"noAutoAssignIps\": false,\n    \"revision\": 123,\n    \"ssoExempt\": false,\n    \"tags\": [\n      [\n        123,\n        456\n      ]\n    ],\n    \"vMajor\": 1,\n    \"vMinor\": 6,\n    \"vRev\": 3,\n    \"vProto\": 12\n  },\n  \"lastOnline\": 1612993673254,\n  \"lastSeen\": 1612993673254,\n  \"physicalAddress\": \"8.8.8.8\",\n  \"clientVersion\": \"1.6.3\",\n  \"protocolVersion\": 12,\n  \"supportsRulesEngine\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "12a6f4e7-8fd0-4884-97d6-47afa04714a2",
+              "name": "Authorization required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "network",
+                    ":networkID",
+                    "member",
+                    ":memberID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "networkID",
+                      "description": "(Required) ID of the network"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "memberID",
+                      "description": "(Required) ID of the member"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c99a4b24-3562-489c-b571-1a9cfd349fd7",
+              "name": "Access denied",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "network",
+                    ":networkID",
+                    "member",
+                    ":memberID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "networkID",
+                      "description": "(Required) ID of the network"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "memberID",
+                      "description": "(Required) ID of the member"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2998945b-ed88-488d-90bf-44eee8c8ef97",
+              "name": "Item not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "network",
+                    ":networkID",
+                    "member",
+                    ":memberID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "networkID",
+                      "description": "(Required) ID of the network"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "memberID",
+                      "description": "(Required) ID of the member"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f0073d6d-1ebf-47ea-ae64-aab379616ff7",
+          "name": "Modify a network member",
+          "request": {
+            "name": "Modify a network member",
+            "description": {},
+            "url": {
+              "path": [
+                "network",
+                ":networkID",
+                "member",
+                ":memberID"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "networkID",
+                  "description": "(Required) ID of the network"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "memberID",
+                  "description": "(Required) ID of the member"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"hidden\": \"<boolean>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"config\": {\n    \"activeBridge\": \"<boolean>\",\n    \"authorized\": \"<boolean>\",\n    \"capabilities\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"ipAssignments\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"noAutoAssignIps\": \"<boolean>\",\n    \"ssoExempt\": \"<boolean>\",\n    \"tags\": [\n      [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      [\n        \"<integer>\",\n        \"<integer>\"\n      ]\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f2ea4948-8aba-4b47-8974-e9fc80d88d51",
+              "name": "member changed successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "network",
+                    ":networkID",
+                    "member",
+                    ":memberID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "networkID",
+                      "description": "(Required) ID of the network"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "memberID",
+                      "description": "(Required) ID of the member"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"hidden\": false,\n  \"name\": \"my-cray-supercomputer\",\n  \"description\": \"My super awesome cray that I got ZeroTier to run on\",\n  \"config\": {\n    \"activeBridge\": false,\n    \"authorized\": true,\n    \"capabilities\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"ipAssignments\": [\n      \"10.0.0.3\"\n    ],\n    \"noAutoAssignIps\": false,\n    \"ssoExempt\": false,\n    \"tags\": [\n      [\n        123,\n        456\n      ]\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"8056c2e21c000001-abcdef0123\",\n  \"clock\": 1612993759070,\n  \"networkId\": \"8056c2e21c000001\",\n  \"nodeId\": \"abcdef01234\",\n  \"controllerId\": \"8056c2e21c\",\n  \"hidden\": false,\n  \"name\": \"my-cray-supercomputer\",\n  \"description\": \"My super awesome cray that I got ZeroTier to run on\",\n  \"config\": {\n    \"activeBridge\": false,\n    \"authorized\": true,\n    \"capabilities\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"creationTime\": 1599853509872,\n    \"id\": \"abcdef01234\",\n    \"identity\": \"abcdef0123:0:abcdef0123abcdef0123abcdef0123abcdef0123abcdef0123abcdef0123abcdef0123\",\n    \"ipAssignments\": [\n      \"10.0.0.3\"\n    ],\n    \"lastAuthorizedTime\": 1599853637989,\n    \"lastDeauthorizedTime\": 0,\n    \"noAutoAssignIps\": false,\n    \"revision\": 123,\n    \"ssoExempt\": false,\n    \"tags\": [\n      [\n        123,\n        456\n      ]\n    ],\n    \"vMajor\": 1,\n    \"vMinor\": 6,\n    \"vRev\": 3,\n    \"vProto\": 12\n  },\n  \"lastOnline\": 1612993673254,\n  \"lastSeen\": 1612993673254,\n  \"physicalAddress\": \"8.8.8.8\",\n  \"clientVersion\": \"1.6.3\",\n  \"protocolVersion\": 12,\n  \"supportsRulesEngine\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5930c732-f1c4-467d-bbf3-38cf12bca920",
+              "name": "Authorization required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "network",
+                    ":networkID",
+                    "member",
+                    ":memberID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "networkID",
+                      "description": "(Required) ID of the network"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "memberID",
+                      "description": "(Required) ID of the member"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"hidden\": false,\n  \"name\": \"my-cray-supercomputer\",\n  \"description\": \"My super awesome cray that I got ZeroTier to run on\",\n  \"config\": {\n    \"activeBridge\": false,\n    \"authorized\": true,\n    \"capabilities\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"ipAssignments\": [\n      \"10.0.0.3\"\n    ],\n    \"noAutoAssignIps\": false,\n    \"ssoExempt\": false,\n    \"tags\": [\n      [\n        123,\n        456\n      ]\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c8456fce-672d-447a-898c-5b3cb5cab359",
+              "name": "Access denied",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "network",
+                    ":networkID",
+                    "member",
+                    ":memberID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "networkID",
+                      "description": "(Required) ID of the network"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "memberID",
+                      "description": "(Required) ID of the member"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"hidden\": false,\n  \"name\": \"my-cray-supercomputer\",\n  \"description\": \"My super awesome cray that I got ZeroTier to run on\",\n  \"config\": {\n    \"activeBridge\": false,\n    \"authorized\": true,\n    \"capabilities\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"ipAssignments\": [\n      \"10.0.0.3\"\n    ],\n    \"noAutoAssignIps\": false,\n    \"ssoExempt\": false,\n    \"tags\": [\n      [\n        123,\n        456\n      ]\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a6210265-cbbe-4568-8656-d94585a4e0e1",
+              "name": "Item not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "network",
+                    ":networkID",
+                    "member",
+                    ":memberID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "networkID",
+                      "description": "(Required) ID of the network"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "memberID",
+                      "description": "(Required) ID of the member"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"hidden\": false,\n  \"name\": \"my-cray-supercomputer\",\n  \"description\": \"My super awesome cray that I got ZeroTier to run on\",\n  \"config\": {\n    \"activeBridge\": false,\n    \"authorized\": true,\n    \"capabilities\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"ipAssignments\": [\n      \"10.0.0.3\"\n    ],\n    \"noAutoAssignIps\": false,\n    \"ssoExempt\": false,\n    \"tags\": [\n      [\n        123,\n        456\n      ]\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e3437bf2-3f11-41b9-a024-8e667d4c14cd",
+          "name": "Delete a network member",
+          "request": {
+            "name": "Delete a network member",
+            "description": {},
+            "url": {
+              "path": [
+                "network",
+                ":networkID",
+                "member",
+                ":memberID"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "networkID",
+                  "description": "(Required) ID of the network"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "memberID",
+                  "description": "(Required) ID of the member"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9efb2c0f-76e3-43a7-a329-e479762d4532",
+              "name": "member deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "network",
+                    ":networkID",
+                    "member",
+                    ":memberID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "networkID",
+                      "description": "(Required) ID of the network"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "memberID",
+                      "description": "(Required) ID of the member"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "eff38570-f270-4f54-a42b-0ecce5a035df",
+              "name": "Authorization required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "network",
+                    ":networkID",
+                    "member",
+                    ":memberID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "networkID",
+                      "description": "(Required) ID of the network"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "memberID",
+                      "description": "(Required) ID of the member"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c6499bae-bcf3-4ce3-9c96-604cf0a0b026",
+              "name": "Access denied",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "network",
+                    ":networkID",
+                    "member",
+                    ":memberID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "networkID",
+                      "description": "(Required) ID of the network"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "memberID",
+                      "description": "(Required) ID of the member"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b538f367-3c0d-4230-a510-c1a4ceceb3d1",
+              "name": "Item not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "network",
+                    ":networkID",
+                    "member",
+                    ":memberID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "networkID",
+                      "description": "(Required) ID of the network"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "memberID",
+                      "description": "(Required) ID of the member"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.zerotier.com/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "6cf49693-4035-4211-b0fa-e6d29d6f58fc",
+    "name": "ZeroTier Central controller network-member API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "ZeroTier Central Network Management Portal API.<p>All API requests must have an API token header specified in the <code>Authorization: token xxxxx</code> format.  You can generate your API key by logging into <a href=\"https://my.zerotier.com\">ZeroTier Central</a> and creating a token on the Account page.</p><p>eg. <code>curl -X GET -H \"Authorization: token xxxxx\" https://api.zerotier.com/api/v1/network</code></p><p><h3>Rate Limiting</h3></p><p>The ZeroTier Central API implements rate limiting.  Paid users are limited to 100 requests per second.  Free users are limited to 20 requests per second.</p> <p> You can get the OpenAPI spec here as well: <code>https://docs.zerotier.com/api/central/ref-v1.json</code></p>\n\nContact Support:\n Name: ZeroTier Support Discussion Forum",
+      "type": "text/plain"
+    }
+  }
+}

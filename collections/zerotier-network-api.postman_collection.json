@@ -1,0 +1,885 @@
+{
+  "item": [
+    {
+      "id": "2d9bcf64-98f2-41b1-acf2-2a5eb710b988",
+      "name": "network",
+      "description": {
+        "content": "Network operations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "11badafd-0724-4d41-8908-09b9526c2074",
+          "name": "Returns a list of Networks you have access to.",
+          "request": {
+            "name": "Returns a list of Networks you have access to.",
+            "description": {},
+            "url": {
+              "path": [
+                "network"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f60da54f-7f36-4468-a9de-c4445d709145",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "network"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"8056c2e21c000001\",\n    \"clock\": 12345,\n    \"config\": {\n      \"id\": \"8056c2e21c000001\",\n      \"creationTime\": 1442292672978,\n      \"dns\": {\n        \"domain\": \"some.domain\",\n        \"servers\": [\n          \"10.0.0.3\"\n        ]\n      },\n      \"enableBroadcast\": true,\n      \"ipAssignmentPools\": [\n        {\n          \"ipRangeStart\": \"10.0.0.1\",\n          \"ipRangeEnd\": \"10.0.0.255\"\n        },\n        {\n          \"ipRangeStart\": \"10.0.0.1\",\n          \"ipRangeEnd\": \"10.0.0.255\"\n        }\n      ],\n      \"lastModified\": 1588184318235,\n      \"mtu\": 2800,\n      \"multicastLimit\": 32,\n      \"name\": \"My ZeroTier Network\",\n      \"private\": true,\n      \"routes\": [\n        {\n          \"target\": \"10.0.0.0/24\",\n          \"via\": null\n        },\n        {\n          \"target\": \"10.0.0.0/24\",\n          \"via\": null\n        }\n      ],\n      \"ssoConfig\": {\n        \"enabled\": true,\n        \"mode\": \"default\",\n        \"clientId\": \"some-client-id\",\n        \"issuer\": \"https://example.com/oidc\",\n        \"provider\": \"keycloak\",\n        \"authorizationEndpoint\": \"string\",\n        \"allowList\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"v4AssignMode\": {\n        \"zt\": true\n      },\n      \"v6AssignMode\": {\n        \"6plane\": true,\n        \"rfc4193\": false,\n        \"zt\": false\n      }\n    },\n    \"description\": \"Some descriptive text about my network.\",\n    \"rulesSource\": \"accept;\",\n    \"permissions\": {\n      \"00000000-0000-0000-0000-000000000000\": {\n        \"a\": true,\n        \"d\": true,\n        \"m\": true,\n        \"r\": true\n      }\n    },\n    \"ownerId\": \"00000000-0000-0000-0000-000000000000\",\n    \"onlineMemberCount\": 123,\n    \"authorizedMemberCount\": 200,\n    \"totalMemberCount\": 250,\n    \"capabilitiesByName\": {},\n    \"tagsByName\": {}\n  },\n  {\n    \"id\": \"8056c2e21c000001\",\n    \"clock\": 12345,\n    \"config\": {\n      \"id\": \"8056c2e21c000001\",\n      \"creationTime\": 1442292672978,\n      \"dns\": {\n        \"domain\": \"some.domain\",\n        \"servers\": [\n          \"10.0.0.3\"\n        ]\n      },\n      \"enableBroadcast\": true,\n      \"ipAssignmentPools\": [\n        {\n          \"ipRangeStart\": \"10.0.0.1\",\n          \"ipRangeEnd\": \"10.0.0.255\"\n        },\n        {\n          \"ipRangeStart\": \"10.0.0.1\",\n          \"ipRangeEnd\": \"10.0.0.255\"\n        }\n      ],\n      \"lastModified\": 1588184318235,\n      \"mtu\": 2800,\n      \"multicastLimit\": 32,\n      \"name\": \"My ZeroTier Network\",\n      \"private\": true,\n      \"routes\": [\n        {\n          \"target\": \"10.0.0.0/24\",\n          \"via\": null\n        },\n        {\n          \"target\": \"10.0.0.0/24\",\n          \"via\": null\n        }\n      ],\n      \"ssoConfig\": {\n        \"enabled\": true,\n        \"mode\": \"default\",\n        \"clientId\": \"some-client-id\",\n        \"issuer\": \"https://example.com/oidc\",\n        \"provider\": \"keycloak\",\n        \"authorizationEndpoint\": \"string\",\n        \"allowList\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"v4AssignMode\": {\n        \"zt\": true\n      },\n      \"v6AssignMode\": {\n        \"6plane\": true,\n        \"rfc4193\": false,\n        \"zt\": false\n      }\n    },\n    \"description\": \"Some descriptive text about my network.\",\n    \"rulesSource\": \"accept;\",\n    \"permissions\": {\n      \"00000000-0000-0000-0000-000000000000\": {\n        \"a\": true,\n        \"d\": true,\n        \"m\": true,\n        \"r\": true\n      }\n    },\n    \"ownerId\": \"00000000-0000-0000-0000-000000000000\",\n    \"onlineMemberCount\": 123,\n    \"authorizedMemberCount\": 200,\n    \"totalMemberCount\": 250,\n    \"capabilitiesByName\": {},\n    \"tagsByName\": {}\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ff8b7883-b799-42f3-8fcc-fffcbdc6bb5e",
+              "name": "Authorization required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "network"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "27352cbd-d31e-46d4-9e84-11ef85a29b29",
+          "name": "Create a new network.",
+          "request": {
+            "name": "Create a new network.",
+            "description": {},
+            "url": {
+              "path": [
+                "network"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0a7b1cbb-ce49-4ddc-a970-67189b03a9c0",
+              "name": "Network creation succeeded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "network"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"8056c2e21c000001\",\n  \"clock\": 12345,\n  \"config\": {\n    \"id\": \"8056c2e21c000001\",\n    \"creationTime\": 1442292672978,\n    \"dns\": {\n      \"domain\": \"some.domain\",\n      \"servers\": [\n        \"10.0.0.3\"\n      ]\n    },\n    \"enableBroadcast\": true,\n    \"ipAssignmentPools\": [\n      {\n        \"ipRangeStart\": \"10.0.0.1\",\n        \"ipRangeEnd\": \"10.0.0.255\"\n      },\n      {\n        \"ipRangeStart\": \"10.0.0.1\",\n        \"ipRangeEnd\": \"10.0.0.255\"\n      }\n    ],\n    \"lastModified\": 1588184318235,\n    \"mtu\": 2800,\n    \"multicastLimit\": 32,\n    \"name\": \"My ZeroTier Network\",\n    \"private\": true,\n    \"routes\": [\n      {\n        \"target\": \"10.0.0.0/24\",\n        \"via\": null\n      },\n      {\n        \"target\": \"10.0.0.0/24\",\n        \"via\": null\n      }\n    ],\n    \"ssoConfig\": {\n      \"enabled\": true,\n      \"mode\": \"default\",\n      \"clientId\": \"some-client-id\",\n      \"issuer\": \"https://example.com/oidc\",\n      \"provider\": \"keycloak\",\n      \"authorizationEndpoint\": \"string\",\n      \"allowList\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"v4AssignMode\": {\n      \"zt\": true\n    },\n    \"v6AssignMode\": {\n      \"6plane\": true,\n      \"rfc4193\": false,\n      \"zt\": false\n    }\n  },\n  \"description\": \"Some descriptive text about my network.\",\n  \"rulesSource\": \"accept;\",\n  \"permissions\": {\n    \"00000000-0000-0000-0000-000000000000\": {\n      \"a\": true,\n      \"d\": true,\n      \"m\": true,\n      \"r\": true\n    }\n  },\n  \"ownerId\": \"00000000-0000-0000-0000-000000000000\",\n  \"onlineMemberCount\": 123,\n  \"authorizedMemberCount\": 200,\n  \"totalMemberCount\": 250,\n  \"capabilitiesByName\": {},\n  \"tagsByName\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "47230536-6f16-4599-a1cd-f07d66ec991f",
+              "name": "Authorization required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "network"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6e456996-52bb-4578-9bd8-e993478f9922",
+          "name": "Get network by ID",
+          "request": {
+            "name": "Get network by ID",
+            "description": {
+              "content": "Returns a single network",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "network",
+                ":networkID"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "networkID",
+                  "description": "(Required) ID of the network to return"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cea72e0c-7528-4638-9f79-43bc9bf1ad87",
+              "name": "get success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "network",
+                    ":networkID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "networkID",
+                      "description": "(Required) ID of the network to return"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"8056c2e21c000001\",\n  \"clock\": 12345,\n  \"config\": {\n    \"id\": \"8056c2e21c000001\",\n    \"creationTime\": 1442292672978,\n    \"dns\": {\n      \"domain\": \"some.domain\",\n      \"servers\": [\n        \"10.0.0.3\"\n      ]\n    },\n    \"enableBroadcast\": true,\n    \"ipAssignmentPools\": [\n      {\n        \"ipRangeStart\": \"10.0.0.1\",\n        \"ipRangeEnd\": \"10.0.0.255\"\n      },\n      {\n        \"ipRangeStart\": \"10.0.0.1\",\n        \"ipRangeEnd\": \"10.0.0.255\"\n      }\n    ],\n    \"lastModified\": 1588184318235,\n    \"mtu\": 2800,\n    \"multicastLimit\": 32,\n    \"name\": \"My ZeroTier Network\",\n    \"private\": true,\n    \"routes\": [\n      {\n        \"target\": \"10.0.0.0/24\",\n        \"via\": null\n      },\n      {\n        \"target\": \"10.0.0.0/24\",\n        \"via\": null\n      }\n    ],\n    \"ssoConfig\": {\n      \"enabled\": true,\n      \"mode\": \"default\",\n      \"clientId\": \"some-client-id\",\n      \"issuer\": \"https://example.com/oidc\",\n      \"provider\": \"keycloak\",\n      \"authorizationEndpoint\": \"string\",\n      \"allowList\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"v4AssignMode\": {\n      \"zt\": true\n    },\n    \"v6AssignMode\": {\n      \"6plane\": true,\n      \"rfc4193\": false,\n      \"zt\": false\n    }\n  },\n  \"description\": \"Some descriptive text about my network.\",\n  \"rulesSource\": \"accept;\",\n  \"permissions\": {\n    \"00000000-0000-0000-0000-000000000000\": {\n      \"a\": true,\n      \"d\": true,\n      \"m\": true,\n      \"r\": true\n    }\n  },\n  \"ownerId\": \"00000000-0000-0000-0000-000000000000\",\n  \"onlineMemberCount\": 123,\n  \"authorizedMemberCount\": 200,\n  \"totalMemberCount\": 250,\n  \"capabilitiesByName\": {},\n  \"tagsByName\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "016f9a85-11b3-4cce-b303-c4ba8214e6cd",
+              "name": "Authorization required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "network",
+                    ":networkID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "networkID",
+                      "description": "(Required) ID of the network to return"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "02c67d39-0156-4054-9a73-6c78c3906ac6",
+              "name": "Access denied",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "network",
+                    ":networkID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "networkID",
+                      "description": "(Required) ID of the network to return"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0062f772-2061-49f7-bf98-2d8af6b42ba1",
+              "name": "Item not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "network",
+                    ":networkID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "networkID",
+                      "description": "(Required) ID of the network to return"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d1bf5c0b-f1b4-4fca-a965-f92c8f7b644f",
+          "name": "update network configuration",
+          "request": {
+            "name": "update network configuration",
+            "description": {},
+            "url": {
+              "path": [
+                "network",
+                ":networkID"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "networkID",
+                  "description": "(Required) ID of the network to change"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"config\": {\n    \"capabilities\": [\n      \"<object>\",\n      \"<object>\"\n    ],\n    \"dns\": {\n      \"domain\": \"<string>\",\n      \"servers\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"enableBroadcast\": \"<boolean>\",\n    \"ipAssignmentPools\": [\n      {\n        \"ipRangeStart\": \"<string>\",\n        \"ipRangeEnd\": \"<string>\"\n      },\n      {\n        \"ipRangeStart\": \"<string>\",\n        \"ipRangeEnd\": \"<string>\"\n      }\n    ],\n    \"mtu\": \"<integer>\",\n    \"multicastLimit\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"private\": \"<boolean>\",\n    \"routes\": [\n      {\n        \"target\": \"<string>\",\n        \"via\": \"<string>\"\n      },\n      {\n        \"target\": \"<string>\",\n        \"via\": \"<string>\"\n      }\n    ],\n    \"rules\": [\n      \"<object>\",\n      \"<object>\"\n    ],\n    \"ssoConfig\": {\n      \"enabled\": \"<boolean>\",\n      \"mode\": \"<string>\",\n      \"clientId\": \"<string>\",\n      \"allowList\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"tags\": [\n      \"<object>\",\n      \"<object>\"\n    ],\n    \"v4AssignMode\": {\n      \"zt\": \"<boolean>\"\n    },\n    \"v6AssignMode\": {\n      \"6plane\": \"<boolean>\",\n      \"rfc4193\": \"<boolean>\",\n      \"zt\": \"<boolean>\"\n    }\n  },\n  \"description\": \"<string>\",\n  \"rulesSource\": \"<string>\",\n  \"permissions\": {\n    \"key_0\": {\n      \"a\": \"<boolean>\",\n      \"d\": \"<boolean>\",\n      \"m\": \"<boolean>\",\n      \"r\": \"<boolean>\"\n    },\n    \"key_1\": {\n      \"a\": \"<boolean>\",\n      \"d\": \"<boolean>\",\n      \"m\": \"<boolean>\",\n      \"r\": \"<boolean>\"\n    }\n  },\n  \"ownerId\": \"<string>\",\n  \"capabilitiesByName\": \"<object>\",\n  \"tagsByName\": \"<object>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1c91a437-0917-4a70-8168-c3198baac582",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "network",
+                    ":networkID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "networkID",
+                      "description": "(Required) ID of the network to change"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"config\": {\n    \"capabilities\": [\n      \"<object>\",\n      \"<object>\"\n    ],\n    \"dns\": {\n      \"domain\": \"some.domain\",\n      \"servers\": [\n        \"10.0.0.3\"\n      ]\n    },\n    \"enableBroadcast\": true,\n    \"ipAssignmentPools\": [\n      {\n        \"ipRangeStart\": \"10.0.0.1\",\n        \"ipRangeEnd\": \"10.0.0.255\"\n      },\n      {\n        \"ipRangeStart\": \"10.0.0.1\",\n        \"ipRangeEnd\": \"10.0.0.255\"\n      }\n    ],\n    \"mtu\": 2800,\n    \"multicastLimit\": 32,\n    \"name\": \"My ZeroTier Network\",\n    \"private\": true,\n    \"routes\": [\n      {\n        \"target\": \"10.0.0.0/24\",\n        \"via\": null\n      },\n      {\n        \"target\": \"10.0.0.0/24\",\n        \"via\": null\n      }\n    ],\n    \"rules\": [\n      \"<object>\",\n      \"<object>\"\n    ],\n    \"ssoConfig\": {\n      \"enabled\": true,\n      \"mode\": \"default\",\n      \"clientId\": \"some-client-id\",\n      \"allowList\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"tags\": [\n      \"<object>\",\n      \"<object>\"\n    ],\n    \"v4AssignMode\": {\n      \"zt\": true\n    },\n    \"v6AssignMode\": {\n      \"6plane\": true,\n      \"rfc4193\": false,\n      \"zt\": false\n    }\n  },\n  \"description\": \"Some descriptive text about my network.\",\n  \"rulesSource\": \"accept;\",\n  \"permissions\": {\n    \"00000000-0000-0000-0000-000000000000\": {\n      \"a\": true,\n      \"d\": true,\n      \"m\": true,\n      \"r\": true\n    }\n  },\n  \"ownerId\": \"00000000-0000-0000-0000-000000000000\",\n  \"capabilitiesByName\": \"<object>\",\n  \"tagsByName\": \"<object>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"8056c2e21c000001\",\n  \"clock\": 12345,\n  \"config\": {\n    \"id\": \"8056c2e21c000001\",\n    \"creationTime\": 1442292672978,\n    \"capabilities\": [\n      \"<object>\",\n      \"<object>\"\n    ],\n    \"dns\": {\n      \"domain\": \"some.domain\",\n      \"servers\": [\n        \"10.0.0.3\"\n      ]\n    },\n    \"enableBroadcast\": true,\n    \"ipAssignmentPools\": [\n      {\n        \"ipRangeStart\": \"10.0.0.1\",\n        \"ipRangeEnd\": \"10.0.0.255\"\n      },\n      {\n        \"ipRangeStart\": \"10.0.0.1\",\n        \"ipRangeEnd\": \"10.0.0.255\"\n      }\n    ],\n    \"lastModified\": 1588184318235,\n    \"mtu\": 2800,\n    \"multicastLimit\": 32,\n    \"name\": \"My ZeroTier Network\",\n    \"private\": true,\n    \"routes\": [\n      {\n        \"target\": \"10.0.0.0/24\",\n        \"via\": null\n      },\n      {\n        \"target\": \"10.0.0.0/24\",\n        \"via\": null\n      }\n    ],\n    \"rules\": [\n      \"<object>\",\n      \"<object>\"\n    ],\n    \"ssoConfig\": {\n      \"enabled\": true,\n      \"mode\": \"default\",\n      \"clientId\": \"some-client-id\",\n      \"issuer\": \"https://example.com/oidc\",\n      \"provider\": \"keycloak\",\n      \"authorizationEndpoint\": \"string\",\n      \"allowList\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"tags\": [\n      \"<object>\",\n      \"<object>\"\n    ],\n    \"v4AssignMode\": {\n      \"zt\": true\n    },\n    \"v6AssignMode\": {\n      \"6plane\": true,\n      \"rfc4193\": false,\n      \"zt\": false\n    }\n  },\n  \"description\": \"Some descriptive text about my network.\",\n  \"rulesSource\": \"accept;\",\n  \"permissions\": {\n    \"00000000-0000-0000-0000-000000000000\": {\n      \"a\": true,\n      \"d\": true,\n      \"m\": true,\n      \"r\": true\n    }\n  },\n  \"ownerId\": \"00000000-0000-0000-0000-000000000000\",\n  \"onlineMemberCount\": 123,\n  \"authorizedMemberCount\": 200,\n  \"totalMemberCount\": 250,\n  \"capabilitiesByName\": \"<object>\",\n  \"tagsByName\": \"<object>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "63650d05-4aeb-4aca-a66b-d3642654f19c",
+              "name": "Authorization required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "network",
+                    ":networkID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "networkID",
+                      "description": "(Required) ID of the network to change"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"config\": {\n    \"capabilities\": [\n      \"<object>\",\n      \"<object>\"\n    ],\n    \"dns\": {\n      \"domain\": \"some.domain\",\n      \"servers\": [\n        \"10.0.0.3\"\n      ]\n    },\n    \"enableBroadcast\": true,\n    \"ipAssignmentPools\": [\n      {\n        \"ipRangeStart\": \"10.0.0.1\",\n        \"ipRangeEnd\": \"10.0.0.255\"\n      },\n      {\n        \"ipRangeStart\": \"10.0.0.1\",\n        \"ipRangeEnd\": \"10.0.0.255\"\n      }\n    ],\n    \"mtu\": 2800,\n    \"multicastLimit\": 32,\n    \"name\": \"My ZeroTier Network\",\n    \"private\": true,\n    \"routes\": [\n      {\n        \"target\": \"10.0.0.0/24\",\n        \"via\": null\n      },\n      {\n        \"target\": \"10.0.0.0/24\",\n        \"via\": null\n      }\n    ],\n    \"rules\": [\n      \"<object>\",\n      \"<object>\"\n    ],\n    \"ssoConfig\": {\n      \"enabled\": true,\n      \"mode\": \"default\",\n      \"clientId\": \"some-client-id\",\n      \"allowList\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"tags\": [\n      \"<object>\",\n      \"<object>\"\n    ],\n    \"v4AssignMode\": {\n      \"zt\": true\n    },\n    \"v6AssignMode\": {\n      \"6plane\": true,\n      \"rfc4193\": false,\n      \"zt\": false\n    }\n  },\n  \"description\": \"Some descriptive text about my network.\",\n  \"rulesSource\": \"accept;\",\n  \"permissions\": {\n    \"00000000-0000-0000-0000-000000000000\": {\n      \"a\": true,\n      \"d\": true,\n      \"m\": true,\n      \"r\": true\n    }\n  },\n  \"ownerId\": \"00000000-0000-0000-0000-000000000000\",\n  \"capabilitiesByName\": \"<object>\",\n  \"tagsByName\": \"<object>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bd803634-b619-4c93-bc21-09ce514b5489",
+              "name": "Access denied",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "network",
+                    ":networkID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "networkID",
+                      "description": "(Required) ID of the network to change"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"config\": {\n    \"capabilities\": [\n      \"<object>\",\n      \"<object>\"\n    ],\n    \"dns\": {\n      \"domain\": \"some.domain\",\n      \"servers\": [\n        \"10.0.0.3\"\n      ]\n    },\n    \"enableBroadcast\": true,\n    \"ipAssignmentPools\": [\n      {\n        \"ipRangeStart\": \"10.0.0.1\",\n        \"ipRangeEnd\": \"10.0.0.255\"\n      },\n      {\n        \"ipRangeStart\": \"10.0.0.1\",\n        \"ipRangeEnd\": \"10.0.0.255\"\n      }\n    ],\n    \"mtu\": 2800,\n    \"multicastLimit\": 32,\n    \"name\": \"My ZeroTier Network\",\n    \"private\": true,\n    \"routes\": [\n      {\n        \"target\": \"10.0.0.0/24\",\n        \"via\": null\n      },\n      {\n        \"target\": \"10.0.0.0/24\",\n        \"via\": null\n      }\n    ],\n    \"rules\": [\n      \"<object>\",\n      \"<object>\"\n    ],\n    \"ssoConfig\": {\n      \"enabled\": true,\n      \"mode\": \"default\",\n      \"clientId\": \"some-client-id\",\n      \"allowList\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"tags\": [\n      \"<object>\",\n      \"<object>\"\n    ],\n    \"v4AssignMode\": {\n      \"zt\": true\n    },\n    \"v6AssignMode\": {\n      \"6plane\": true,\n      \"rfc4193\": false,\n      \"zt\": false\n    }\n  },\n  \"description\": \"Some descriptive text about my network.\",\n  \"rulesSource\": \"accept;\",\n  \"permissions\": {\n    \"00000000-0000-0000-0000-000000000000\": {\n      \"a\": true,\n      \"d\": true,\n      \"m\": true,\n      \"r\": true\n    }\n  },\n  \"ownerId\": \"00000000-0000-0000-0000-000000000000\",\n  \"capabilitiesByName\": \"<object>\",\n  \"tagsByName\": \"<object>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1f34c115-12ef-4b7b-a95d-625fcd5df946",
+              "name": "Item not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "network",
+                    ":networkID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "networkID",
+                      "description": "(Required) ID of the network to change"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"config\": {\n    \"capabilities\": [\n      \"<object>\",\n      \"<object>\"\n    ],\n    \"dns\": {\n      \"domain\": \"some.domain\",\n      \"servers\": [\n        \"10.0.0.3\"\n      ]\n    },\n    \"enableBroadcast\": true,\n    \"ipAssignmentPools\": [\n      {\n        \"ipRangeStart\": \"10.0.0.1\",\n        \"ipRangeEnd\": \"10.0.0.255\"\n      },\n      {\n        \"ipRangeStart\": \"10.0.0.1\",\n        \"ipRangeEnd\": \"10.0.0.255\"\n      }\n    ],\n    \"mtu\": 2800,\n    \"multicastLimit\": 32,\n    \"name\": \"My ZeroTier Network\",\n    \"private\": true,\n    \"routes\": [\n      {\n        \"target\": \"10.0.0.0/24\",\n        \"via\": null\n      },\n      {\n        \"target\": \"10.0.0.0/24\",\n        \"via\": null\n      }\n    ],\n    \"rules\": [\n      \"<object>\",\n      \"<object>\"\n    ],\n    \"ssoConfig\": {\n      \"enabled\": true,\n      \"mode\": \"default\",\n      \"clientId\": \"some-client-id\",\n      \"allowList\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"tags\": [\n      \"<object>\",\n      \"<object>\"\n    ],\n    \"v4AssignMode\": {\n      \"zt\": true\n    },\n    \"v6AssignMode\": {\n      \"6plane\": true,\n      \"rfc4193\": false,\n      \"zt\": false\n    }\n  },\n  \"description\": \"Some descriptive text about my network.\",\n  \"rulesSource\": \"accept;\",\n  \"permissions\": {\n    \"00000000-0000-0000-0000-000000000000\": {\n      \"a\": true,\n      \"d\": true,\n      \"m\": true,\n      \"r\": true\n    }\n  },\n  \"ownerId\": \"00000000-0000-0000-0000-000000000000\",\n  \"capabilitiesByName\": \"<object>\",\n  \"tagsByName\": \"<object>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e94a7e24-e6be-4a71-a9f6-f13f33a255fe",
+          "name": "delete network",
+          "request": {
+            "name": "delete network",
+            "description": {},
+            "url": {
+              "path": [
+                "network",
+                ":networkID"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "networkID",
+                  "description": "(Required) ID of the network"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6e50d676-2828-4a0f-a45c-c9a03846ca3b",
+              "name": "network deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "network",
+                    ":networkID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "networkID",
+                      "description": "(Required) ID of the network"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "41a03a1f-fc48-4dc6-a08a-e211aba7b01f",
+              "name": "Authorization required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "network",
+                    ":networkID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "networkID",
+                      "description": "(Required) ID of the network"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e4932657-7516-454f-88e6-b86451e72165",
+              "name": "Access denied",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "network",
+                    ":networkID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "networkID",
+                      "description": "(Required) ID of the network"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "475d112c-ea37-4f27-862c-4d974949840c",
+              "name": "Item not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "network",
+                    ":networkID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "networkID",
+                      "description": "(Required) ID of the network"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.zerotier.com/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "96a503aa-4971-4df5-9356-f17beacbc04e",
+    "name": "ZeroTier Central controller network API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "ZeroTier Central Network Management Portal API.<p>All API requests must have an API token header specified in the <code>Authorization: token xxxxx</code> format.  You can generate your API key by logging into <a href=\"https://my.zerotier.com\">ZeroTier Central</a> and creating a token on the Account page.</p><p>eg. <code>curl -X GET -H \"Authorization: token xxxxx\" https://api.zerotier.com/api/v1/network</code></p><p><h3>Rate Limiting</h3></p><p>The ZeroTier Central API implements rate limiting.  Paid users are limited to 100 requests per second.  Free users are limited to 20 requests per second.</p> <p> You can get the OpenAPI spec here as well: <code>https://docs.zerotier.com/api/central/ref-v1.json</code></p>\n\nContact Support:\n Name: ZeroTier Support Discussion Forum",
+      "type": "text/plain"
+    }
+  }
+}

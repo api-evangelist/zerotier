@@ -1,0 +1,150 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ZeroTier Central controller organizations API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "organizations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get the current user's organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.zerotier.com/api/v1/org"
+          },
+          "docs": "Get the current user's organization"
+        },
+        {
+          "info": {
+            "name": "Get organization by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.zerotier.com/api/v1/org/:orgID",
+            "params": [
+              {
+                "name": "orgID",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              }
+            ]
+          },
+          "docs": "Get organization by ID"
+        },
+        {
+          "info": {
+            "name": "Get list of organization members",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.zerotier.com/api/v1/org/:orgID/user",
+            "params": [
+              {
+                "name": "orgID",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              }
+            ]
+          },
+          "docs": "Get list of organization members"
+        },
+        {
+          "info": {
+            "name": "Get list of organization invitations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.zerotier.com/api/v1/org-invitation"
+          },
+          "docs": "Get list of organization invitations"
+        },
+        {
+          "info": {
+            "name": "Invite a user to your organization by email",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.zerotier.com/api/v1/org-invitation",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Invite a user to your organization by email"
+        },
+        {
+          "info": {
+            "name": "Get organization invitation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.zerotier.com/api/v1/org-invitation/:inviteID",
+            "params": [
+              {
+                "name": "inviteID",
+                "value": "",
+                "type": "path",
+                "description": "Invitation ID"
+              }
+            ]
+          },
+          "docs": "Get organization invitation"
+        },
+        {
+          "info": {
+            "name": "Accept organization invitation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.zerotier.com/api/v1/org-invitation/:inviteID",
+            "params": [
+              {
+                "name": "inviteID",
+                "value": "",
+                "type": "path",
+                "description": "Invitation ID"
+              }
+            ]
+          },
+          "docs": "Accept organization invitation"
+        },
+        {
+          "info": {
+            "name": "Decline organization invitation",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.zerotier.com/api/v1/org-invitation/:inviteID",
+            "params": [
+              {
+                "name": "inviteID",
+                "value": "",
+                "type": "path",
+                "description": "Invitation ID"
+              }
+            ]
+          },
+          "docs": "Decline organization invitation"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

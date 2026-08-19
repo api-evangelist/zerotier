@@ -1,0 +1,105 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ZeroTier Central controller network API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "network",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Returns a list of Networks you have access to.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.zerotier.com/api/v1/network"
+          },
+          "docs": "Returns a list of Networks you have access to."
+        },
+        {
+          "info": {
+            "name": "Create a new network.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.zerotier.com/api/v1/network",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new network."
+        },
+        {
+          "info": {
+            "name": "Get network by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.zerotier.com/api/v1/network/:networkID",
+            "params": [
+              {
+                "name": "networkID",
+                "value": "",
+                "type": "path",
+                "description": "ID of the network to return"
+              }
+            ]
+          },
+          "docs": "Returns a single network"
+        },
+        {
+          "info": {
+            "name": "update network configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.zerotier.com/api/v1/network/:networkID",
+            "params": [
+              {
+                "name": "networkID",
+                "value": "",
+                "type": "path",
+                "description": "ID of the network to change"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "update network configuration"
+        },
+        {
+          "info": {
+            "name": "delete network",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.zerotier.com/api/v1/network/:networkID",
+            "params": [
+              {
+                "name": "networkID",
+                "value": "",
+                "type": "path",
+                "description": "ID of the network"
+              }
+            ]
+          },
+          "docs": "delete network"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

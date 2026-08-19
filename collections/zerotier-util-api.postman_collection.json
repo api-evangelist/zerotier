@@ -1,0 +1,168 @@
+{
+  "item": [
+    {
+      "id": "7594ac69-187c-4747-af3a-cfa6fa0fd3ae",
+      "name": "util",
+      "description": {
+        "content": "Utility endpoints",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "712f49e7-d327-4ea1-944c-36bf19d0bb7d",
+          "name": "Obtain the overall status of the account tied to the API token in use.",
+          "request": {
+            "name": "Obtain the overall status of the account tied to the API token in use.",
+            "description": {},
+            "url": {
+              "path": [
+                "status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dfbf0207-c176-43ca-b720-713a704af835",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"central_status\",\n  \"type\": \"CentralStatus\",\n  \"clock\": 1613067920454,\n  \"version\": \"1.6.5\",\n  \"apiVersion\": \"4\",\n  \"uptime\": 1613067920454,\n  \"user\": {\n    \"id\": \"00000000-0000-0000-0000-000000000000\",\n    \"orgId\": \"00000000-0000-0000-0000-000000000000\",\n    \"globalPermissions\": {\n      \"a\": true,\n      \"d\": true,\n      \"m\": true,\n      \"r\": true\n    },\n    \"displayName\": \"Joe User\",\n    \"email\": \"user@example.com\",\n    \"auth\": {\n      \"local\": \"user@example.com\",\n      \"google\": \"156162346876134683\",\n      \"oidc\": \"00000000-0000-0000-0000-000000000000\"\n    },\n    \"smsNumber\": \"+1-800-555-1212\",\n    \"tokens\": [\n      \"my-token-id\"\n    ]\n  },\n  \"readOnlyMode\": true,\n  \"loginMethods\": {\n    \"local\": true,\n    \"google\": false,\n    \"twitter\": false,\n    \"facebook\": true,\n    \"github\": false,\n    \"saml\": false,\n    \"oidc\": true\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c499ec28-0669-4c18-86ab-fb449b41e12f",
+          "name": "Get a random 32 character token",
+          "request": {
+            "name": "Get a random 32 character token",
+            "description": {
+              "content": "Get a random 32 character.  Used by the web UI to generate API keys",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "randomToken"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9306ae7d-19be-4560-972f-d2ae9b764473",
+              "name": "Random token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "randomToken"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"clock\": 1613067920454,\n  \"hex\": \"16924f3ff478526cffb1b89b1040b33c8dbd3c09e07f39691f615769121c0d76\",\n  \"token\": \"wwrb66uUh18Fqc38rd8jMd5RFJzRsCn4\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.zerotier.com/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "cf1bcca8-a5a6-4df4-85a6-abdd2756d0c4",
+    "name": "ZeroTier Central controller util API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "ZeroTier Central Network Management Portal API.<p>All API requests must have an API token header specified in the <code>Authorization: token xxxxx</code> format.  You can generate your API key by logging into <a href=\"https://my.zerotier.com\">ZeroTier Central</a> and creating a token on the Account page.</p><p>eg. <code>curl -X GET -H \"Authorization: token xxxxx\" https://api.zerotier.com/api/v1/network</code></p><p><h3>Rate Limiting</h3></p><p>The ZeroTier Central API implements rate limiting.  Paid users are limited to 100 requests per second.  Free users are limited to 20 requests per second.</p> <p> You can get the OpenAPI spec here as well: <code>https://docs.zerotier.com/api/central/ref-v1.json</code></p>\n\nContact Support:\n Name: ZeroTier Support Discussion Forum",
+      "type": "text/plain"
+    }
+  }
+}

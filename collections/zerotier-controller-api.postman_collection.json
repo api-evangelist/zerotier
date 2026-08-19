@@ -1,0 +1,956 @@
+{
+  "item": [
+    {
+      "id": "f901b5cb-068e-424c-be1c-5ac5989eb19d",
+      "name": "controller",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "561a3834-d737-44fe-8614-355cc79c8443",
+          "name": "Get Controller Status.",
+          "request": {
+            "name": "Get Controller Status.",
+            "description": {
+              "content": "Check for controller function and return controller status.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "controller"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "70a06fc2-32af-43c0-a27b-81707529c4be",
+              "name": "Status object.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "controller"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"controller\": true,\n  \"apiVersion\": 3,\n  \"clock\": 1623101592\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4b1a1175-2cc1-414f-9ca1-d87e406ee4ba",
+              "name": "Authorization required.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "controller"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "decdfa38-32ed-4f04-a5ff-b60d65e2d13d",
+          "name": "List Networks.",
+          "request": {
+            "name": "List Networks.",
+            "description": {
+              "content": "List IDs of all networks hosted by this controller.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "controller",
+                "network"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "04d1fb78-8bff-406b-8aef-60bb18a0af78",
+              "name": "List of network IDs.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "controller",
+                    "network"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  \"3e245e31af7a726a\",\n  \"3e245e31af7a726a\"\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c8ed383d-d315-4f6d-bd07-4b3dd6739d4f",
+              "name": "Authorization required.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "controller",
+                    "network"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a82cb3a5-b76d-4905-8113-c4ac9f84b2ac",
+          "name": "Get Network by ID.",
+          "request": {
+            "name": "Get Network by ID.",
+            "description": {
+              "content": "Get details of a network by its ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "controller",
+                "network",
+                ":networkID"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "networkID",
+                  "description": "(Required) ID of the network."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "864497b9-c942-4dc2-a100-3aca83ff21f7",
+              "name": "Network Details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "controller",
+                    "network",
+                    ":networkID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "networkID",
+                      "description": "(Required) ID of the network."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"3e245e31af000001\",\n  \"nwid\": \"3e245e31af000001\",\n  \"objtype\": \"network\",\n  \"name\": \"my-cool-network\",\n  \"creationTime\": 1623101592,\n  \"private\": true,\n  \"enableBroadcast\": true,\n  \"v4AssignMode\": {\n    \"zt\": true\n  },\n  \"v6AssignMode\": {\n    \"6plane\": true,\n    \"rfc4193\": true,\n    \"zt\": false\n  },\n  \"mtu\": 2800,\n  \"multicastLimit\": 32,\n  \"revision\": 1,\n  \"routes\": [\n    {\n      \"target\": \"192.168.192.0/24\",\n      \"via\": \"192.168.192.1\"\n    },\n    {\n      \"target\": \"192.168.192.0/24\",\n      \"via\": \"192.168.192.1\"\n    }\n  ],\n  \"ipAssignmentPools\": [\n    {\n      \"ipRangeStart\": \"192.168.192.1\",\n      \"ipRangeEnd\": \"192.168.192.254\"\n    },\n    {\n      \"ipRangeStart\": \"192.168.192.1\",\n      \"ipRangeEnd\": \"192.168.192.254\"\n    }\n  ],\n  \"remoteTraceTarget\": \"7f5d90eb87\",\n  \"remoteTraceLevel\": 4681\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "215cbceb-6145-4ded-bf48-3c7fbe8c239b",
+              "name": "Authorization required.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "controller",
+                    "network",
+                    ":networkID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "networkID",
+                      "description": "(Required) ID of the network."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2bb9b6e1-9daa-43a3-8298-ed0f18b8f779",
+          "name": "Create or Update a Network.",
+          "request": {
+            "name": "Create or Update a Network.",
+            "description": {},
+            "url": {
+              "path": [
+                "controller",
+                "network",
+                ":networkID"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "networkID",
+                  "description": "(Required) ID of the network."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"private\": \"<boolean>\",\n  \"enableBroadcast\": \"<boolean>\",\n  \"v4AssignMode\": {\n    \"zt\": \"<boolean>\"\n  },\n  \"v6AssignMode\": {\n    \"6plane\": \"<boolean>\",\n    \"rfc4193\": \"<boolean>\",\n    \"zt\": \"<boolean>\"\n  },\n  \"mtu\": \"<integer>\",\n  \"multicastLimit\": \"<integer>\",\n  \"routes\": [\n    {\n      \"target\": \"<string>\",\n      \"via\": \"<string>\"\n    },\n    {\n      \"target\": \"<string>\",\n      \"via\": \"<string>\"\n    }\n  ],\n  \"ipAssignmentPools\": [\n    {\n      \"ipRangeStart\": \"<string>\",\n      \"ipRangeEnd\": \"<string>\"\n    },\n    {\n      \"ipRangeStart\": \"<string>\",\n      \"ipRangeEnd\": \"<string>\"\n    }\n  ],\n  \"rules\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"capabilities\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"tags\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"remoteTraceTarget\": \"<string>\",\n  \"remoteTraceLevel\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "883c8509-bd54-40ec-b7b1-d7ed2aaa7397",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "controller",
+                    "network",
+                    ":networkID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "networkID",
+                      "description": "(Required) ID of the network."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"my-cool-network\",\n  \"private\": \"<boolean>\",\n  \"enableBroadcast\": \"<boolean>\",\n  \"v4AssignMode\": {\n    \"zt\": \"<boolean>\"\n  },\n  \"v6AssignMode\": {\n    \"6plane\": \"<boolean>\",\n    \"rfc4193\": \"<boolean>\",\n    \"zt\": \"<boolean>\"\n  },\n  \"mtu\": 2800,\n  \"multicastLimit\": 32,\n  \"routes\": [\n    {\n      \"target\": \"192.168.192.0/24\",\n      \"via\": \"192.168.192.1\"\n    },\n    {\n      \"target\": \"192.168.192.0/24\",\n      \"via\": \"192.168.192.1\"\n    }\n  ],\n  \"ipAssignmentPools\": [\n    {\n      \"ipRangeStart\": \"192.168.192.1\",\n      \"ipRangeEnd\": \"192.168.192.254\"\n    },\n    {\n      \"ipRangeStart\": \"192.168.192.1\",\n      \"ipRangeEnd\": \"192.168.192.254\"\n    }\n  ],\n  \"rules\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"capabilities\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"tags\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"remoteTraceTarget\": \"7f5d90eb87\",\n  \"remoteTraceLevel\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"3e245e31af000001\",\n  \"nwid\": \"3e245e31af000001\",\n  \"objtype\": \"network\",\n  \"name\": \"my-cool-network\",\n  \"creationTime\": 1623101592,\n  \"private\": \"<boolean>\",\n  \"enableBroadcast\": \"<boolean>\",\n  \"v4AssignMode\": {\n    \"zt\": \"<boolean>\"\n  },\n  \"v6AssignMode\": {\n    \"6plane\": \"<boolean>\",\n    \"rfc4193\": \"<boolean>\",\n    \"zt\": \"<boolean>\"\n  },\n  \"mtu\": 2800,\n  \"multicastLimit\": 32,\n  \"revision\": 1,\n  \"routes\": [\n    {\n      \"target\": \"192.168.192.0/24\",\n      \"via\": \"192.168.192.1\"\n    },\n    {\n      \"target\": \"192.168.192.0/24\",\n      \"via\": \"192.168.192.1\"\n    }\n  ],\n  \"ipAssignmentPools\": [\n    {\n      \"ipRangeStart\": \"192.168.192.1\",\n      \"ipRangeEnd\": \"192.168.192.254\"\n    },\n    {\n      \"ipRangeStart\": \"192.168.192.1\",\n      \"ipRangeEnd\": \"192.168.192.254\"\n    }\n  ],\n  \"rules\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"capabilities\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"tags\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"remoteTraceTarget\": \"7f5d90eb87\",\n  \"remoteTraceLevel\": \"<integer>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1af9a197-5457-41cb-9ca2-ba817d70a362",
+              "name": "Authorization required.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "controller",
+                    "network",
+                    ":networkID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "networkID",
+                      "description": "(Required) ID of the network."
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"my-cool-network\",\n  \"private\": \"<boolean>\",\n  \"enableBroadcast\": \"<boolean>\",\n  \"v4AssignMode\": {\n    \"zt\": \"<boolean>\"\n  },\n  \"v6AssignMode\": {\n    \"6plane\": \"<boolean>\",\n    \"rfc4193\": \"<boolean>\",\n    \"zt\": \"<boolean>\"\n  },\n  \"mtu\": 2800,\n  \"multicastLimit\": 32,\n  \"routes\": [\n    {\n      \"target\": \"192.168.192.0/24\",\n      \"via\": \"192.168.192.1\"\n    },\n    {\n      \"target\": \"192.168.192.0/24\",\n      \"via\": \"192.168.192.1\"\n    }\n  ],\n  \"ipAssignmentPools\": [\n    {\n      \"ipRangeStart\": \"192.168.192.1\",\n      \"ipRangeEnd\": \"192.168.192.254\"\n    },\n    {\n      \"ipRangeStart\": \"192.168.192.1\",\n      \"ipRangeEnd\": \"192.168.192.254\"\n    }\n  ],\n  \"rules\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"capabilities\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"tags\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"remoteTraceTarget\": \"7f5d90eb87\",\n  \"remoteTraceLevel\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5a0f46a4-c9bf-4e2d-ae4e-ed10ca889490",
+          "name": "Generate Random Network ID.",
+          "request": {
+            "name": "Generate Random Network ID.",
+            "description": {
+              "content": "Create a new network with a random ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "controller",
+                "network",
+                ":controllerID"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "controllerID",
+                  "description": "(Required) Node ID of the controller."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"private\": \"<boolean>\",\n  \"enableBroadcast\": \"<boolean>\",\n  \"v4AssignMode\": {\n    \"zt\": \"<boolean>\"\n  },\n  \"v6AssignMode\": {\n    \"6plane\": \"<boolean>\",\n    \"rfc4193\": \"<boolean>\",\n    \"zt\": \"<boolean>\"\n  },\n  \"mtu\": \"<integer>\",\n  \"multicastLimit\": \"<integer>\",\n  \"routes\": [\n    {\n      \"target\": \"<string>\",\n      \"via\": \"<string>\"\n    },\n    {\n      \"target\": \"<string>\",\n      \"via\": \"<string>\"\n    }\n  ],\n  \"ipAssignmentPools\": [\n    {\n      \"ipRangeStart\": \"<string>\",\n      \"ipRangeEnd\": \"<string>\"\n    },\n    {\n      \"ipRangeStart\": \"<string>\",\n      \"ipRangeEnd\": \"<string>\"\n    }\n  ],\n  \"rules\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"capabilities\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"tags\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"remoteTraceTarget\": \"<string>\",\n  \"remoteTraceLevel\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "70b5c0c0-d8bc-4dcb-bc31-ff5ad2523adb",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "controller",
+                    "network",
+                    ":controllerID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "controllerID",
+                      "description": "(Required) Node ID of the controller."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"my-cool-network\",\n  \"private\": \"<boolean>\",\n  \"enableBroadcast\": \"<boolean>\",\n  \"v4AssignMode\": {\n    \"zt\": \"<boolean>\"\n  },\n  \"v6AssignMode\": {\n    \"6plane\": \"<boolean>\",\n    \"rfc4193\": \"<boolean>\",\n    \"zt\": \"<boolean>\"\n  },\n  \"mtu\": 2800,\n  \"multicastLimit\": 32,\n  \"routes\": [\n    {\n      \"target\": \"192.168.192.0/24\",\n      \"via\": \"192.168.192.1\"\n    },\n    {\n      \"target\": \"192.168.192.0/24\",\n      \"via\": \"192.168.192.1\"\n    }\n  ],\n  \"ipAssignmentPools\": [\n    {\n      \"ipRangeStart\": \"192.168.192.1\",\n      \"ipRangeEnd\": \"192.168.192.254\"\n    },\n    {\n      \"ipRangeStart\": \"192.168.192.1\",\n      \"ipRangeEnd\": \"192.168.192.254\"\n    }\n  ],\n  \"rules\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"capabilities\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"tags\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"remoteTraceTarget\": \"7f5d90eb87\",\n  \"remoteTraceLevel\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"3e245e31af000001\",\n  \"nwid\": \"3e245e31af000001\",\n  \"objtype\": \"network\",\n  \"name\": \"my-cool-network\",\n  \"creationTime\": 1623101592,\n  \"private\": \"<boolean>\",\n  \"enableBroadcast\": \"<boolean>\",\n  \"v4AssignMode\": {\n    \"zt\": \"<boolean>\"\n  },\n  \"v6AssignMode\": {\n    \"6plane\": \"<boolean>\",\n    \"rfc4193\": \"<boolean>\",\n    \"zt\": \"<boolean>\"\n  },\n  \"mtu\": 2800,\n  \"multicastLimit\": 32,\n  \"revision\": 1,\n  \"routes\": [\n    {\n      \"target\": \"192.168.192.0/24\",\n      \"via\": \"192.168.192.1\"\n    },\n    {\n      \"target\": \"192.168.192.0/24\",\n      \"via\": \"192.168.192.1\"\n    }\n  ],\n  \"ipAssignmentPools\": [\n    {\n      \"ipRangeStart\": \"192.168.192.1\",\n      \"ipRangeEnd\": \"192.168.192.254\"\n    },\n    {\n      \"ipRangeStart\": \"192.168.192.1\",\n      \"ipRangeEnd\": \"192.168.192.254\"\n    }\n  ],\n  \"rules\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"capabilities\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"tags\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"remoteTraceTarget\": \"7f5d90eb87\",\n  \"remoteTraceLevel\": \"<integer>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c04ec556-7dec-4e41-9a5f-ccfd3c0791ac",
+              "name": "Authorization required.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "controller",
+                    "network",
+                    ":controllerID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "controllerID",
+                      "description": "(Required) Node ID of the controller."
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"my-cool-network\",\n  \"private\": \"<boolean>\",\n  \"enableBroadcast\": \"<boolean>\",\n  \"v4AssignMode\": {\n    \"zt\": \"<boolean>\"\n  },\n  \"v6AssignMode\": {\n    \"6plane\": \"<boolean>\",\n    \"rfc4193\": \"<boolean>\",\n    \"zt\": \"<boolean>\"\n  },\n  \"mtu\": 2800,\n  \"multicastLimit\": 32,\n  \"routes\": [\n    {\n      \"target\": \"192.168.192.0/24\",\n      \"via\": \"192.168.192.1\"\n    },\n    {\n      \"target\": \"192.168.192.0/24\",\n      \"via\": \"192.168.192.1\"\n    }\n  ],\n  \"ipAssignmentPools\": [\n    {\n      \"ipRangeStart\": \"192.168.192.1\",\n      \"ipRangeEnd\": \"192.168.192.254\"\n    },\n    {\n      \"ipRangeStart\": \"192.168.192.1\",\n      \"ipRangeEnd\": \"192.168.192.254\"\n    }\n  ],\n  \"rules\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"capabilities\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"tags\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"remoteTraceTarget\": \"7f5d90eb87\",\n  \"remoteTraceLevel\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f423f189-08ab-4a84-bf08-efc09b9e221e",
+          "name": "List Network Members.",
+          "request": {
+            "name": "List Network Members.",
+            "description": {
+              "content": "JSON object containing all member IDs as keys and their memberRevisionCounter values as values.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "controller",
+                "network",
+                ":networkID",
+                "member"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "networkID",
+                  "description": "(Required) ID of the network."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b9110b37-b44e-49d3-ab2e-4450bc30b3e1",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "controller",
+                    "network",
+                    ":networkID",
+                    "member"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "networkID",
+                      "description": "(Required) ID of the network."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"03d516a9df\": 5,\n  \"b9d5ad8e13\": 1\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "88628939-38d0-4c1a-a69a-000dc9a8c317",
+              "name": "Authorization required.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "controller",
+                    "network",
+                    ":networkID",
+                    "member"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "networkID",
+                      "description": "(Required) ID of the network."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1978d82f-d116-40bf-a1c3-b084ff938625",
+          "name": "Get Network Member Details by ID.",
+          "request": {
+            "name": "Get Network Member Details by ID.",
+            "description": {},
+            "url": {
+              "path": [
+                "controller",
+                "network",
+                ":networkID",
+                "member",
+                ":nodeID"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "networkID",
+                  "description": "(Required) ID of the network."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "nodeID",
+                  "description": "(Required) ID of the member node."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0dfa11e7-8e84-4b73-bf0a-b296c5efcc8c",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "controller",
+                    "network",
+                    ":networkID",
+                    "member",
+                    ":nodeID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "networkID",
+                      "description": "(Required) ID of the network."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "nodeID",
+                      "description": "(Required) ID of the member node."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"eb8d45c5c9\",\n  \"address\": \"eb8d45c5c9\",\n  \"nwid\": \"3e245e31af000001\",\n  \"authorized\": true,\n  \"activeBridge\": true,\n  \"identity\": \"eb8d45c5c9:0:0279558f1a731cb2f628b3adc9f8915d7c2f3752e07d75f2d75fde08274b9c3a43d8b04115fd30f37043f61758ac874b844cc184fdf51e1022e988c1d093a50d:91a840bcd3fbac910afc56be4222973f675204a0ca9625218352e1c82debaa758b915d948c5fe4bd3c38cf1255904804a5b937f5edaef182ba8d5f3d8a243329\",\n  \"ipAssignments\": [\n    \"10.147.20.190\",\n    \"10.147.20.190\"\n  ],\n  \"revision\": 1,\n  \"vMajor\": 1,\n  \"vMinor\": 6,\n  \"vRev\": 5,\n  \"vProto\": 5\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "996c2ce9-ed44-4ab6-9be7-4d761a28ff3d",
+              "name": "Authorization required.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "controller",
+                    "network",
+                    ":networkID",
+                    "member",
+                    ":nodeID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "networkID",
+                      "description": "(Required) ID of the network."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "nodeID",
+                      "description": "(Required) ID of the member node."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.zerotier.com/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "7d8bfcd7-a886-4144-8287-69b9b182b43d",
+    "name": "ZeroTier Central controller API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "ZeroTier Central Network Management Portal API.<p>All API requests must have an API token header specified in the <code>Authorization: token xxxxx</code> format.  You can generate your API key by logging into <a href=\"https://my.zerotier.com\">ZeroTier Central</a> and creating a token on the Account page.</p><p>eg. <code>curl -X GET -H \"Authorization: token xxxxx\" https://api.zerotier.com/api/v1/network</code></p><p><h3>Rate Limiting</h3></p><p>The ZeroTier Central API implements rate limiting.  Paid users are limited to 100 requests per second.  Free users are limited to 20 requests per second.</p> <p> You can get the OpenAPI spec here as well: <code>https://docs.zerotier.com/api/central/ref-v1.json</code></p>\n\nContact Support:\n Name: ZeroTier Support Discussion Forum",
+      "type": "text/plain"
+    }
+  }
+}

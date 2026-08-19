@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ZeroTier Central controller status API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "status",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Node status and addressing info.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.zerotier.com/api/v1/status"
+          },
+          "docs": "Node status and addressing info."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

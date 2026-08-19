@@ -1,0 +1,40 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ZeroTier Central controller util API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "util",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Obtain the overall status of the account tied to the API token in use.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.zerotier.com/api/v1/status"
+          },
+          "docs": "Obtain the overall status of the account tied to the API token in use."
+        },
+        {
+          "info": {
+            "name": "Get a random 32 character token",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.zerotier.com/api/v1/randomToken"
+          },
+          "docs": "Get a random 32 character.  Used by the web UI to generate API keys"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
