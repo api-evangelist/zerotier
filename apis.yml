@@ -34,6 +34,17 @@ modified: '2026-07-21'
 tags:
 - Company
 - Networking
+- Software Defined Networking
+- SDN
+- VPN
+- Security
+- Connectivity
+- Overlay Network
+- Zero Trust
+- Infrastructure
+tags_raw:
+- Company
+- Networking
 - Software-Defined Networking
 - SDN
 - VPN
@@ -54,6 +65,8 @@ apis:
   humanURL: https://docs.zerotier.com/api/central/new/
   baseURL: https://api.zerotier.com/api/v1
   tags:
+  - Controller
+  tags_raw:
   - controller
   properties:
   - type: OpenAPI
@@ -64,6 +77,8 @@ apis:
   humanURL: https://docs.zerotier.com/api/central/new/
   baseURL: https://api.zerotier.com/api/v1
   tags:
+  - Network
+  tags_raw:
   - network
   properties:
   - type: OpenAPI
@@ -86,6 +101,8 @@ apis:
   humanURL: https://docs.zerotier.com/api/central/new/
   baseURL: https://api.zerotier.com/api/v1
   tags:
+  - Organization
+  tags_raw:
   - organizations
   properties:
   - type: OpenAPI
@@ -106,6 +123,8 @@ apis:
   humanURL: https://docs.zerotier.com/api/central/new/
   baseURL: https://api.zerotier.com/api/v1
   tags:
+  - Status
+  tags_raw:
   - status
   properties:
   - type: OpenAPI
@@ -116,6 +135,8 @@ apis:
   humanURL: https://docs.zerotier.com/api/central/new/
   baseURL: https://api.zerotier.com/api/v1
   tags:
+  - User
+  tags_raw:
   - user
   properties:
   - type: OpenAPI
@@ -126,6 +147,8 @@ apis:
   humanURL: https://docs.zerotier.com/api/central/new/
   baseURL: https://api.zerotier.com/api/v1
   tags:
+  - Util
+  tags_raw:
   - util
   properties:
   - type: OpenAPI
