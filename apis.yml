@@ -166,6 +166,9 @@ apis:
   - type: OpenAPI
     url: openapi/zerotier-util-api-openapi.yml
 common:
+- type: CapabilityMap
+  url: capabilities/zerotier-capability-edges.yml
+  name: ZeroTier Business Capability Map
 - type: Overlay
   url: overlays/zerotier-central-overlay.yaml
 - type: PostmanWorkspace
