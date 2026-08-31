@@ -46,7 +46,7 @@ modified: '2026-07-21'
 tags:
 - Company
 - Networking
-- Software Defined Networking
+- Software-Defined Networking
 - SDN
 - VPN
 - Security
@@ -77,7 +77,7 @@ apis:
   humanURL: https://docs.zerotier.com/api/central/new/
   baseURL: https://api.zerotier.com/api/v1
   tags:
-  - Controller
+  - controller
   tags_raw:
   - controller
   properties:
@@ -159,7 +159,7 @@ apis:
   humanURL: https://docs.zerotier.com/api/central/new/
   baseURL: https://api.zerotier.com/api/v1
   tags:
-  - Util
+  - util
   tags_raw:
   - util
   properties:
