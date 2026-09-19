@@ -90,7 +90,7 @@ apis:
   humanURL: https://docs.zerotier.com/api/central/new/
   baseURL: https://api.zerotier.com/api/v1
   tags:
-  - Network
+  - Networks
   tags_raw:
   - network
   properties:
