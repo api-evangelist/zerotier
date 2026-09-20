@@ -1,0 +1,45 @@
+# Pricing transcribed from the provider's own page — see provenance. Numbers are quoted, not derived.
+generated: '2026-09-20'
+method: searched
+source: https://www.zerotier.com/pricing/
+sources:
+- https://www.zerotier.com/pricing/
+provenance:
+  tool: planning/api-economics/harvest_pricing.py
+  run: 20260920T120546
+  grounding: every price_text was found verbatim in the fetched page text
+audience: business-product
+pricing_basis: tiered-subscription
+published: true
+note: Tiered monthly plans with per-device overage; Enterprise and Quantum are custom/Talk to Sales. Page
+  mentions up to 50% off for registered charities and educational organizations.
+plan_count: 5
+currency: USD
+plans:
+- name: Personal
+  price_text: Free
+  period: month
+  included_quota: 10 devices, one network; one network admin; personal non-commercial use
+- name: Essential
+  price_text: $18 Per Month
+  price: 18
+  currency: USD
+  period: month
+  included_quota: 10 included devices, 10 networks, five admins
+  overage: then $2.00 each
+- name: Scale
+  price_text: $179 Per Month
+  price: 179
+  currency: USD
+  period: month
+  included_quota: 100 included devices, unlimited networks, 10 network admins
+  overage: then $1.80 each
+- name: Enterprise
+  price_text: Custom
+  period: none
+  included_quota: Sized for 500+ devices, unlimited networks and admins
+  overage: Custom
+- name: ZeroTier Quantum
+  price_text: Custom
+  period: none
+  overage: Custom
