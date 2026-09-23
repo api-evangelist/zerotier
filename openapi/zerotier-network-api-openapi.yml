@@ -1,28 +1,25 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  description: 'ZeroTier Central Network Management Portal API.<p>All API requests must have an API token header specified in the <code>Authorization: token xxxxx</code> format.  You can generate your API key by logging into <a href="https://my.zerotier.com">ZeroTier Central</a> and creating a token on the Account page.</p><p>eg. <code>curl -X GET -H "Authorization: token xxxxx" https://api.zerotier.com/api/v1/network</code></p><p><h3>Rate Limiting</h3></p><p>The ZeroTier Central API implements rate limiting.  Paid users are limited to 100 requests per second.  Free users are limited to 20 requests per second.</p> <p> You can get the OpenAPI spec here as well: <code>https://docs.zerotier.com/api/central/ref-v1.json</code></p>'
-  version: v1
-  title: ZeroTier Central controller network API
-  contact:
-    name: ZeroTier Support Discussion Forum
-    url: https://discuss.zerotier.com
+  title: Zerotier Network API
   license:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: '1.0'
+  description: 'Operations tagged network across 2 of this provider''s published API definitions: zerotier-central-openapi-original.json, zerotier-service-openapi-original.json. Each path carries the servers of the definition it was published in.'
 servers:
 - url: https://api.zerotier.com/api/v1
   description: Production Server
-security:
-- tokenAuth: []
+- url: http://localhost:9993
+  description: Production Server
 tags:
-- name: network
+- name: Network
   description: Network operations
 paths:
   /network:
     get:
       tags:
-      - network
-      summary: Returns a list of Networks you have access to.
+      - Network
+      summary: Returns a list of Networks you have access to
       operationId: getNetworkList
       responses:
         '200':
@@ -35,10 +32,12 @@ paths:
                   $ref: '#/components/schemas/Network'
         '403':
           $ref: '#/components/responses/UnauthorizedError'
+      security:
+      - tokenAuth: []
     post:
       tags:
-      - network
-      summary: Create a new network.
+      - Network
+      summary: Create a new network
       operationId: newNetwork
       requestBody:
         description: empty JSON object
@@ -56,10 +55,15 @@ paths:
                 $ref: '#/components/schemas/Network'
         '403':
           $ref: '#/components/responses/UnauthorizedError'
+      security:
+      - tokenAuth: []
+    servers:
+    - url: https://api.zerotier.com/api/v1
+      description: Production Server
   /network/{networkID}:
     get:
       tags:
-      - network
+      - Network
       summary: Get network by ID
       description: Returns a single network
       operationId: getNetworkByID
@@ -83,9 +87,11 @@ paths:
           $ref: '#/components/responses/AccessDeniedError'
         '404':
           $ref: '#/components/responses/NotFound'
+      security:
+      - tokenAuth: []
     post:
       tags:
-      - network
+      - Network
       summary: update network configuration
       operationId: updateNetwork
       parameters:
@@ -115,9 +121,11 @@ paths:
           $ref: '#/components/responses/AccessDeniedError'
         '404':
           $ref: '#/components/responses/NotFound'
+      security:
+      - tokenAuth: []
     delete:
       tags:
-      - network
+      - Network
       summary: delete network
       operationId: deleteNetwork
       parameters:
@@ -136,123 +144,22 @@ paths:
           $ref: '#/components/responses/AccessDeniedError'
         '404':
           $ref: '#/components/responses/NotFound'
+      security:
+      - tokenAuth: []
+    servers:
+    - url: https://api.zerotier.com/api/v1
+      description: Production Server
 components:
+  responses:
+    AccessDeniedError:
+      description: Access denied
+    UnauthorizedError:
+      description: Authorization required
+    NotFound:
+      description: Item not found
+    UnauthorizedError_2:
+      description: Authorization required.
   schemas:
-    Permissions:
-      type: object
-      properties:
-        a:
-          type: boolean
-          example: true
-          description: Authorize permission
-        d:
-          type: boolean
-          example: true
-          description: Delete permission
-        m:
-          type: boolean
-          example: true
-          description: Modify network settings permission
-        r:
-          type: boolean
-          example: true
-          description: Read network settings permission
-    NetworkConfig:
-      type: object
-      properties:
-        id:
-          type: string
-          example: 8056c2e21c000001
-          description: Network ID
-          readOnly: true
-          nullable: true
-        creationTime:
-          type: integer
-          format: int64
-          example: 1442292672978
-          description: Time the network was created
-          readOnly: true
-          nullable: true
-        capabilities:
-          type: array
-          description: Array of network capabilities
-          items:
-            type: object
-          nullable: true
-        dns:
-          type: object
-          $ref: '#/components/schemas/DNS'
-          nullable: true
-        enableBroadcast:
-          type: boolean
-          example: true
-          description: Enable broadcast packets on the network
-          nullable: true
-        ipAssignmentPools:
-          type: array
-          description: Range of IP addresses for the auto assign pool
-          items:
-            $ref: '#/components/schemas/IPRange'
-          nullable: true
-        lastModified:
-          type: integer
-          format: int64
-          example: 1588184318235
-          description: Time the network was last modified
-          readOnly: true
-          nullable: true
-        mtu:
-          type: integer
-          example: 2800
-          description: MTU to set on the client virtual network adapter
-          nullable: true
-        multicastLimit:
-          type: integer
-          example: 32
-          description: Maximum number of recipients per multicast or broadcast. Warning - Setting this to 0 will disable IPv4 communication on your network!
-          nullable: true
-        name:
-          type: string
-          example: My ZeroTier Network
-          nullable: true
-        private:
-          type: boolean
-          example: true
-          description: Whether or not the network is private.  If false, members will *NOT* need to be authorized to join.
-          nullable: true
-        routes:
-          type: array
-          items:
-            $ref: '#/components/schemas/Route'
-          nullable: true
-        rules:
-          type: array
-          items:
-            type: object
-          nullable: true
-        ssoConfig:
-          $ref: '#/components/schemas/NetworkSSOConfig'
-          nullable: true
-        tags:
-          type: array
-          items:
-            type: object
-          nullable: true
-        v4AssignMode:
-          $ref: '#/components/schemas/IPV4AssignMode'
-          nullable: true
-        v6AssignMode:
-          $ref: '#/components/schemas/IPV6AssignMode'
-          nullable: true
-    IPRange:
-      type: object
-      properties:
-        ipRangeStart:
-          type: string
-          example: 10.0.0.1
-        ipRangeEnd:
-          type: string
-          example: 10.0.0.255
     NetworkSSOConfig:
       type: object
       properties:
@@ -286,12 +193,200 @@ components:
           description: Authorization URL endpoint
           readOnly: true
         allowList:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
             type: string
-          nullable: true
           description: List of email addresses or group memberships that may SSO auth onto the network
           readOnly: false
+    IPRange:
+      type: object
+      properties:
+        ipRangeStart:
+          type: string
+          example: 10.0.0.1
+        ipRangeEnd:
+          type: string
+          example: 10.0.0.255
+    NetworkConfig:
+      type: object
+      properties:
+        id:
+          type:
+          - string
+          - 'null'
+          example: 8056c2e21c000001
+          description: Network ID
+          readOnly: true
+        creationTime:
+          type:
+          - integer
+          - 'null'
+          format: int64
+          example: 1442292672978
+          description: Time the network was created
+          readOnly: true
+        capabilities:
+          type:
+          - array
+          - 'null'
+          description: Array of network capabilities
+          items:
+            type: object
+        dns:
+          type:
+          - object
+          - 'null'
+          $ref: '#/components/schemas/DNS'
+        enableBroadcast:
+          type:
+          - boolean
+          - 'null'
+          example: true
+          description: Enable broadcast packets on the network
+        ipAssignmentPools:
+          type:
+          - array
+          - 'null'
+          description: Range of IP addresses for the auto assign pool
+          items:
+            $ref: '#/components/schemas/IPRange'
+        lastModified:
+          type:
+          - integer
+          - 'null'
+          format: int64
+          example: 1588184318235
+          description: Time the network was last modified
+          readOnly: true
+        mtu:
+          type:
+          - integer
+          - 'null'
+          example: 2800
+          description: MTU to set on the client virtual network adapter
+        multicastLimit:
+          type:
+          - integer
+          - 'null'
+          example: 32
+          description: Maximum number of recipients per multicast or broadcast. Warning - Setting this to 0 will disable IPv4 communication on your network!
+        name:
+          type:
+          - string
+          - 'null'
+          example: My ZeroTier Network
+        private:
+          type:
+          - boolean
+          - 'null'
+          example: true
+          description: Whether or not the network is private.  If false, members will *NOT* need to be authorized to join.
+        routes:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Route'
+        rules:
+          type:
+          - array
+          - 'null'
+          items:
+            type: object
+        ssoConfig:
+          $ref: '#/components/schemas/NetworkSSOConfig'
+        tags:
+          type:
+          - array
+          - 'null'
+          items:
+            type: object
+        v4AssignMode:
+          $ref: '#/components/schemas/IPV4AssignMode'
+        v6AssignMode:
+          $ref: '#/components/schemas/IPV6AssignMode'
+    Route:
+      type: object
+      properties:
+        target:
+          type: string
+          example: 10.0.0.0/24
+        via:
+          type:
+          - string
+          - 'null'
+          example: null
+    IPV4AssignMode:
+      type: object
+      properties:
+        zt:
+          type: boolean
+          example: true
+    Network:
+      type: object
+      properties:
+        id:
+          type:
+          - string
+          - 'null'
+          example: 8056c2e21c000001
+          readOnly: true
+        clock:
+          type:
+          - integer
+          - 'null'
+          format: int64
+          example: 12345
+          readOnly: true
+        config:
+          $ref: '#/components/schemas/NetworkConfig'
+        description:
+          type:
+          - string
+          - 'null'
+          example: Some descriptive text about my network.
+        rulesSource:
+          type:
+          - string
+          - 'null'
+          example: accept;
+        permissions:
+          $ref: '#/components/schemas/PermissionsMap'
+        ownerId:
+          type:
+          - string
+          - 'null'
+          example: 00000000-0000-0000-0000-000000000000
+        onlineMemberCount:
+          type:
+          - integer
+          - 'null'
+          example: 123
+          readOnly: true
+          description: 'Note: May be 0 on endpoints returning lists of Networks'
+        authorizedMemberCount:
+          type:
+          - integer
+          - 'null'
+          example: 200
+          readOnly: true
+        totalMemberCount:
+          type:
+          - integer
+          - 'null'
+          example: 250
+          readOnly: true
+        capabilitiesByName:
+          type:
+          - object
+          - 'null'
+        tagsByName:
+          type:
+          - object
+          - 'null'
+      description: Network object
     PermissionsMap:
       type: object
       additionalProperties:
@@ -302,77 +397,25 @@ components:
           d: true
           m: true
           r: true
-    Route:
+    Permissions:
       type: object
       properties:
-        target:
-          type: string
-          example: 10.0.0.0/24
-        via:
-          type: string
-          example: null
-          nullable: true
-    Network:
-      type: object
-      properties:
-        id:
-          type: string
-          example: 8056c2e21c000001
-          readOnly: true
-          nullable: true
-        clock:
-          type: integer
-          format: int64
-          example: 12345
-          readOnly: true
-          nullable: true
-        config:
-          $ref: '#/components/schemas/NetworkConfig'
-          nullable: true
-        description:
-          type: string
-          example: Some descriptive text about my network.
-          nullable: true
-        rulesSource:
-          type: string
-          example: accept;
-          nullable: true
-        permissions:
-          $ref: '#/components/schemas/PermissionsMap'
-          nullable: true
-        ownerId:
-          type: string
-          example: 00000000-0000-0000-0000-000000000000
-          nullable: true
-        onlineMemberCount:
-          type: integer
-          example: 123
-          readOnly: true
-          nullable: true
-          description: 'Note: May be 0 on endpoints returning lists of Networks'
-        authorizedMemberCount:
-          type: integer
-          example: 200
-          readOnly: true
-          nullable: true
-        totalMemberCount:
-          type: integer
-          example: 250
-          readOnly: true
-          nullable: true
-        capabilitiesByName:
-          type: object
-          nullable: true
-        tagsByName:
-          type: object
-          nullable: true
-      description: Network object
-    IPV4AssignMode:
-      type: object
-      properties:
-        zt:
+        a:
           type: boolean
           example: true
+          description: Authorize permission
+        d:
+          type: boolean
+          example: true
+          description: Delete permission
+        m:
+          type: boolean
+          example: true
+          description: Modify network settings permission
+        r:
+          type: boolean
+          example: true
+          description: Read network settings permission
     DNS:
       type: object
       properties:
@@ -381,36 +424,158 @@ components:
           example: some.domain
           description: Search domain to use for DNS records
         servers:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
             type: string
           example:
           - 10.0.0.3
           description: IP address of unicast DNS service
-          nullable: true
     IPV6AssignMode:
       type: object
       properties:
         6plane:
-          type: boolean
+          type:
+          - boolean
+          - 'null'
           example: true
-          nullable: true
         rfc4193:
-          type: boolean
+          type:
+          - boolean
+          - 'null'
           example: false
-          nullable: true
         zt:
-          type: boolean
+          type:
+          - boolean
+          - 'null'
           example: false
-          nullable: true
-  responses:
-    AccessDeniedError:
-      description: Access denied
-    UnauthorizedError:
-      description: Authorization required
-    NotFound:
-      description: Item not found
+    Network_2:
+      allOf:
+      - type: object
+        properties:
+          allowDNS:
+            type: boolean
+            readOnly: false
+            description: Let ZeroTier modify the system's DNS settings.
+            example: false
+          allowDefault:
+            type: boolean
+            readOnly: false
+            description: Let ZeroTier modify the system's default route.
+            example: false
+          allowGlobal:
+            type: boolean
+            readOnly: false
+            description: Let ZeroTier manage IP addresses and route assignments that aren't in private ranges (rfc1918).
+            example: false
+          allowManaged:
+            type: boolean
+            readOnly: false
+            description: Let ZeroTier manage IP addresses and Route assignments.
+            example: true
+      - type: object
+        properties:
+          allowDNS:
+            type: boolean
+            readOnly: false
+            description: Let ZeroTier modify the system's DNS settings.
+          allowDefault:
+            type: boolean
+            readOnly: false
+            description: Let ZeroTier modify the system's default route.
+          allowGlobal:
+            type: boolean
+            readOnly: false
+            description: Let ZeroTier manage IP addresses and Route assignments that aren't in private ranges (rfc1918).
+          allowManaged:
+            type: boolean
+            readOnly: false
+            description: Let ZeroTier to manage IP addresses and Route assignments.
+          assignedAddresses:
+            type: array
+            items:
+              type: string
+              example: 10.147.20.190
+          bridge:
+            type: boolean
+          broadcastEnabled:
+            type: boolean
+          dns:
+            type: object
+            properties:
+              domain:
+                type: string
+                example: zt.example.com
+              servers:
+                type: array
+                items:
+                  type: string
+                  example: 10.147.20.3
+          id:
+            type: string
+            example: 565799d8f620c5c5
+          mac:
+            type: string
+            example: e6:d2:2b:e6:68:73
+            description: MAC address for this network's interface.
+          mtu:
+            type: integer
+            example: 2800
+          multicastSubscriptions:
+            type: array
+            items:
+              type: object
+              properties:
+                adi:
+                  type: integer
+                  format: int64
+                  example: 0
+                mac:
+                  type: string
+                  example: 34:34:ff:da:6e:ff
+          name:
+            type: string
+            example: clever_krum
+          netconfRevision:
+            type: integer
+            example: 123
+          portDeviceName:
+            type: string
+            example: ztnnhrtimp
+          portError:
+            type: integer
+            example: 0
+          routes:
+            type: array
+            items:
+              properties:
+                flags:
+                  type: integer
+                  example: 0
+                metric:
+                  type: integer
+                  example: 0
+                target:
+                  type: string
+                  example: 10.147.20.0/24
+                via:
+                  type: string
+                  example: 192.168.168.5
+          status:
+            type: string
+            example: OK
+          type:
+            type: string
+            example: PRIVATE
   securitySchemes:
     tokenAuth:
       type: http
       scheme: token
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-ZT1-Auth
+x-refined-from:
+- zerotier-central-openapi-original.json
+- zerotier-service-openapi-original.json

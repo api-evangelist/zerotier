@@ -1,8 +1,8 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  description: 'ZeroTier Central Network Management Portal API.<p>All API requests must have an API token header specified in the <code>Authorization: token xxxxx</code> format.  You can generate your API key by logging into <a href="https://my.zerotier.com">ZeroTier Central</a> and creating a token on the Account page.</p><p>eg. <code>curl -X GET -H "Authorization: token xxxxx" https://api.zerotier.com/api/v1/network</code></p><p><h3>Rate Limiting</h3></p><p>The ZeroTier Central API implements rate limiting.  Paid users are limited to 100 requests per second.  Free users are limited to 20 requests per second.</p> <p> You can get the OpenAPI spec here as well: <code>https://docs.zerotier.com/api/central/ref-v1.json</code></p>'
+  description: ZeroTier Central Network Management Portal API.
   version: v1
-  title: ZeroTier Central controller network-member API
+  title: ZeroTier Central Network Member API
   contact:
     name: ZeroTier Support Discussion Forum
     url: https://discuss.zerotier.com
@@ -22,7 +22,7 @@ paths:
     get:
       tags:
       - network-member
-      summary: Returns a list of Members on the network.
+      summary: Returns a list of Members on the network
       operationId: getNetworkMemberList
       parameters:
       - name: networkID
@@ -152,215 +152,245 @@ components:
     NotFound:
       description: Item not found
   schemas:
+    Member:
+      type: object
+      properties:
+        id:
+          type:
+          - string
+          - 'null'
+          example: 8056c2e21c000001-abcdef0123
+          description: concatenation of network ID and member ID
+          readOnly: true
+          deprecated: true
+        clock:
+          type:
+          - integer
+          - 'null'
+          format: int64
+          example: 1612993759070
+          readOnly: true
+        networkId:
+          type:
+          - string
+          - 'null'
+          example: 8056c2e21c000001
+          readOnly: true
+        nodeId:
+          type:
+          - string
+          - 'null'
+          example: abcdef01234
+          description: ZeroTier ID of the member
+          readOnly: true
+        controllerId:
+          type:
+          - string
+          - 'null'
+          example: 8056c2e21c
+          readOnly: true
+          deprecated: true
+        hidden:
+          type:
+          - boolean
+          - 'null'
+          example: false
+          description: Whether or not the member is hidden in the UI
+        name:
+          type:
+          - string
+          - 'null'
+          example: my-cray-supercomputer
+          readOnly: false
+          description: User defined name of the member
+        description:
+          type:
+          - string
+          - 'null'
+          example: My super awesome cray that I got ZeroTier to run on
+          readOnly: false
+          description: User defined description of the member
+        config:
+          $ref: '#/components/schemas/MemberConfig'
+        lastOnline:
+          type:
+          - integer
+          - 'null'
+          format: int64
+          readOnly: true
+          description: 'Last seen time of the member (milliseconds since epoch).  Note: This data is considered ephemeral and may be reset to 0 at any time without warning.'
+          example: 1612993673254
+          deprecated: true
+        lastSeen:
+          type:
+          - integer
+          - 'null'
+          format: int64
+          readOnly: true
+          description: 'Time the member last checked in with the network controller in milliseconds since epoch. Note: This data is considered ephemeral and may be reset to 0 at any time without warning.'
+          example: 1612993673254
+        physicalAddress:
+          type:
+          - string
+          - 'null'
+          readOnly: true
+          description: 'IP address the member last spoke to the controller via (milliseconds since epoch).  Note: This data is considered ephemeral and may be reset to 0 at any time without warning.'
+          example: 8.8.8.8
+        clientVersion:
+          type:
+          - string
+          - 'null'
+          readOnly: true
+          description: ZeroTier version the member is running
+          example: 1.6.3
+        protocolVersion:
+          type:
+          - integer
+          - 'null'
+          readOnly: true
+          description: ZeroTier protocol version
+          example: 12
+        supportsRulesEngine:
+          type:
+          - boolean
+          - 'null'
+          readOnly: true
+          description: Whether or not the client version is new enough to support the rules engine (1.4.0+)
     MemberConfig:
       type: object
       properties:
         activeBridge:
-          type: boolean
+          type:
+          - boolean
+          - 'null'
           readOnly: false
           description: Allow the member to be a bridge on the network
           example: false
-          nullable: true
         authorized:
-          type: boolean
+          type:
+          - boolean
+          - 'null'
           readOnly: false
           description: Is the member authorized on the network
           example: true
-          nullable: true
         capabilities:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
             type: integer
-          nullable: true
         creationTime:
-          type: integer
+          type:
+          - integer
+          - 'null'
           format: int64
           readOnly: true
           description: Time the member was created or first tried to join the network
           example: 1599853509872
-          nullable: true
         id:
-          type: string
+          type:
+          - string
+          - 'null'
           readOnly: true
           description: ID of the member node.  This is the 10 digit identifier that identifies a ZeroTier node.
           example: abcdef01234
-          nullable: true
         identity:
-          type: string
+          type:
+          - string
+          - 'null'
           readOnly: true
           description: Public Key of the member's Identity
           example: abcdef0123:0:abcdef0123abcdef0123abcdef0123abcdef0123abcdef0123abcdef0123abcdef0123
-          nullable: true
         ipAssignments:
-          type: array
+          type:
+          - array
+          - 'null'
           readOnly: false
           description: List of assigned IP addresses
           items:
             type: string
           example:
           - 10.0.0.3
-          nullable: true
         lastAuthorizedTime:
-          type: integer
+          type:
+          - integer
+          - 'null'
           format: int64
           readOnly: true
           description: Time the member was authorized on the network
           example: 1599853637989
-          nullable: true
         lastDeauthorizedTime:
-          type: integer
+          type:
+          - integer
+          - 'null'
           format: int64
           readOnly: true
           description: Time the member was deauthorized on the network
           example: 0
-          nullable: true
         noAutoAssignIps:
-          type: boolean
+          type:
+          - boolean
+          - 'null'
           readOnly: false
           description: Exempt this member from the IP auto assignment pool on a Network
           example: false
-          nullable: true
         revision:
-          type: integer
+          type:
+          - integer
+          - 'null'
           readOnly: true
           description: Member record revision count
           example: 123
-          nullable: true
         ssoExempt:
-          type: boolean
+          type:
+          - boolean
+          - 'null'
           readOnly: false
           description: Allow the member to be authorized without OIDC/SSO
           example: false
-          nullable: true
         tags:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
             type: array
             items:
               anyOf:
               - type: integer
               - type: boolean
-          nullable: true
           readOnly: false
           description: Array of 2 member tuples of tag [ID, tag value]
           example:
           - - 123
             - 456
         vMajor:
-          type: integer
+          type:
+          - integer
+          - 'null'
           readOnly: true
           description: Major version of the client
           example: 1
-          nullable: true
         vMinor:
-          type: integer
+          type:
+          - integer
+          - 'null'
           readOnly: true
           description: Minor version of the client
           example: 6
-          nullable: true
         vRev:
-          type: integer
+          type:
+          - integer
+          - 'null'
           readOnly: true
           description: Revision number of the client
           example: 3
-          nullable: true
         vProto:
-          type: integer
+          type:
+          - integer
+          - 'null'
           readOnly: true
           description: Protocol version of the client
           example: 12
-          nullable: true
-    Member:
-      type: object
-      properties:
-        id:
-          type: string
-          example: 8056c2e21c000001-abcdef0123
-          description: concatenation of network ID and member ID
-          readOnly: true
-          deprecated: true
-          nullable: true
-        clock:
-          type: integer
-          format: int64
-          example: 1612993759070
-          readOnly: true
-          nullable: true
-        networkId:
-          type: string
-          example: 8056c2e21c000001
-          readOnly: true
-          nullable: true
-        nodeId:
-          type: string
-          example: abcdef01234
-          description: ZeroTier ID of the member
-          readOnly: true
-          nullable: true
-        controllerId:
-          type: string
-          example: 8056c2e21c
-          readOnly: true
-          deprecated: true
-          nullable: true
-        hidden:
-          type: boolean
-          example: false
-          description: Whether or not the member is hidden in the UI
-          nullable: true
-        name:
-          type: string
-          example: my-cray-supercomputer
-          readOnly: false
-          description: User defined name of the member
-          nullable: true
-        description:
-          type: string
-          example: My super awesome cray that I got ZeroTier to run on
-          readOnly: false
-          description: User defined description of the member
-          nullable: true
-        config:
-          $ref: '#/components/schemas/MemberConfig'
-          nullable: true
-        lastOnline:
-          type: integer
-          format: int64
-          readOnly: true
-          description: 'Last seen time of the member (milliseconds since epoch).  Note: This data is considered ephemeral and may be reset to 0 at any time without warning.'
-          example: 1612993673254
-          nullable: true
-          deprecated: true
-        lastSeen:
-          type: integer
-          format: int64
-          readOnly: true
-          description: 'Time the member last checked in with the network controller in milliseconds since epoch. Note: This data is considered ephemeral and may be reset to 0 at any time without warning.'
-          example: 1612993673254
-          nullable: true
-        physicalAddress:
-          type: string
-          readOnly: true
-          description: 'IP address the member last spoke to the controller via (milliseconds since epoch).  Note: This data is considered ephemeral and may be reset to 0 at any time without warning.'
-          example: 8.8.8.8
-          nullable: true
-        clientVersion:
-          type: string
-          readOnly: true
-          description: ZeroTier version the member is running
-          example: 1.6.3
-          nullable: true
-        protocolVersion:
-          type: integer
-          readOnly: true
-          description: ZeroTier protocol version
-          example: 12
-          nullable: true
-        supportsRulesEngine:
-          type: boolean
-          readOnly: true
-          description: Whether or not the client version is new enough to support the rules engine (1.4.0+)
-          nullable: true
   securitySchemes:
     tokenAuth:
       type: http

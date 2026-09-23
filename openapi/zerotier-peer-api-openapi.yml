@@ -1,28 +1,25 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  description: 'ZeroTier Central Network Management Portal API.<p>All API requests must have an API token header specified in the <code>Authorization: token xxxxx</code> format.  You can generate your API key by logging into <a href="https://my.zerotier.com">ZeroTier Central</a> and creating a token on the Account page.</p><p>eg. <code>curl -X GET -H "Authorization: token xxxxx" https://api.zerotier.com/api/v1/network</code></p><p><h3>Rate Limiting</h3></p><p>The ZeroTier Central API implements rate limiting.  Paid users are limited to 100 requests per second.  Free users are limited to 20 requests per second.</p> <p> You can get the OpenAPI spec here as well: <code>https://docs.zerotier.com/api/central/ref-v1.json</code></p>'
-  version: v1
-  title: ZeroTier Central controller peer API
-  contact:
-    name: ZeroTier Support Discussion Forum
-    url: https://discuss.zerotier.com
+  title: ZeroTierOne Service Peer API
+  version: 0.1.0
+  description: This API controls the ZeroTier service that runs in the background on your computer.
   license:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
 servers:
-- url: https://api.zerotier.com/api/v1
+- url: http://localhost:9993
   description: Production Server
 security:
-- tokenAuth: []
+- ApiKeyAuth: []
 tags:
-- name: peer
+- name: Peer
   description: peer status
 paths:
   /peer:
     get:
       tags:
-      - peer
-      summary: Get all peers.
+      - Peer
+      summary: Get all peers
       operationId: getPeers
       responses:
         '200':
@@ -38,8 +35,8 @@ paths:
   /peer/{address}:
     get:
       tags:
-      - peer
-      summary: Get information about a specific peer by Node ID.
+      - Peer
+      summary: Get information about a specific peer by Node ID
       operationId: getPeer
       parameters:
       - name: address
@@ -58,6 +55,9 @@ paths:
         '401':
           $ref: '#/components/responses/UnauthorizedError'
 components:
+  responses:
+    UnauthorizedError:
+      description: Authorization required.
   schemas:
     Peer:
       type: object
@@ -113,10 +113,8 @@ components:
         versionRev:
           type: integer
           example: 4
-  responses:
-    UnauthorizedError:
-      description: Authorization required.
   securitySchemes:
-    tokenAuth:
-      type: http
-      scheme: token
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-ZT1-Auth
