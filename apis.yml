@@ -73,7 +73,7 @@ maintainers:
   email: info@apis.io
 apis:
 - aid: zerotier:zerotier-controller-api
-  name: ZeroTier controller API
+  name: ZeroTier Controller API
   description: The controller API from ZeroTier — 6 operation(s) for controller.
   humanURL: https://docs.zerotier.com/api/central/new/
   baseURL: https://api.zerotier.com/api/v1
@@ -85,7 +85,7 @@ apis:
   - type: OpenAPI
     url: openapi/zerotier-controller-api-openapi.yml
 - aid: zerotier:zerotier-network-api
-  name: ZeroTier network API
+  name: ZeroTier Network API
   description: Network operations
   humanURL: https://docs.zerotier.com/api/central/new/
   baseURL: https://api.zerotier.com/api/v1
@@ -97,7 +97,7 @@ apis:
   - type: OpenAPI
     url: openapi/zerotier-network-api-openapi.yml
 - aid: zerotier:zerotier-network-member-api
-  name: ZeroTier network-member API
+  name: ZeroTier Network Member API
   description: Network member operations
   humanURL: https://docs.zerotier.com/api/central/new/
   baseURL: https://api.zerotier.com/api/v1
@@ -107,7 +107,7 @@ apis:
   - type: OpenAPI
     url: openapi/zerotier-network-member-api-openapi.yml
 - aid: zerotier:zerotier-organizations-api
-  name: ZeroTier organizations API
+  name: ZeroTier Organizations API
   description: >-
     Organization management. Note: Organizations require a paid account and cannot be created via the
     API
@@ -121,7 +121,7 @@ apis:
   - type: OpenAPI
     url: openapi/zerotier-organizations-api-openapi.yml
 - aid: zerotier:zerotier-peer-api
-  name: ZeroTier peer API
+  name: ZeroTier Peer API
   description: peer status
   humanURL: https://docs.zerotier.com/api/central/new/
   baseURL: https://api.zerotier.com/api/v1
@@ -131,7 +131,7 @@ apis:
   - type: OpenAPI
     url: openapi/zerotier-peer-api-openapi.yml
 - aid: zerotier:zerotier-status-api
-  name: ZeroTier status API
+  name: ZeroTier Status API
   description: status
   humanURL: https://docs.zerotier.com/api/central/new/
   baseURL: https://api.zerotier.com/api/v1
@@ -143,7 +143,7 @@ apis:
   - type: OpenAPI
     url: openapi/zerotier-status-api-openapi.yml
 - aid: zerotier:zerotier-user-api
-  name: ZeroTier user API
+  name: ZeroTier User API
   description: User management operations
   humanURL: https://docs.zerotier.com/api/central/new/
   baseURL: https://api.zerotier.com/api/v1
@@ -155,7 +155,7 @@ apis:
   - type: OpenAPI
     url: openapi/zerotier-user-api-openapi.yml
 - aid: zerotier:zerotier-util-api
-  name: ZeroTier util API
+  name: ZeroTier Util API
   description: Utility endpoints
   humanURL: https://docs.zerotier.com/api/central/new/
   baseURL: https://api.zerotier.com/api/v1

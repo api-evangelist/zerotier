@@ -150,16 +150,124 @@ paths:
     - url: https://api.zerotier.com/api/v1
       description: Production Server
 components:
-  responses:
-    AccessDeniedError:
-      description: Access denied
-    UnauthorizedError:
-      description: Authorization required
-    NotFound:
-      description: Item not found
-    UnauthorizedError_2:
-      description: Authorization required.
   schemas:
+    Network:
+      type: object
+      properties:
+        id:
+          type:
+          - string
+          - 'null'
+          example: 8056c2e21c000001
+          readOnly: true
+        clock:
+          type:
+          - integer
+          - 'null'
+          format: int64
+          example: 12345
+          readOnly: true
+        config:
+          $ref: '#/components/schemas/NetworkConfig'
+        description:
+          type:
+          - string
+          - 'null'
+          example: Some descriptive text about my network.
+        rulesSource:
+          type:
+          - string
+          - 'null'
+          example: accept;
+        permissions:
+          $ref: '#/components/schemas/PermissionsMap'
+        ownerId:
+          type:
+          - string
+          - 'null'
+          example: 00000000-0000-0000-0000-000000000000
+        onlineMemberCount:
+          type:
+          - integer
+          - 'null'
+          example: 123
+          readOnly: true
+          description: 'Note: May be 0 on endpoints returning lists of Networks'
+        authorizedMemberCount:
+          type:
+          - integer
+          - 'null'
+          example: 200
+          readOnly: true
+        totalMemberCount:
+          type:
+          - integer
+          - 'null'
+          example: 250
+          readOnly: true
+        capabilitiesByName:
+          type:
+          - object
+          - 'null'
+        tagsByName:
+          type:
+          - object
+          - 'null'
+      description: Network object
+    DNS:
+      type: object
+      properties:
+        domain:
+          type: string
+          example: some.domain
+          description: Search domain to use for DNS records
+        servers:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+          example:
+          - 10.0.0.3
+          description: IP address of unicast DNS service
+    IPRange:
+      type: object
+      properties:
+        ipRangeStart:
+          type: string
+          example: 10.0.0.1
+        ipRangeEnd:
+          type: string
+          example: 10.0.0.255
+    IPV6AssignMode:
+      type: object
+      properties:
+        6plane:
+          type:
+          - boolean
+          - 'null'
+          example: true
+        rfc4193:
+          type:
+          - boolean
+          - 'null'
+          example: false
+        zt:
+          type:
+          - boolean
+          - 'null'
+          example: false
+    Route:
+      type: object
+      properties:
+        target:
+          type: string
+          example: 10.0.0.0/24
+        via:
+          type:
+          - string
+          - 'null'
+          example: null
     NetworkSSOConfig:
       type: object
       properties:
@@ -200,15 +308,22 @@ components:
             type: string
           description: List of email addresses or group memberships that may SSO auth onto the network
           readOnly: false
-    IPRange:
+    IPV4AssignMode:
       type: object
       properties:
-        ipRangeStart:
-          type: string
-          example: 10.0.0.1
-        ipRangeEnd:
-          type: string
-          example: 10.0.0.255
+        zt:
+          type: boolean
+          example: true
+    PermissionsMap:
+      type: object
+      additionalProperties:
+        $ref: '#/components/schemas/Permissions'
+      example:
+        00000000-0000-0000-0000-000000000000:
+          a: true
+          d: true
+          m: true
+          r: true
     NetworkConfig:
       type: object
       properties:
@@ -307,96 +422,6 @@ components:
           $ref: '#/components/schemas/IPV4AssignMode'
         v6AssignMode:
           $ref: '#/components/schemas/IPV6AssignMode'
-    Route:
-      type: object
-      properties:
-        target:
-          type: string
-          example: 10.0.0.0/24
-        via:
-          type:
-          - string
-          - 'null'
-          example: null
-    IPV4AssignMode:
-      type: object
-      properties:
-        zt:
-          type: boolean
-          example: true
-    Network:
-      type: object
-      properties:
-        id:
-          type:
-          - string
-          - 'null'
-          example: 8056c2e21c000001
-          readOnly: true
-        clock:
-          type:
-          - integer
-          - 'null'
-          format: int64
-          example: 12345
-          readOnly: true
-        config:
-          $ref: '#/components/schemas/NetworkConfig'
-        description:
-          type:
-          - string
-          - 'null'
-          example: Some descriptive text about my network.
-        rulesSource:
-          type:
-          - string
-          - 'null'
-          example: accept;
-        permissions:
-          $ref: '#/components/schemas/PermissionsMap'
-        ownerId:
-          type:
-          - string
-          - 'null'
-          example: 00000000-0000-0000-0000-000000000000
-        onlineMemberCount:
-          type:
-          - integer
-          - 'null'
-          example: 123
-          readOnly: true
-          description: 'Note: May be 0 on endpoints returning lists of Networks'
-        authorizedMemberCount:
-          type:
-          - integer
-          - 'null'
-          example: 200
-          readOnly: true
-        totalMemberCount:
-          type:
-          - integer
-          - 'null'
-          example: 250
-          readOnly: true
-        capabilitiesByName:
-          type:
-          - object
-          - 'null'
-        tagsByName:
-          type:
-          - object
-          - 'null'
-      description: Network object
-    PermissionsMap:
-      type: object
-      additionalProperties:
-        $ref: '#/components/schemas/Permissions'
-      example:
-        00000000-0000-0000-0000-000000000000:
-          a: true
-          d: true
-          m: true
-          r: true
     Permissions:
       type: object
       properties:
@@ -416,40 +441,6 @@ components:
           type: boolean
           example: true
           description: Read network settings permission
-    DNS:
-      type: object
-      properties:
-        domain:
-          type: string
-          example: some.domain
-          description: Search domain to use for DNS records
-        servers:
-          type:
-          - array
-          - 'null'
-          items:
-            type: string
-          example:
-          - 10.0.0.3
-          description: IP address of unicast DNS service
-    IPV6AssignMode:
-      type: object
-      properties:
-        6plane:
-          type:
-          - boolean
-          - 'null'
-          example: true
-        rfc4193:
-          type:
-          - boolean
-          - 'null'
-          example: false
-        zt:
-          type:
-          - boolean
-          - 'null'
-          example: false
     Network_2:
       allOf:
       - type: object
@@ -568,6 +559,15 @@ components:
           type:
             type: string
             example: PRIVATE
+  responses:
+    UnauthorizedError:
+      description: Authorization required
+    AccessDeniedError:
+      description: Access denied
+    NotFound:
+      description: Item not found
+    UnauthorizedError_2:
+      description: Authorization required.
   securitySchemes:
     tokenAuth:
       type: http

@@ -238,21 +238,6 @@ components:
           type: integer
           readOnly: true
           example: 5
-    ControllerStatus:
-      type: object
-      properties:
-        controller:
-          type: boolean
-          readOnly: true
-        apiVersion:
-          type: integer
-          example: 3
-          readOnly: true
-        clock:
-          type: integer
-          format: int64
-          example: 1623101592
-          readOnly: true
     ControllerNetwork:
       type: object
       properties:
@@ -344,6 +329,21 @@ components:
           example: 7f5d90eb87
         remoteTraceLevel:
           type: integer
+    ControllerStatus:
+      type: object
+      properties:
+        controller:
+          type: boolean
+          readOnly: true
+        apiVersion:
+          type: integer
+          example: 3
+          readOnly: true
+        clock:
+          type: integer
+          format: int64
+          example: 1623101592
+          readOnly: true
   responses:
     UnauthorizedError:
       description: Authorization required.

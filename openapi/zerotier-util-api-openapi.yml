@@ -47,54 +47,6 @@ paths:
                 $ref: '#/components/schemas/RandomToken'
 components:
   schemas:
-    Status:
-      type: object
-      properties:
-        id:
-          type: string
-          example: central_status
-        type:
-          type: string
-          example: CentralStatus
-        clock:
-          type: integer
-          format: int64
-          example: 1613067920454
-          readOnly: true
-          description: Current time on server
-        version:
-          type: string
-          example: 1.6.5
-        apiVersion:
-          type: string
-          example: '4'
-        uptime:
-          type: integer
-          format: int64
-          example: 1613067920454
-          readOnly: true
-          description: Uptime on server
-        user:
-          $ref: '#/components/schemas/User'
-        readOnlyMode:
-          type: boolean
-        loginMethods:
-          type: object
-          properties:
-            local:
-              type: boolean
-            google:
-              type: boolean
-            twitter:
-              type: boolean
-            facebook:
-              type: boolean
-            github:
-              type: boolean
-            saml:
-              type: boolean
-            oidc:
-              type: boolean
     AuthMethods:
       type: object
       properties:
@@ -119,25 +71,6 @@ components:
           example: 00000000-0000-0000-0000-000000000000
           description: Generic OIDC ID
           readOnly: true
-    RandomToken:
-      type: object
-      properties:
-        clock:
-          type: integer
-          format: int64
-          example: 1613067920454
-          readOnly: true
-          description: Current time on server
-        hex:
-          type: string
-          example: 16924f3ff478526cffb1b89b1040b33c8dbd3c09e07f39691f615769121c0d76
-          readOnly: true
-          description: hex encoded random bytes of the token
-        token:
-          type: string
-          example: wwrb66uUh18Fqc38rd8jMd5RFJzRsCn4
-          readOnly: true
-          description: Random 32 character token
     Permissions:
       type: object
       properties:
@@ -202,6 +135,73 @@ components:
           example:
           - my-token-id
           description: List of API token names.
+    RandomToken:
+      type: object
+      properties:
+        clock:
+          type: integer
+          format: int64
+          example: 1613067920454
+          readOnly: true
+          description: Current time on server
+        hex:
+          type: string
+          example: 16924f3ff478526cffb1b89b1040b33c8dbd3c09e07f39691f615769121c0d76
+          readOnly: true
+          description: hex encoded random bytes of the token
+        token:
+          type: string
+          example: wwrb66uUh18Fqc38rd8jMd5RFJzRsCn4
+          readOnly: true
+          description: Random 32 character token
+    Status:
+      type: object
+      properties:
+        id:
+          type: string
+          example: central_status
+        type:
+          type: string
+          example: CentralStatus
+        clock:
+          type: integer
+          format: int64
+          example: 1613067920454
+          readOnly: true
+          description: Current time on server
+        version:
+          type: string
+          example: 1.6.5
+        apiVersion:
+          type: string
+          example: '4'
+        uptime:
+          type: integer
+          format: int64
+          example: 1613067920454
+          readOnly: true
+          description: Uptime on server
+        user:
+          $ref: '#/components/schemas/User'
+        readOnlyMode:
+          type: boolean
+        loginMethods:
+          type: object
+          properties:
+            local:
+              type: boolean
+            google:
+              type: boolean
+            twitter:
+              type: boolean
+            facebook:
+              type: boolean
+            github:
+              type: boolean
+            saml:
+              type: boolean
+            oidc:
+              type: boolean
   securitySchemes:
     tokenAuth:
       type: http

@@ -209,44 +209,12 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   schemas:
-    Organization:
-      type: object
-      properties:
-        id:
-          type: string
-          example: 00000000-0000-0000-0000-000000000000
-          description: Organization ID
-        ownerId:
-          type: string
-          description: User ID of the organization owner
-          example: 00000000-0000-0000-0000-000000000000
-          readOnly: true
-        ownerEmail:
-          type: string
-          description: Organization owner's email address
-          example: user@example.com
-          readOnly: true
-        members:
-          type: array
-          items:
-            $ref: '#/components/schemas/OrganizationMember'
-          description: List of organization members
-        ssoConfig:
-          type: object
-          $ref: '#/components/schemas/OrgSsoConfig'
-          description: Organization wide SSO configuration
-    OrgSsoConfig:
-      type: object
-      properties:
-        enabled:
-          type: boolean
-          example: true
-          description: Enabled flag for SSO
-        issuers:
-          type: array
-          items:
-            $ref: '#/components/schemas/SsoIssuer'
-            description: list of configured OIDC issuers
+    InviteStatus:
+      type: string
+      enum:
+      - pending
+      - accepted
+      - canceled
     OrganizationInvitation:
       type: object
       properties:
@@ -313,6 +281,32 @@ components:
           - 'null'
           readOnly: true
           description: Organization member email address
+    Organization:
+      type: object
+      properties:
+        id:
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+          description: Organization ID
+        ownerId:
+          type: string
+          description: User ID of the organization owner
+          example: 00000000-0000-0000-0000-000000000000
+          readOnly: true
+        ownerEmail:
+          type: string
+          description: Organization owner's email address
+          example: user@example.com
+          readOnly: true
+        members:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrganizationMember'
+          description: List of organization members
+        ssoConfig:
+          type: object
+          $ref: '#/components/schemas/OrgSsoConfig'
+          description: Organization wide SSO configuration
     SsoIssuer:
       type: object
       properties:
@@ -333,17 +327,23 @@ components:
           example: https://example.com/oidc/auth/endpoint
           description: authorization endpoint
           readOnly: true
-    InviteStatus:
-      type: string
-      enum:
-      - pending
-      - accepted
-      - canceled
+    OrgSsoConfig:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+          example: true
+          description: Enabled flag for SSO
+        issuers:
+          type: array
+          items:
+            $ref: '#/components/schemas/SsoIssuer'
+            description: list of configured OIDC issuers
   responses:
-    AccessDeniedError:
-      description: Access denied
     UnauthorizedError:
       description: Authorization required
+    AccessDeniedError:
+      description: Access denied
     NotFound:
       description: Item not found
   securitySchemes:

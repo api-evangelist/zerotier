@@ -162,30 +162,7 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
-  responses:
-    AccessDeniedError:
-      description: Access denied
-    BadRequest:
-      description: Bad request
-    UnauthorizedError:
-      description: Authorization required
-    NotFound:
-      description: Item not found
   schemas:
-    APIToken:
-      type: object
-      properties:
-        tokenName:
-          type: string
-          example: my-super-secret-token
-          description: user specified token name
-          readOnly: false
-        token:
-          type: string
-          example: adsf98ashdkjh3689adsfnj3$ADn
-          description: API Token.  Minimum 32 characters. This token is encrypted in the database and can not be retrieved once set
-          readOnly: false
-          writeOnly: true
     AuthMethods:
       type: object
       properties:
@@ -210,25 +187,6 @@ components:
           example: 00000000-0000-0000-0000-000000000000
           description: Generic OIDC ID
           readOnly: true
-    Permissions:
-      type: object
-      properties:
-        a:
-          type: boolean
-          example: true
-          description: Authorize permission
-        d:
-          type: boolean
-          example: true
-          description: Delete permission
-        m:
-          type: boolean
-          example: true
-          description: Modify network settings permission
-        r:
-          type: boolean
-          example: true
-          description: Read network settings permission
     User:
       type: object
       properties:
@@ -274,6 +232,48 @@ components:
           example:
           - my-token-id
           description: List of API token names.
+    APIToken:
+      type: object
+      properties:
+        tokenName:
+          type: string
+          example: my-super-secret-token
+          description: user specified token name
+          readOnly: false
+        token:
+          type: string
+          example: adsf98ashdkjh3689adsfnj3$ADn
+          description: API Token.  Minimum 32 characters. This token is encrypted in the database and can not be retrieved once set
+          readOnly: false
+          writeOnly: true
+    Permissions:
+      type: object
+      properties:
+        a:
+          type: boolean
+          example: true
+          description: Authorize permission
+        d:
+          type: boolean
+          example: true
+          description: Delete permission
+        m:
+          type: boolean
+          example: true
+          description: Modify network settings permission
+        r:
+          type: boolean
+          example: true
+          description: Read network settings permission
+  responses:
+    UnauthorizedError:
+      description: Authorization required
+    AccessDeniedError:
+      description: Access denied
+    BadRequest:
+      description: Bad request
+    NotFound:
+      description: Item not found
   securitySchemes:
     tokenAuth:
       type: http
