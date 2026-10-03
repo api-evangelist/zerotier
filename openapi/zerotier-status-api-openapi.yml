@@ -31,6 +31,9 @@ paths:
         '401':
           $ref: '#/components/responses/UnauthorizedError'
 components:
+  responses:
+    UnauthorizedError:
+      description: Authorization required.
   schemas:
     Status:
       type: object
@@ -85,9 +88,6 @@ components:
         versionRev:
           type: integer
           example: 4
-  responses:
-    UnauthorizedError:
-      description: Authorization required.
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

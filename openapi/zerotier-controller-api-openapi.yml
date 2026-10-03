@@ -190,54 +190,21 @@ paths:
           $ref: '#/components/responses/UnauthorizedError'
 components:
   schemas:
-    ControllerNetworkMember:
+    ControllerStatus:
       type: object
       properties:
-        id:
-          type: string
-          readOnly: true
-          example: eb8d45c5c9
-        address:
-          type: string
-          readOnly: true
-          example: eb8d45c5c9
-        nwid:
-          type: string
-          readOnly: true
-          example: 3e245e31af000001
-        authorized:
+        controller:
           type: boolean
-        activeBridge:
-          type: boolean
-        identity:
-          type: string
           readOnly: true
-          example: eb8d45c5c9:0:0279558f1a731cb2f628b3adc9f8915d7c2f3752e07d75f2d75fde08274b9c3a43d8b04115fd30f37043f61758ac874b844cc184fdf51e1022e988c1d093a50d:91a840bcd3fbac910afc56be4222973f675204a0ca9625218352e1c82debaa758b915d948c5fe4bd3c38cf1255904804a5b937f5edaef182ba8d5f3d8a243329
-        ipAssignments:
-          type: array
-          items:
-            type: string
-            example: 10.147.20.190
-        revision:
+        apiVersion:
           type: integer
+          example: 3
           readOnly: true
-          example: 1
-        vMajor:
+        clock:
           type: integer
+          format: int64
+          example: 1623101592
           readOnly: true
-          example: 1
-        vMinor:
-          type: integer
-          readOnly: true
-          example: 6
-        vRev:
-          type: integer
-          readOnly: true
-          example: 5
-        vProto:
-          type: integer
-          readOnly: true
-          example: 5
     ControllerNetwork:
       type: object
       properties:
@@ -329,21 +296,54 @@ components:
           example: 7f5d90eb87
         remoteTraceLevel:
           type: integer
-    ControllerStatus:
+    ControllerNetworkMember:
       type: object
       properties:
-        controller:
+        id:
+          type: string
+          readOnly: true
+          example: eb8d45c5c9
+        address:
+          type: string
+          readOnly: true
+          example: eb8d45c5c9
+        nwid:
+          type: string
+          readOnly: true
+          example: 3e245e31af000001
+        authorized:
           type: boolean
+        activeBridge:
+          type: boolean
+        identity:
+          type: string
           readOnly: true
-        apiVersion:
+          example: eb8d45c5c9:0:0279558f1a731cb2f628b3adc9f8915d7c2f3752e07d75f2d75fde08274b9c3a43d8b04115fd30f37043f61758ac874b844cc184fdf51e1022e988c1d093a50d:91a840bcd3fbac910afc56be4222973f675204a0ca9625218352e1c82debaa758b915d948c5fe4bd3c38cf1255904804a5b937f5edaef182ba8d5f3d8a243329
+        ipAssignments:
+          type: array
+          items:
+            type: string
+            example: 10.147.20.190
+        revision:
           type: integer
-          example: 3
           readOnly: true
-        clock:
+          example: 1
+        vMajor:
           type: integer
-          format: int64
-          example: 1623101592
           readOnly: true
+          example: 1
+        vMinor:
+          type: integer
+          readOnly: true
+          example: 6
+        vRev:
+          type: integer
+          readOnly: true
+          example: 5
+        vProto:
+          type: integer
+          readOnly: true
+          example: 5
   responses:
     UnauthorizedError:
       description: Authorization required.

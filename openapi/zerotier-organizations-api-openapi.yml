@@ -209,12 +209,6 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   schemas:
-    InviteStatus:
-      type: string
-      enum:
-      - pending
-      - accepted
-      - canceled
     OrganizationInvitation:
       type: object
       properties:
@@ -255,6 +249,44 @@ components:
           description: Organization owner email address
           example: user@example.com
           readOnly: true
+    SsoIssuer:
+      type: object
+      properties:
+        provider:
+          type: string
+          example: keycloak
+          description: 'OIDC Provider (one of: default, authelia, auth0, azure, keycloak, okta, onelogin)'
+        clientId:
+          type: string
+          example: oidc-client-id
+          description: OIDC Client ID
+        issuer:
+          type: string
+          example: https://example.com/oidc/auth
+          description: OIDC Issuer URL
+        authorization_endpoint:
+          type: string
+          example: https://example.com/oidc/auth/endpoint
+          description: authorization endpoint
+          readOnly: true
+    InviteStatus:
+      type: string
+      enum:
+      - pending
+      - accepted
+      - canceled
+    OrgSsoConfig:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+          example: true
+          description: Enabled flag for SSO
+        issuers:
+          type: array
+          items:
+            $ref: '#/components/schemas/SsoIssuer'
+            description: list of configured OIDC issuers
     OrganizationMember:
       type: object
       properties:
@@ -307,45 +339,13 @@ components:
           type: object
           $ref: '#/components/schemas/OrgSsoConfig'
           description: Organization wide SSO configuration
-    SsoIssuer:
-      type: object
-      properties:
-        provider:
-          type: string
-          example: keycloak
-          description: 'OIDC Provider (one of: default, authelia, auth0, azure, keycloak, okta, onelogin)'
-        clientId:
-          type: string
-          example: oidc-client-id
-          description: OIDC Client ID
-        issuer:
-          type: string
-          example: https://example.com/oidc/auth
-          description: OIDC Issuer URL
-        authorization_endpoint:
-          type: string
-          example: https://example.com/oidc/auth/endpoint
-          description: authorization endpoint
-          readOnly: true
-    OrgSsoConfig:
-      type: object
-      properties:
-        enabled:
-          type: boolean
-          example: true
-          description: Enabled flag for SSO
-        issuers:
-          type: array
-          items:
-            $ref: '#/components/schemas/SsoIssuer'
-            description: list of configured OIDC issuers
   responses:
-    UnauthorizedError:
-      description: Authorization required
-    AccessDeniedError:
-      description: Access denied
     NotFound:
       description: Item not found
+    AccessDeniedError:
+      description: Access denied
+    UnauthorizedError:
+      description: Authorization required
   securitySchemes:
     tokenAuth:
       type: http

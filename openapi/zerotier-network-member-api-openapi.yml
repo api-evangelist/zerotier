@@ -145,12 +145,12 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   responses:
-    UnauthorizedError:
-      description: Authorization required
-    AccessDeniedError:
-      description: Access denied
     NotFound:
       description: Item not found
+    AccessDeniedError:
+      description: Access denied
+    UnauthorizedError:
+      description: Authorization required
   schemas:
     MemberConfig:
       type: object

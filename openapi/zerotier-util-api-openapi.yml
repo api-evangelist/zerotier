@@ -71,25 +71,6 @@ components:
           example: 00000000-0000-0000-0000-000000000000
           description: Generic OIDC ID
           readOnly: true
-    Permissions:
-      type: object
-      properties:
-        a:
-          type: boolean
-          example: true
-          description: Authorize permission
-        d:
-          type: boolean
-          example: true
-          description: Delete permission
-        m:
-          type: boolean
-          example: true
-          description: Modify network settings permission
-        r:
-          type: boolean
-          example: true
-          description: Read network settings permission
     User:
       type: object
       properties:
@@ -135,6 +116,25 @@ components:
           example:
           - my-token-id
           description: List of API token names.
+    Permissions:
+      type: object
+      properties:
+        a:
+          type: boolean
+          example: true
+          description: Authorize permission
+        d:
+          type: boolean
+          example: true
+          description: Delete permission
+        m:
+          type: boolean
+          example: true
+          description: Modify network settings permission
+        r:
+          type: boolean
+          example: true
+          description: Read network settings permission
     RandomToken:
       type: object
       properties:
