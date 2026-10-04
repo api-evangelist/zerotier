@@ -47,6 +47,44 @@ paths:
                 $ref: '#/components/schemas/RandomToken'
 components:
   schemas:
+    RandomToken:
+      type: object
+      properties:
+        clock:
+          type: integer
+          format: int64
+          example: 1613067920454
+          readOnly: true
+          description: Current time on server
+        hex:
+          type: string
+          example: 16924f3ff478526cffb1b89b1040b33c8dbd3c09e07f39691f615769121c0d76
+          readOnly: true
+          description: hex encoded random bytes of the token
+        token:
+          type: string
+          example: wwrb66uUh18Fqc38rd8jMd5RFJzRsCn4
+          readOnly: true
+          description: Random 32 character token
+    Permissions:
+      type: object
+      properties:
+        a:
+          type: boolean
+          example: true
+          description: Authorize permission
+        d:
+          type: boolean
+          example: true
+          description: Delete permission
+        m:
+          type: boolean
+          example: true
+          description: Modify network settings permission
+        r:
+          type: boolean
+          example: true
+          description: Read network settings permission
     AuthMethods:
       type: object
       properties:
@@ -71,89 +109,6 @@ components:
           example: 00000000-0000-0000-0000-000000000000
           description: Generic OIDC ID
           readOnly: true
-    User:
-      type: object
-      properties:
-        id:
-          type: string
-          readOnly: true
-          description: User ID
-          example: 00000000-0000-0000-0000-000000000000
-        orgId:
-          type: string
-          readOnly: true
-          description: Organization ID
-          example: 00000000-0000-0000-0000-000000000000
-        globalPermissions:
-          readOnly: true
-          allOf:
-          - $ref: '#/components/schemas/Permissions'
-        displayName:
-          type: string
-          readOnly: false
-          description: Display Name
-          example: Joe User
-        email:
-          type: string
-          readOnly: true
-          description: User email address
-          example: user@example.com
-        auth:
-          readOnly: true
-          allOf:
-          - $ref: '#/components/schemas/AuthMethods'
-        smsNumber:
-          type: string
-          readOnly: false
-          description: SMS number
-          example: +1-800-555-1212
-          deprecated: true
-        tokens:
-          type: array
-          readOnly: true
-          items:
-            type: string
-          example:
-          - my-token-id
-          description: List of API token names.
-    Permissions:
-      type: object
-      properties:
-        a:
-          type: boolean
-          example: true
-          description: Authorize permission
-        d:
-          type: boolean
-          example: true
-          description: Delete permission
-        m:
-          type: boolean
-          example: true
-          description: Modify network settings permission
-        r:
-          type: boolean
-          example: true
-          description: Read network settings permission
-    RandomToken:
-      type: object
-      properties:
-        clock:
-          type: integer
-          format: int64
-          example: 1613067920454
-          readOnly: true
-          description: Current time on server
-        hex:
-          type: string
-          example: 16924f3ff478526cffb1b89b1040b33c8dbd3c09e07f39691f615769121c0d76
-          readOnly: true
-          description: hex encoded random bytes of the token
-        token:
-          type: string
-          example: wwrb66uUh18Fqc38rd8jMd5RFJzRsCn4
-          readOnly: true
-          description: Random 32 character token
     Status:
       type: object
       properties:
@@ -202,6 +157,51 @@ components:
               type: boolean
             oidc:
               type: boolean
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+          description: User ID
+          example: 00000000-0000-0000-0000-000000000000
+        orgId:
+          type: string
+          readOnly: true
+          description: Organization ID
+          example: 00000000-0000-0000-0000-000000000000
+        globalPermissions:
+          readOnly: true
+          allOf:
+          - $ref: '#/components/schemas/Permissions'
+        displayName:
+          type: string
+          readOnly: false
+          description: Display Name
+          example: Joe User
+        email:
+          type: string
+          readOnly: true
+          description: User email address
+          example: user@example.com
+        auth:
+          readOnly: true
+          allOf:
+          - $ref: '#/components/schemas/AuthMethods'
+        smsNumber:
+          type: string
+          readOnly: false
+          description: SMS number
+          example: +1-800-555-1212
+          deprecated: true
+        tokens:
+          type: array
+          readOnly: true
+          items:
+            type: string
+          example:
+          - my-token-id
+          description: List of API token names.
   securitySchemes:
     tokenAuth:
       type: http

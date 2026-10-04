@@ -144,14 +144,111 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
-  responses:
-    NotFound:
-      description: Item not found
-    AccessDeniedError:
-      description: Access denied
-    UnauthorizedError:
-      description: Authorization required
   schemas:
+    Member:
+      type: object
+      properties:
+        id:
+          type:
+          - string
+          - 'null'
+          example: 8056c2e21c000001-abcdef0123
+          description: concatenation of network ID and member ID
+          readOnly: true
+          deprecated: true
+        clock:
+          type:
+          - integer
+          - 'null'
+          format: int64
+          example: 1612993759070
+          readOnly: true
+        networkId:
+          type:
+          - string
+          - 'null'
+          example: 8056c2e21c000001
+          readOnly: true
+        nodeId:
+          type:
+          - string
+          - 'null'
+          example: abcdef01234
+          description: ZeroTier ID of the member
+          readOnly: true
+        controllerId:
+          type:
+          - string
+          - 'null'
+          example: 8056c2e21c
+          readOnly: true
+          deprecated: true
+        hidden:
+          type:
+          - boolean
+          - 'null'
+          example: false
+          description: Whether or not the member is hidden in the UI
+        name:
+          type:
+          - string
+          - 'null'
+          example: my-cray-supercomputer
+          readOnly: false
+          description: User defined name of the member
+        description:
+          type:
+          - string
+          - 'null'
+          example: My super awesome cray that I got ZeroTier to run on
+          readOnly: false
+          description: User defined description of the member
+        config:
+          $ref: '#/components/schemas/MemberConfig'
+        lastOnline:
+          type:
+          - integer
+          - 'null'
+          format: int64
+          readOnly: true
+          description: 'Last seen time of the member (milliseconds since epoch).  Note: This data is considered ephemeral and may be reset to 0 at any time without warning.'
+          example: 1612993673254
+          deprecated: true
+        lastSeen:
+          type:
+          - integer
+          - 'null'
+          format: int64
+          readOnly: true
+          description: 'Time the member last checked in with the network controller in milliseconds since epoch. Note: This data is considered ephemeral and may be reset to 0 at any time without warning.'
+          example: 1612993673254
+        physicalAddress:
+          type:
+          - string
+          - 'null'
+          readOnly: true
+          description: 'IP address the member last spoke to the controller via (milliseconds since epoch).  Note: This data is considered ephemeral and may be reset to 0 at any time without warning.'
+          example: 8.8.8.8
+        clientVersion:
+          type:
+          - string
+          - 'null'
+          readOnly: true
+          description: ZeroTier version the member is running
+          example: 1.6.3
+        protocolVersion:
+          type:
+          - integer
+          - 'null'
+          readOnly: true
+          description: ZeroTier protocol version
+          example: 12
+        supportsRulesEngine:
+          type:
+          - boolean
+          - 'null'
+          readOnly: true
+          description: Whether or not the client version is new enough to support the rules engine (1.4.0+)
     MemberConfig:
       type: object
       properties:
@@ -287,110 +384,13 @@ components:
           readOnly: true
           description: Protocol version of the client
           example: 12
-    Member:
-      type: object
-      properties:
-        id:
-          type:
-          - string
-          - 'null'
-          example: 8056c2e21c000001-abcdef0123
-          description: concatenation of network ID and member ID
-          readOnly: true
-          deprecated: true
-        clock:
-          type:
-          - integer
-          - 'null'
-          format: int64
-          example: 1612993759070
-          readOnly: true
-        networkId:
-          type:
-          - string
-          - 'null'
-          example: 8056c2e21c000001
-          readOnly: true
-        nodeId:
-          type:
-          - string
-          - 'null'
-          example: abcdef01234
-          description: ZeroTier ID of the member
-          readOnly: true
-        controllerId:
-          type:
-          - string
-          - 'null'
-          example: 8056c2e21c
-          readOnly: true
-          deprecated: true
-        hidden:
-          type:
-          - boolean
-          - 'null'
-          example: false
-          description: Whether or not the member is hidden in the UI
-        name:
-          type:
-          - string
-          - 'null'
-          example: my-cray-supercomputer
-          readOnly: false
-          description: User defined name of the member
-        description:
-          type:
-          - string
-          - 'null'
-          example: My super awesome cray that I got ZeroTier to run on
-          readOnly: false
-          description: User defined description of the member
-        config:
-          $ref: '#/components/schemas/MemberConfig'
-        lastOnline:
-          type:
-          - integer
-          - 'null'
-          format: int64
-          readOnly: true
-          description: 'Last seen time of the member (milliseconds since epoch).  Note: This data is considered ephemeral and may be reset to 0 at any time without warning.'
-          example: 1612993673254
-          deprecated: true
-        lastSeen:
-          type:
-          - integer
-          - 'null'
-          format: int64
-          readOnly: true
-          description: 'Time the member last checked in with the network controller in milliseconds since epoch. Note: This data is considered ephemeral and may be reset to 0 at any time without warning.'
-          example: 1612993673254
-        physicalAddress:
-          type:
-          - string
-          - 'null'
-          readOnly: true
-          description: 'IP address the member last spoke to the controller via (milliseconds since epoch).  Note: This data is considered ephemeral and may be reset to 0 at any time without warning.'
-          example: 8.8.8.8
-        clientVersion:
-          type:
-          - string
-          - 'null'
-          readOnly: true
-          description: ZeroTier version the member is running
-          example: 1.6.3
-        protocolVersion:
-          type:
-          - integer
-          - 'null'
-          readOnly: true
-          description: ZeroTier protocol version
-          example: 12
-        supportsRulesEngine:
-          type:
-          - boolean
-          - 'null'
-          readOnly: true
-          description: Whether or not the client version is new enough to support the rules engine (1.4.0+)
+  responses:
+    UnauthorizedError:
+      description: Authorization required
+    NotFound:
+      description: Item not found
+    AccessDeniedError:
+      description: Access denied
   securitySchemes:
     tokenAuth:
       type: http

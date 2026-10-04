@@ -150,15 +150,6 @@ paths:
     - url: https://api.zerotier.com/api/v1
       description: Production Server
 components:
-  responses:
-    NotFound:
-      description: Item not found
-    AccessDeniedError:
-      description: Access denied
-    UnauthorizedError:
-      description: Authorization required
-    UnauthorizedError_2:
-      description: Authorization required.
   schemas:
     NetworkConfig:
       type: object
@@ -258,6 +249,22 @@ components:
           $ref: '#/components/schemas/IPV4AssignMode'
         v6AssignMode:
           $ref: '#/components/schemas/IPV6AssignMode'
+    DNS:
+      type: object
+      properties:
+        domain:
+          type: string
+          example: some.domain
+          description: Search domain to use for DNS records
+        servers:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+          example:
+          - 10.0.0.3
+          description: IP address of unicast DNS service
     PermissionsMap:
       type: object
       additionalProperties:
@@ -268,71 +275,12 @@ components:
           d: true
           m: true
           r: true
-    NetworkSSOConfig:
-      type: object
-      properties:
-        enabled:
-          type: boolean
-          example: true
-          readOnly: false
-          description: SSO enabled/disabled on network
-        mode:
-          type: string
-          example: default
-          description: 'SSO mode.  One of: `default`, `email`, `group`'
-          readOnly: false
-        clientId:
-          type: string
-          example: some-client-id
-          description: SSO client ID.  Client ID must be already configured in the Org
-          readOnly: false
-        issuer:
-          type: string
-          example: https://example.com/oidc
-          description: URL of the OIDC issuer
-          readOnly: true
-        provider:
-          type: string
-          example: keycloak
-          description: Provider type
-          readOnly: true
-        authorizationEndpoint:
-          type: string
-          description: Authorization URL endpoint
-          readOnly: true
-        allowList:
-          type:
-          - array
-          - 'null'
-          items:
-            type: string
-          description: List of email addresses or group memberships that may SSO auth onto the network
-          readOnly: false
     IPV4AssignMode:
       type: object
       properties:
         zt:
           type: boolean
           example: true
-    Permissions:
-      type: object
-      properties:
-        a:
-          type: boolean
-          example: true
-          description: Authorize permission
-        d:
-          type: boolean
-          example: true
-          description: Delete permission
-        m:
-          type: boolean
-          example: true
-          description: Modify network settings permission
-        r:
-          type: boolean
-          example: true
-          description: Read network settings permission
     Network:
       type: object
       properties:
@@ -396,31 +344,36 @@ components:
           - object
           - 'null'
       description: Network object
-    IPRange:
+    Route:
       type: object
       properties:
-        ipRangeStart:
+        target:
           type: string
-          example: 10.0.0.1
-        ipRangeEnd:
-          type: string
-          example: 10.0.0.255
-    DNS:
-      type: object
-      properties:
-        domain:
-          type: string
-          example: some.domain
-          description: Search domain to use for DNS records
-        servers:
+          example: 10.0.0.0/24
+        via:
           type:
-          - array
+          - string
           - 'null'
-          items:
-            type: string
-          example:
-          - 10.0.0.3
-          description: IP address of unicast DNS service
+          example: null
+    Permissions:
+      type: object
+      properties:
+        a:
+          type: boolean
+          example: true
+          description: Authorize permission
+        d:
+          type: boolean
+          example: true
+          description: Delete permission
+        m:
+          type: boolean
+          example: true
+          description: Modify network settings permission
+        r:
+          type: boolean
+          example: true
+          description: Read network settings permission
     IPV6AssignMode:
       type: object
       properties:
@@ -439,17 +392,55 @@ components:
           - boolean
           - 'null'
           example: false
-    Route:
+    NetworkSSOConfig:
       type: object
       properties:
-        target:
+        enabled:
+          type: boolean
+          example: true
+          readOnly: false
+          description: SSO enabled/disabled on network
+        mode:
           type: string
-          example: 10.0.0.0/24
-        via:
+          example: default
+          description: 'SSO mode.  One of: `default`, `email`, `group`'
+          readOnly: false
+        clientId:
+          type: string
+          example: some-client-id
+          description: SSO client ID.  Client ID must be already configured in the Org
+          readOnly: false
+        issuer:
+          type: string
+          example: https://example.com/oidc
+          description: URL of the OIDC issuer
+          readOnly: true
+        provider:
+          type: string
+          example: keycloak
+          description: Provider type
+          readOnly: true
+        authorizationEndpoint:
+          type: string
+          description: Authorization URL endpoint
+          readOnly: true
+        allowList:
           type:
-          - string
+          - array
           - 'null'
-          example: null
+          items:
+            type: string
+          description: List of email addresses or group memberships that may SSO auth onto the network
+          readOnly: false
+    IPRange:
+      type: object
+      properties:
+        ipRangeStart:
+          type: string
+          example: 10.0.0.1
+        ipRangeEnd:
+          type: string
+          example: 10.0.0.255
     Network_2:
       allOf:
       - type: object
@@ -568,6 +559,15 @@ components:
           type:
             type: string
             example: PRIVATE
+  responses:
+    UnauthorizedError:
+      description: Authorization required
+    NotFound:
+      description: Item not found
+    AccessDeniedError:
+      description: Access denied
+    UnauthorizedError_2:
+      description: Authorization required.
   securitySchemes:
     tokenAuth:
       type: http

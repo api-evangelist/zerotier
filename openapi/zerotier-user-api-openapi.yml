@@ -162,15 +162,6 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
-  responses:
-    NotFound:
-      description: Item not found
-    AccessDeniedError:
-      description: Access denied
-    BadRequest:
-      description: Bad request
-    UnauthorizedError:
-      description: Authorization required
   schemas:
     APIToken:
       type: object
@@ -186,6 +177,25 @@ components:
           description: API Token.  Minimum 32 characters. This token is encrypted in the database and can not be retrieved once set
           readOnly: false
           writeOnly: true
+    Permissions:
+      type: object
+      properties:
+        a:
+          type: boolean
+          example: true
+          description: Authorize permission
+        d:
+          type: boolean
+          example: true
+          description: Delete permission
+        m:
+          type: boolean
+          example: true
+          description: Modify network settings permission
+        r:
+          type: boolean
+          example: true
+          description: Read network settings permission
     AuthMethods:
       type: object
       properties:
@@ -255,25 +265,15 @@ components:
           example:
           - my-token-id
           description: List of API token names.
-    Permissions:
-      type: object
-      properties:
-        a:
-          type: boolean
-          example: true
-          description: Authorize permission
-        d:
-          type: boolean
-          example: true
-          description: Delete permission
-        m:
-          type: boolean
-          example: true
-          description: Modify network settings permission
-        r:
-          type: boolean
-          example: true
-          description: Read network settings permission
+  responses:
+    BadRequest:
+      description: Bad request
+    UnauthorizedError:
+      description: Authorization required
+    NotFound:
+      description: Item not found
+    AccessDeniedError:
+      description: Access denied
   securitySchemes:
     tokenAuth:
       type: http
