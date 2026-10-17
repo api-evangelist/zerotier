@@ -47,6 +47,30 @@ paths:
                 $ref: '#/components/schemas/RandomToken'
 components:
   schemas:
+    AuthMethods:
+      type: object
+      properties:
+        local:
+          type:
+          - string
+          - 'null'
+          example: user@example.com
+          description: email address for built-in authentication
+          readOnly: true
+        google:
+          type:
+          - string
+          - 'null'
+          example: '156162346876134683'
+          description: Google OIDC ID
+          readOnly: true
+        oidc:
+          type:
+          - string
+          - 'null'
+          example: 00000000-0000-0000-0000-000000000000
+          description: Generic OIDC ID
+          readOnly: true
     RandomToken:
       type: object
       properties:
@@ -85,30 +109,51 @@ components:
           type: boolean
           example: true
           description: Read network settings permission
-    AuthMethods:
+    User:
       type: object
       properties:
-        local:
-          type:
-          - string
-          - 'null'
-          example: user@example.com
-          description: email address for built-in authentication
+        id:
+          type: string
           readOnly: true
-        google:
-          type:
-          - string
-          - 'null'
-          example: '156162346876134683'
-          description: Google OIDC ID
-          readOnly: true
-        oidc:
-          type:
-          - string
-          - 'null'
+          description: User ID
           example: 00000000-0000-0000-0000-000000000000
-          description: Generic OIDC ID
+        orgId:
+          type: string
           readOnly: true
+          description: Organization ID
+          example: 00000000-0000-0000-0000-000000000000
+        globalPermissions:
+          readOnly: true
+          allOf:
+          - $ref: '#/components/schemas/Permissions'
+        displayName:
+          type: string
+          readOnly: false
+          description: Display Name
+          example: Joe User
+        email:
+          type: string
+          readOnly: true
+          description: User email address
+          example: user@example.com
+        auth:
+          readOnly: true
+          allOf:
+          - $ref: '#/components/schemas/AuthMethods'
+        smsNumber:
+          type: string
+          readOnly: false
+          description: SMS number
+          example: +1-800-555-1212
+          deprecated: true
+        tokens:
+          type: array
+          readOnly: true
+          items:
+            type: string
+          example:
+          - my-token-id
+          description: List of API token names.
     Status:
       type: object
       properties:
@@ -157,51 +202,6 @@ components:
               type: boolean
             oidc:
               type: boolean
-    User:
-      type: object
-      properties:
-        id:
-          type: string
-          readOnly: true
-          description: User ID
-          example: 00000000-0000-0000-0000-000000000000
-        orgId:
-          type: string
-          readOnly: true
-          description: Organization ID
-          example: 00000000-0000-0000-0000-000000000000
-        globalPermissions:
-          readOnly: true
-          allOf:
-          - $ref: '#/components/schemas/Permissions'
-        displayName:
-          type: string
-          readOnly: false
-          description: Display Name
-          example: Joe User
-        email:
-          type: string
-          readOnly: true
-          description: User email address
-          example: user@example.com
-        auth:
-          readOnly: true
-          allOf:
-          - $ref: '#/components/schemas/AuthMethods'
-        smsNumber:
-          type: string
-          readOnly: false
-          description: SMS number
-          example: +1-800-555-1212
-          deprecated: true
-        tokens:
-          type: array
-          readOnly: true
-          items:
-            type: string
-          example:
-          - my-token-id
-          description: List of API token names.
   securitySchemes:
     tokenAuth:
       type: http

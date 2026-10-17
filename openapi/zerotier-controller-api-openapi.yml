@@ -189,22 +189,10 @@ paths:
         '401':
           $ref: '#/components/responses/UnauthorizedError'
 components:
+  responses:
+    UnauthorizedError:
+      description: Authorization required.
   schemas:
-    ControllerStatus:
-      type: object
-      properties:
-        controller:
-          type: boolean
-          readOnly: true
-        apiVersion:
-          type: integer
-          example: 3
-          readOnly: true
-        clock:
-          type: integer
-          format: int64
-          example: 1623101592
-          readOnly: true
     ControllerNetwork:
       type: object
       properties:
@@ -344,9 +332,21 @@ components:
           type: integer
           readOnly: true
           example: 5
-  responses:
-    UnauthorizedError:
-      description: Authorization required.
+    ControllerStatus:
+      type: object
+      properties:
+        controller:
+          type: boolean
+          readOnly: true
+        apiVersion:
+          type: integer
+          example: 3
+          readOnly: true
+        clock:
+          type: integer
+          format: int64
+          example: 1623101592
+          readOnly: true
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
